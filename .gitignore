@@ -1,0 +1,5 @@
+echo "/DerivedData/
+xcuserdata/
+Pods/
+.build/
+*.xcworkspace" >> .gitignore
