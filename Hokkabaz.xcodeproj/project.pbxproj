@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FCAE27242D7713F800372502 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = FCAE27232D7713F800372502 /* AudioKit */; };
+		FCAE27272D7715BF00372502 /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = FCAE27262D7715BF00372502 /* SoundpipeAudioKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		FCAE27062D71D4D600372502 /* Hokkabaz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hokkabaz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +28,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCAE27272D7715BF00372502 /* SoundpipeAudioKit in Frameworks */,
+				FCAE27242D7713F800372502 /* AudioKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +72,8 @@
 			);
 			name = Hokkabaz;
 			packageProductDependencies = (
+				FCAE27232D7713F800372502 /* AudioKit */,
+				FCAE27262D7715BF00372502 /* SoundpipeAudioKit */,
 			);
 			productName = Hokkabaz;
 			productReference = FCAE27062D71D4D600372502 /* Hokkabaz.app */;
@@ -94,6 +103,10 @@
 			);
 			mainGroup = FCAE26FD2D71D4D600372502;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				FCAE27222D7713F800372502 /* XCRemoteSwiftPackageReference "AudioKit" */,
+				FCAE27252D7715BF00372502 /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FCAE27072D71D4D600372502 /* Products */;
 			projectDirPath = "";
@@ -324,6 +337,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FCAE27222D7713F800372502 /* XCRemoteSwiftPackageReference "AudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.4;
+			};
+		};
+		FCAE27252D7715BF00372502 /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/SoundpipeAudioKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FCAE27232D7713F800372502 /* AudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCAE27222D7713F800372502 /* XCRemoteSwiftPackageReference "AudioKit" */;
+			productName = AudioKit;
+		};
+		FCAE27262D7715BF00372502 /* SoundpipeAudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCAE27252D7715BF00372502 /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */;
+			productName = SoundpipeAudioKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FCAE26FE2D71D4D600372502 /* Project object */;
 }
