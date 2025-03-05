@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "iconAima-02 1.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -12,6 +13,7 @@
           "value" : "dark"
         }
       ],
+      "filename" : "iconAima-03.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
