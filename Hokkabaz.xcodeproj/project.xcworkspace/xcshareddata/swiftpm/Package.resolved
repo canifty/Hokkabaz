@@ -1,5 +1,5 @@
 {
-  "originHash" : "e104eca2df19f5285e04cd8e142d3e542010be9f4c4b4482aa34e2928a2475e8",
+  "originHash" : "be6d86bd3abfd88044f9175bc0d9e3892fbd67fc2dba81eeae2c73f7ef3e1c89",
   "pins" : [
     {
       "identity" : "audiokit",
@@ -20,6 +20,24 @@
       }
     },
     {
+      "identity" : "audiokitui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AudioKit/AudioKitUI.git",
+      "state" : {
+        "revision" : "1a61e8a96c7ee24c3e5abe06dc3334a31fd7571d",
+        "version" : "0.3.7"
+      }
+    },
+    {
+      "identity" : "controls",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AudioKit/Controls.git",
+      "state" : {
+        "revision" : "4dd10370125af7f1e26d7a71b2c5929bb3c95087",
+        "version" : "1.1.4"
+      }
+    },
+    {
       "identity" : "kissfft",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AudioKit/KissFFT",
@@ -35,6 +53,15 @@
       "state" : {
         "revision" : "ee7d9542078ae48b24744a67c0350a12f9de354b",
         "version" : "5.6.1"
+      }
+    },
+    {
+      "identity" : "stkaudiokit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AudioKit/STKAudioKit",
+      "state" : {
+        "revision" : "e6af9e24eb599d4ff34d5776b0801cf0068142bc",
+        "version" : "5.5.4"
       }
     }
   ],
