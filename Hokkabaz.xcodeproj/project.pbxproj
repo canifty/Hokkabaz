@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC21DB252D7B05F200ABEF6B /* STKAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = FC21DB242D7B05F200ABEF6B /* STKAudioKit */; };
+		FC21DB462D7DCB9B00ABEF6B /* AudioKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = FC21DB452D7DCB9B00ABEF6B /* AudioKitUI */; };
+		FC21DB492D7DCCF200ABEF6B /* AudioKitEX in Frameworks */ = {isa = PBXBuildFile; productRef = FC21DB482D7DCCF200ABEF6B /* AudioKitEX */; };
 		FCAE27242D7713F800372502 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = FCAE27232D7713F800372502 /* AudioKit */; };
 		FCAE27272D7715BF00372502 /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = FCAE27262D7715BF00372502 /* SoundpipeAudioKit */; };
 /* End PBXBuildFile section */
@@ -28,7 +31,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC21DB252D7B05F200ABEF6B /* STKAudioKit in Frameworks */,
+				FC21DB492D7DCCF200ABEF6B /* AudioKitEX in Frameworks */,
 				FCAE27272D7715BF00372502 /* SoundpipeAudioKit in Frameworks */,
+				FC21DB462D7DCB9B00ABEF6B /* AudioKitUI in Frameworks */,
 				FCAE27242D7713F800372502 /* AudioKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,6 +80,9 @@
 			packageProductDependencies = (
 				FCAE27232D7713F800372502 /* AudioKit */,
 				FCAE27262D7715BF00372502 /* SoundpipeAudioKit */,
+				FC21DB242D7B05F200ABEF6B /* STKAudioKit */,
+				FC21DB452D7DCB9B00ABEF6B /* AudioKitUI */,
+				FC21DB482D7DCCF200ABEF6B /* AudioKitEX */,
 			);
 			productName = Hokkabaz;
 			productReference = FCAE27062D71D4D600372502 /* Hokkabaz.app */;
@@ -106,6 +115,9 @@
 			packageReferences = (
 				FCAE27222D7713F800372502 /* XCRemoteSwiftPackageReference "AudioKit" */,
 				FCAE27252D7715BF00372502 /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */,
+				FC21DB232D7B05F200ABEF6B /* XCRemoteSwiftPackageReference "STKAudioKit" */,
+				FC21DB442D7DCB9B00ABEF6B /* XCRemoteSwiftPackageReference "AudioKitUI" */,
+				FC21DB472D7DCCF200ABEF6B /* XCRemoteSwiftPackageReference "AudioKitEX" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FCAE27072D71D4D600372502 /* Products */;
@@ -268,6 +280,8 @@
 				DEVELOPMENT_TEAM = J2Y9Q88D3V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SonaStroke;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -297,6 +311,8 @@
 				DEVELOPMENT_TEAM = J2Y9Q88D3V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SonaStroke;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -339,6 +355,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FC21DB232D7B05F200ABEF6B /* XCRemoteSwiftPackageReference "STKAudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/STKAudioKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.5.4;
+			};
+		};
+		FC21DB442D7DCB9B00ABEF6B /* XCRemoteSwiftPackageReference "AudioKitUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKitUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.7;
+			};
+		};
+		FC21DB472D7DCCF200ABEF6B /* XCRemoteSwiftPackageReference "AudioKitEX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKitEX.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.1;
+			};
+		};
 		FCAE27222D7713F800372502 /* XCRemoteSwiftPackageReference "AudioKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AudioKit/AudioKit";
@@ -358,6 +398,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FC21DB242D7B05F200ABEF6B /* STKAudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC21DB232D7B05F200ABEF6B /* XCRemoteSwiftPackageReference "STKAudioKit" */;
+			productName = STKAudioKit;
+		};
+		FC21DB452D7DCB9B00ABEF6B /* AudioKitUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC21DB442D7DCB9B00ABEF6B /* XCRemoteSwiftPackageReference "AudioKitUI" */;
+			productName = AudioKitUI;
+		};
+		FC21DB482D7DCCF200ABEF6B /* AudioKitEX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC21DB472D7DCCF200ABEF6B /* XCRemoteSwiftPackageReference "AudioKitEX" */;
+			productName = AudioKitEX;
+		};
 		FCAE27232D7713F800372502 /* AudioKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FCAE27222D7713F800372502 /* XCRemoteSwiftPackageReference "AudioKit" */;
