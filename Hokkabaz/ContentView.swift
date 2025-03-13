@@ -246,157 +246,178 @@ struct ContentView: View {
     
     private var controlPanel: some View {
         VStack(spacing: 20) {
-            // Color picker
-            HStack(spacing: 12) {
-                ForEach(0..<viewModel.colors.count, id: \.self) { index in
-                    ColorButton(
-                        color: viewModel.colors[index],
-                        note: viewModel.colorNames[index],
-                        instrument: viewModel.instrumentNames[index],
-                        isSelected: viewModel.currentColorIndex == index,
-                        action: {
-                            viewModel.currentColorIndex = index
-                            // Short preview of the sound
-                            viewModel.conductor.playInstrument(colorIndex: index)
-                            // Add haptic feedback
-                            let impactLight = UIImpactFeedbackGenerator(style: .light)
-                            impactLight.impactOccurred()
-                            
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                                viewModel.conductor.stopSound()
+            // Color buttons - removed header and ScrollView
+            VStack(alignment: .leading, spacing: 8) {
+                HStack(spacing: 12) {
+                    ForEach(0..<viewModel.colors.count, id: \.self) { index in
+                        ColorButton(
+                            color: viewModel.colors[index],
+                            note: viewModel.colorNames[index],
+                            instrument: viewModel.instrumentNames[index],
+                            isSelected: viewModel.currentColorIndex == index,
+                            action: {
+                                viewModel.currentColorIndex = index
+                                // Short preview of the sound
+                                viewModel.conductor.playInstrument(colorIndex: index)
+                                // Add haptic feedback
+                                let impactLight = UIImpactFeedbackGenerator(style: .light)
+                                impactLight.impactOccurred()
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                    viewModel.conductor.stopSound()
+                                }
                             }
+                        )
+                        .accessibilityLabel("\(viewModel.colorNames[index]) note")
+                        .accessibilityValue("Color: \(viewModel.colors[index].description)")
+                        .accessibilityHint("Double tap to select this note and color")
+                    }
+                }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 6)
+                .background(
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(.ultraThinMaterial)
+                )
+            }
+            
+            // Instruments section - removed header, ScrollView, and picker
+            VStack(alignment: .leading, spacing: 8) {
+                // Main instrument buttons in a row - replaced picker with buttons
+                HStack(spacing: 10) {
+//                    InstrumentButton(
+//                        iconName: "waveform",
+//                        instrumentName: "Oscillator", 
+//                        isSelected: viewModel.currentInstrument == "Oscillator",
+//                        action: {
+//                            viewModel.currentInstrument = "Oscillator"
+//                            viewModel.conductor.switchToOscillator()
+//                        }
+//                    )
+//                    .foregroundColor(foregroundStyle)
+//                    .accessibilityLabel("Switch to Oscillator")
+                    
+                    InstrumentButton(
+                        iconName: "pianokeys",
+                        instrumentName: "Piano", 
+                        isSelected: viewModel.currentInstrument == "Piano",
+                        action: {
+                            viewModel.currentInstrument = "Piano"
+                            viewModel.conductor.loadPianoPreset()
                         }
                     )
-                    .accessibilityLabel("\(viewModel.colorNames[index]) note")
-                    .accessibilityValue("Color: \(viewModel.colors[index].description)")
-                    .accessibilityHint("Double tap to select this note and color")
-                }
-            }
-            .padding(.horizontal, 12)
-            .padding(.vertical, 12)
-            .background(
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(.ultraThinMaterial)
-            )
-            
-            // Sound control buttons - removed Replay button
-            HStack(spacing: 15) {
-                Button {
-                    viewModel.conductor.switchToOscillator()
-                } label: {
-                    VStack(spacing: 4) {
-                        Image(systemName: "waveform")
-                            .font(.system(size: 18, weight: .semibold))
-                        Text("Oscillator")
-                            .font(.caption)
-                    }
-                    .frame(minWidth: 70)
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 12)
-                    .background(
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(Color.black.opacity(0.15))
+                    .foregroundColor(foregroundStyle)
+                    .accessibilityLabel("Switch to Piano")
+                    
+                    InstrumentButton(
+                        iconName: "guitars",
+                        instrumentName: "Guitar", 
+                        isSelected: viewModel.currentInstrument == "Guitar",
+                        action: {
+                            viewModel.currentInstrument = "Guitar"
+                            viewModel.conductor.loadGuitarPreset()
+                        }
                     )
                     .foregroundColor(foregroundStyle)
-                }
-                .accessibilityLabel("Switch to Oscillator")
+                    .accessibilityLabel("Switch to Guitar")
                 
-                Button {
-                    viewModel.conductor.loadPianoPreset()
-                } label: {
-                    VStack(spacing: 4) {
-                        Image(systemName: "pianokeys")
-                            .font(.system(size: 18, weight: .semibold))
-                        Text("Piano")
-                            .font(.caption)
-                    }
-                    .frame(minWidth: 70)
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 12)
-                    .background(
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(Color.black.opacity(0.15))
+                    InstrumentButton(
+                        iconName: "music.note",
+                        instrumentName: "Saxophone", 
+                        isSelected: viewModel.currentInstrument == "Saxophone",
+                        action: {
+                            viewModel.currentInstrument = "Saxophone"
+                            viewModel.conductor.loadSaxophonePreset()
+                        }
                     )
                     .foregroundColor(foregroundStyle)
-                }
-                .accessibilityLabel("Switch to Piano")
-                
-                Button {
-                    viewModel.conductor.loadGuitarPreset()
-                } label: {
-                    VStack(spacing: 4) {
-                        Image(systemName: "guitars")
-                            .font(.system(size: 18, weight: .semibold))
-                        Text("Guitar")
-                            .font(.caption)
-                    }
-                    .frame(minWidth: 70)
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 12)
-                    .background(
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(Color.black.opacity(0.15))
+                    .accessibilityLabel("Switch to Saxophone")
+                    
+                    InstrumentButton(
+                        iconName: "music.quarternote.3",
+                        instrumentName: "Violin", 
+                        isSelected: viewModel.currentInstrument == "Violin",
+                        action: {
+                            viewModel.currentInstrument = "Violin"
+                            viewModel.conductor.loadViolinPreset()
+                        }
                     )
                     .foregroundColor(foregroundStyle)
+                    .accessibilityLabel("Switch to Violin")
+                    
+                    InstrumentButton(
+                        iconName: "music.note.list",
+                        instrumentName: "Flute", 
+                        isSelected: viewModel.currentInstrument == "Flute",
+                        action: {
+                            viewModel.currentInstrument = "Flute"
+                            viewModel.conductor.loadFlutePreset()
+                        }
+                    )
+                    .foregroundColor(foregroundStyle)
+                    .accessibilityLabel("Switch to Flute")
+                    
+                    InstrumentButton(
+                        iconName: "music.mic",
+                        instrumentName: "Trumpet", 
+                        isSelected: viewModel.currentInstrument == "Trumpet",
+                        action: {
+                            viewModel.currentInstrument = "Trumpet"
+                            viewModel.conductor.loadTrumpetPreset()
+                        }
+                    )
+                    .foregroundColor(foregroundStyle)
+                    .accessibilityLabel("Switch to Trumpet")
                 }
-                .accessibilityLabel("Switch to Guitar")
+                .padding(.horizontal, 16)
+                .padding(.vertical, 10)
+                .background(
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(.ultraThinMaterial)
+                )
             }
             
-            // Second row of sound buttons
-            HStack(spacing: 15) {
-                Button {
-                    viewModel.conductor.loadSaxophonePreset()
-                } label: {
-                    VStack(spacing: 4) {
-                        Image(systemName: "music.note")
-                            .font(.system(size: 18, weight: .semibold))
-                        Text("Saxophone")
-                            .font(.caption)
-                    }
-                    .frame(minWidth: 70)
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 12)
-                    .background(
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(Color.black.opacity(0.15))
-                    )
-                    .foregroundColor(foregroundStyle)
-                }
-                .accessibilityLabel("Switch to Saxophone")
-                
-                Button {
-                    viewModel.conductor.loadViolinPreset()
-                } label: {
-                    VStack(spacing: 4) {
-                        Image(systemName: "music.quarternote.3")
-                            .font(.system(size: 18, weight: .semibold))
-                        Text("Violin")
-                            .font(.caption)
-                    }
-                    .frame(minWidth: 70)
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 12)
-                    .background(
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(Color.black.opacity(0.15))
-                    )
-                    .foregroundColor(foregroundStyle)
-                }
-                .accessibilityLabel("Switch to Violin")
-            }
+            // Action buttons row
+//            HStack(spacing: 12) {
+//                Button {
+//                    viewModel.replayStrokes()
+//                } label: {
+//                    Label("Replay", systemImage: "play.circle.fill")
+//                }
+//                .buttonStyle(ActionPillButtonStyle(foreground: foregroundStyle))
+//                .accessibilityLabel("Replay Drawing")
+//                
+//                Spacer()
+//                
+//                Button {
+//                    viewModel.showClearConfirmation = true
+//                } label: {
+//                    Label("Clear", systemImage: "trash")
+//                }
+//                .buttonStyle(ActionPillButtonStyle(foreground: foregroundStyle))
+//                .accessibilityLabel("Clear Canvas")
+//                .alert(isPresented: $viewModel.showClearConfirmation) {
+//                    Alert(
+//                        title: Text("Clear Canvas?"),
+//                        message: Text("This will permanently delete your drawing and musical creation. This action cannot be undone."),
+//                        primaryButton: .destructive(Text("Clear All")) {
+//                            viewModel.clearCanvas()
+//                        },
+//                        secondaryButton: .cancel()
+//                    )
+//                }
+//            }
+//            .padding(.horizontal, 8)
         }
-        
-        .padding(.horizontal, 20)
+        .padding(.horizontal, 10)
         .padding(.vertical, 15)
-        .padding(.top, 10) // Additional top padding to account for the indicator overlap
+        .padding(.top, 10)
+        .frame(width: 680, height: 220, alignment: .bottom)
         .background(
-            RoundedRectangle(cornerRadius: 20)
+            RoundedRectangle(cornerRadius: 24)
                 .fill(.ultraThinMaterial)
                 .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 5)
         )
-        
-        
-        
     }
     
     private func controlPanelIndicator(safeAreaBottom: CGFloat) -> some View {
@@ -408,34 +429,42 @@ struct ContentView: View {
             let generator = UIImpactFeedbackGenerator(style: .light)
             generator.impactOccurred()
         } label: {
-            VStack(spacing: 3) {
-                Image(systemName: viewModel.isControlPanelHidden ? "chevron.up" : "chevron.down")
-                    .font(.system(size: 12, weight: .bold))
-                    .foregroundColor(foregroundStyle.opacity(0.7))
-                    .accessibilityHidden(true)
-                
-                RoundedRectangle(cornerRadius: 2.5)
-                    .fill(foregroundStyle.opacity(0.5))
-                    .frame(width: 36, height: 4)
-                    .accessibilityHidden(true)
-            }
-            .padding(.vertical, 6)
-            .padding(.horizontal, 12)
-            .background(
-                RoundedRectangle(cornerRadius: viewModel.isControlPanelHidden ? 12 : 12,
-                                 style: viewModel.isControlPanelHidden ? .continuous : .continuous)
-                .fill(.ultraThinMaterial)
-                .shadow(color: Color.black.opacity(0.15), radius: 3, x: 0, y: viewModel.isControlPanelHidden ? 1 : 0)
-            )
-            .overlay(
-                RoundedRectangle(cornerRadius: viewModel.isControlPanelHidden ? 12 : 12,
-                                 style: viewModel.isControlPanelHidden ? .continuous : .continuous)
-                .stroke(foregroundStyle.opacity(0.1), lineWidth: 1)
-            )
+            Capsule()
+                .fill(Color.white.opacity(0.4))
+                .frame(width: 36, height: 5)
+                .padding(10)
+                .background(
+                    Capsule()
+                        .fill(.ultraThinMaterial)
+                        .shadow(color: Color.black.opacity(0.15), radius: 3, x: 0, y: viewModel.isControlPanelHidden ? 1 : 0)
+                )
         }
         .accessibilityLabel(viewModel.isControlPanelHidden ? "Show controls" : "Hide controls")
         .contentShape(Rectangle())
         .padding(.bottom, viewModel.isControlPanelHidden ? (safeAreaBottom > 0 ? 10 : 25) : 0)
+    }
+    
+    // Enhanced button style for action buttons
+    struct ActionPillButtonStyle: ButtonStyle {
+        var foreground: Color
+        
+        func makeBody(configuration: Configuration) -> some View {
+            configuration.label
+                .font(.system(.subheadline, design: .rounded, weight: .semibold))
+                .padding(.vertical, 10)
+                .padding(.horizontal, 16)
+                .foregroundColor(foreground)
+                .background(
+                    Capsule()
+                        .fill(foreground.opacity(0.1))
+                        .overlay(
+                            Capsule()
+                                .stroke(foreground.opacity(0.3), lineWidth: 1)
+                        )
+                )
+                .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
+                .animation(.spring(response: 0.2), value: configuration.isPressed)
+        }
     }
 }
 
