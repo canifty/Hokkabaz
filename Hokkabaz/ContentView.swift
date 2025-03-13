@@ -279,7 +279,7 @@ struct ContentView: View {
                     .fill(.ultraThinMaterial)
             )
             
-            // Sound control buttons - removed Replay button
+            // Sound control buttons - all in one row
             HStack(spacing: 15) {
                 Button {
                     viewModel.conductor.switchToOscillator()
@@ -340,10 +340,7 @@ struct ContentView: View {
                     .foregroundColor(foregroundStyle)
                 }
                 .accessibilityLabel("Switch to Guitar")
-            }
-            
-            // Second row of sound buttons
-            HStack(spacing: 15) {
+
                 Button {
                     viewModel.conductor.loadSaxophonePreset()
                 } label: {
@@ -384,6 +381,12 @@ struct ContentView: View {
                 }
                 .accessibilityLabel("Switch to Violin")
             }
+            .padding(.horizontal, 12)
+            .padding(.vertical, 12)
+            .background(
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(.ultraThinMaterial)
+            )
         }
         
         .padding(.horizontal, 20)
