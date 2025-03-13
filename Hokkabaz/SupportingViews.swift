@@ -20,18 +20,10 @@ struct ColorButton: View {
                     .stroke(Color.white, lineWidth: isSelected ? 3 : 0)
                     .frame(width: 50, height: 50)
                 
-                VStack(spacing: 0) {
-                    Text(note)
-                        .font(.system(size: 16, weight: .bold))
-                        .foregroundColor(color.isBright() ? .black : .white)
-                    
-                    if isSelected {
-                        Text(instrument)
-                            .font(.system(size: 8, weight: .medium))
-                            .foregroundColor(color.isBright() ? .black.opacity(0.7) : .white.opacity(0.7))
-                            .padding(.top, 2)
-                    }
-                }
+                Text(note)
+                    .font(.system(size: 16, weight: .bold))
+                    .foregroundColor(.white)
+                    .shadow(color: .black.opacity(0.6), radius: 1, x: 0, y: 1)
             }
         }
         .scaleEffect(isSelected ? 1.15 : 1.0)

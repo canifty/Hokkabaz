@@ -12,7 +12,7 @@ An interactive musical drawing app that combines visual art with instrumental so
 
 ## Important: Sound Setup
 
-This app is designed to use different instrument sounds through soundfonts, but there are API compatibility issues with the current AudioKit version. Here are your options:
+This app is designed to use different instrument sounds through soundfonts, but there are API compaibility issues with the current AudioKit version. Here are your options:
 
 ### Basic Usage (Available Now)
 
