@@ -12,6 +12,7 @@ class SoundCanvasViewModel: ObservableObject {
     
     // UI State
     @Published var currentColorIndex = 2 // Default to green (index 2)
+    @Published var currentInstrument = "Piano" // Default to Piano
     @Published var showTutorial = false
     @Published var showSettings = false
     @Published var showExportMenu = false
@@ -31,6 +32,21 @@ class SoundCanvasViewModel: ObservableObject {
     let colors: [Color] = [.red, .orange, .yellow, .green, .blue, .purple, .pink]
     let colorNames: [String] = ["C", "D", "E", "F", "G", "A", "B"]
     let instrumentNames: [String] = ["Piano", "Guitar", "Flute", "Violin", "Trumpet", "Harp", "Cello"]
+    
+    // Track instrument changes
+    var instrumentCancellable: AnyCancellable?
+    
+    init() {
+        // Initialize with piano sound
+        conductor.loadPianoPreset()
+        
+        // Set up observer for instrument changes
+        instrumentCancellable = $currentInstrument
+            .dropFirst() // Skip initial value
+            .sink { [weak self] instrumentName in
+                self?.conductor.loadInstrumentByName(instrumentName)
+            }
+    }
     
     // Computed properties
     var currentColor: Color {
