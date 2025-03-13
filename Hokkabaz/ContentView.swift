@@ -102,21 +102,93 @@ struct ContentView: View {
 
                 // Bottom left sound control buttons
                 VStack(spacing: 10) {
-                    Button("Oscillator") {
-                        viewModel.conductor.switchToOscillator()
+                    Button {
+                        viewModel.conductor.setInstrument(2) // Oscillator
+                    } label: {
+                        HStack {
+                            Image(systemName: "waveform")
+                                .font(.system(size: 14))
+                            Text("Oscillator")
+                                .font(.caption)
+                        }
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 10)
+                        .frame(width: 120)
                     }
-                    .font(.caption)
-                    .padding()
-                    .background(Color.blue.opacity(0.7))
+                    .background(viewModel.conductor.currentInstrument == 2 ? 
+                        Color.blue.opacity(0.9) : Color.blue.opacity(0.6))
                     .foregroundColor(.white)
                     .cornerRadius(8)
                     
-                    Button("Piano") {
-                        viewModel.conductor.loadPianoPreset()
+                    Button {
+                        viewModel.conductor.setInstrument(1) // Guitar
+                    } label: {
+                        HStack {
+                            Image(systemName: "guitars")
+                                .font(.system(size: 14))
+                            Text("Guitar Oscillator")
+                                .font(.caption)
+                        }
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 10)
+                        .frame(width: 120)
                     }
-                    .font(.caption)
-                    .padding()
-                    .background(Color.purple.opacity(0.7))
+                    .background(viewModel.conductor.currentInstrument == 1 ? 
+                        Color.green.opacity(0.9) : Color.green.opacity(0.6))
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+                    
+                    Button {
+                        viewModel.conductor.setInstrument(0) // Piano
+                    } label: {
+                        HStack {
+                            Image(systemName: "pianokeys")
+                                .font(.system(size: 14))
+                            Text("Piano")
+                                .font(.caption)
+                        }
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 10)
+                        .frame(width: 120)
+                    }
+                    .background(viewModel.conductor.currentInstrument == 0 ? 
+                        Color.purple.opacity(0.9) : Color.purple.opacity(0.6))
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+                    
+                    Button {
+                        viewModel.conductor.setInstrument(3) // Drum
+                    } label: {
+                        HStack {
+                            Image(systemName: "drum.fill")
+                                .font(.system(size: 14))
+                            Text("Drum")
+                                .font(.caption)
+                        }
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 10)
+                        .frame(width: 120)
+                    }
+                    .background(viewModel.conductor.currentInstrument == 3 ? 
+                        Color.yellow.opacity(0.9) : Color.yellow.opacity(0.6))
+                    .foregroundColor(.black) // Using black text for better contrast on yellow
+                    .cornerRadius(8)
+                    
+                    Button {
+                        viewModel.conductor.setInstrument(4) // Guitar (Sampler)
+                    } label: {
+                        HStack {
+                            Image(systemName: "guitars.fill")
+                                .font(.system(size: 14))
+                            Text("Guitar")
+                                .font(.caption)
+                        }
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 10)
+                        .frame(width: 120)
+                    }
+                    .background(viewModel.conductor.currentInstrument == 4 ? 
+                        Color.orange.opacity(0.9) : Color.orange.opacity(0.6))
                     .foregroundColor(.white)
                     .cornerRadius(8)
                 }

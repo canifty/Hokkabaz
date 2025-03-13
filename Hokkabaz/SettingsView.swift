@@ -85,33 +85,30 @@ struct SettingsView: View {
                         .foregroundColor(foregroundStyle.opacity(0.7))
                         .fixedSize(horizontal: false, vertical: true)
                     
-                    HStack(spacing: 12) {
-                        ForEach(0..<min(3, viewModel.instrumentNames.count), id: \.self) { i in
-                            HStack(spacing: 4) {
-                                Circle()
-                                    .fill(viewModel.colors[i])
-                                    .frame(width: 12, height: 12)
-                                Text(viewModel.instrumentNames[i])
-                                    .font(.caption)
-                                    .foregroundColor(foregroundStyle.opacity(0.9))
+                    // Note colors explanation
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Color Notes")
+                            .font(.subheadline)
+                            .foregroundColor(foregroundStyle)
+                            
+                        Text("Each color plays a different note on the selected instrument. Choose an instrument using the buttons in the bottom-left of the main screen, then draw with different colors to create melodies.")
+                            .font(.caption)
+                            .foregroundColor(foregroundStyle.opacity(0.7))
+                            
+                        LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))], spacing: 8) {
+                            ForEach(0..<min(viewModel.colors.count, viewModel.colorNames.count), id: \.self) { i in
+                                HStack {
+                                    Circle()
+                                        .fill(viewModel.colors[i])
+                                        .frame(width: 16, height: 16)
+                                    Text(viewModel.colorNames[i])
+                                        .font(.caption)
+                                        .foregroundColor(foregroundStyle)
+                                }
                             }
                         }
                     }
-                    .padding(.top, 2)
-                    
-                    HStack(spacing: 12) {
-                        ForEach(3..<min(7, viewModel.instrumentNames.count), id: \.self) { i in
-                            HStack(spacing: 4) {
-                                Circle()
-                                    .fill(viewModel.colors[i])
-                                    .frame(width: 12, height: 12)
-                                Text(viewModel.instrumentNames[i])
-                                    .font(.caption)
-                                    .foregroundColor(foregroundStyle.opacity(0.9))
-                            }
-                        }
-                    }
-                    .padding(.top, 2)
+                    .padding(.top, 4)
                 }
                 .padding(.vertical, 4)
                 .padding(.horizontal, 8)
