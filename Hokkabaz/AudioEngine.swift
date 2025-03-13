@@ -18,7 +18,7 @@ class Conductor: ObservableObject {
     let instrumentPrograms = [0, 24, 73, 40, 56, 46, 42]
     
     // MIDI note numbers for C4 to B4 (middle C octave)
-    let midiNotes: [MIDINoteNumber] = [60, 62, 64, 65, 67, 69, 71] 
+    let midiNotes: [MIDINoteNumber] = [60, 62, 64, 65, 67, 69, 71]
     
     // Frequencies for alternative sound production
     let noteFrequencies: [AUValue] = [261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 493.88]
@@ -127,6 +127,250 @@ class Conductor: ObservableObject {
         // If we couldn't load piano specifically, just try to load any soundfont again
         if !loadDefaultSounds() {
             print("⚠️ All attempts to load instrument sounds failed")
+        }
+    }
+    
+    func loadGuitarPreset() {
+        // Ensure we're using the sampler
+        if !usingSampler {
+            switchToSampler()
+        }
+        
+        print("🎸 Attempting to load guitar preset from GeneralUser GS.sf2...")
+        
+        // Debug all available resources in the bundle
+        print("📦 Checking all resources in the bundle:")
+        let allTypes = ["sf2", "dls", "wav", "aif"]
+        for type in allTypes {
+            if let urls = Bundle.main.urls(forResourcesWithExtension: type, subdirectory: nil) {
+                print("   - Found \(urls.count) files with extension .\(type):")
+                for url in urls {
+                    print("      • \(url.lastPathComponent)")
+                }
+            } else {
+                print("   - No files with extension .\(type) found")
+            }
+        }
+        
+        // First try direct AVAudioUnitSampler method (based on the Flutter plugin approach)
+        if let bundledSoundfontURL = Bundle.main.url(forResource: "GeneralUser GS", withExtension: "sf2") {
+            print("✅ Found GeneralUser GS soundfont at path: \(bundledSoundfontURL.path)")
+            
+            // Try the direct AVAudioUnitSampler approach
+            if loadGuitarDirectMethod(soundfontURL: bundledSoundfontURL) {
+                print("✅ SUCCESS! Guitar loaded using direct AVAudioUnitSampler method")
+                return
+            }
+            
+            // If direct method fails, try multiple presets and banks as fallback
+            let guitarPresets = [24, 25, 26, 27, 28] // Various guitar presets
+            let banks = [0, 128]
+            
+            for preset in guitarPresets {
+                for bank in banks {
+                    do {
+                        print("   - Attempting to load guitar with preset: \(preset), bank: \(bank)")
+                        try sampler.loadSoundFont(bundledSoundfontURL.path, preset: preset, bank: bank)
+                        print("✅ SUCCESS! Guitar sound loaded from GeneralUser GS with preset: \(preset), bank: \(bank)")
+                        return
+                    } catch {
+                        print("   - Failed with preset: \(preset), bank: \(bank), error: \(error)")
+                    }
+                }
+            }
+            
+            print("❌ Tried all guitar presets but couldn't load from GeneralUser GS soundfont")
+        } else {
+            print("❌ GeneralUser GS.sf2 file not found in the bundle!")
+            print("Please add the GeneralUser GS.sf2 file to your project as described in the README:")
+            print("1. Download from: https://schristiancollins.com/generaluser.php")
+            print("2. Add to your Xcode project with filename 'GeneralUser GS.sf2'")
+            print("3. Ensure it's included in Copy Bundle Resources build phase")
+        }
+        
+        // Try looking for any SF2 file as a last resort
+        if let anyFiles = Bundle.main.urls(forResourcesWithExtension: "sf2", subdirectory: nil), !anyFiles.isEmpty {
+            let firstFile = anyFiles[0]
+            print("🔍 Trying to load from found soundfont: \(firstFile.lastPathComponent)")
+            
+            // Try direct method first with any soundfont
+            if loadGuitarDirectMethod(soundfontURL: firstFile) {
+                print("✅ SUCCESS! Guitar loaded from alternative soundfont using direct method")
+                return
+            }
+            
+            // Fall back to AudioKit method
+            do {
+                try sampler.loadSoundFont(firstFile.path, preset: 24, bank: 0)
+                print("✅ Loaded guitar sound from alternative soundfont")
+                return
+            } catch {
+                print("❌ Failed to load from alternative soundfont: \(error)")
+            }
+        }
+        
+        print("⚠️ Could not load guitar sound from any soundfont")
+        print("⚠️ Falling back to piano sound")
+        // If all attempts fail, fall back to piano
+        loadPianoPreset()
+    }
+    
+    // Helper method to load guitar using direct AVAudioUnitSampler approach
+    func loadGuitarDirectMethod(soundfontURL: URL) -> Bool {
+        print("🎸 Trying direct AVAudioUnitSampler method with: \(soundfontURL.lastPathComponent)")
+        
+        // Get direct access to the AVAudioUnitSampler inside AudioKit's AppleSampler
+        guard let avAudioUnit = sampler.avAudioNode as? AVAudioUnitSampler else {
+            print("❌ Could not access AVAudioUnitSampler from AudioKit")
+            return false
+        }
+        
+        do {
+            // Using constants similar to those in the Flutter plugin
+            let program: UInt8 = 24  // Acoustic Guitar
+            let bankMSB: UInt8 = 0x79 // kAUSampler_DefaultMelodicBankMSB
+            let bankLSB: UInt8 = 0x00 // kAUSampler_DefaultBankLSB
+            
+            print("   - Using program: \(program), bankMSB: \(bankMSB), bankLSB: \(bankLSB)")
+            try avAudioUnit.loadSoundBankInstrument(
+                at: soundfontURL,
+                program: program,
+                bankMSB: bankMSB,
+                bankLSB: bankLSB
+            )
+            print("✅ Successfully loaded guitar sound using direct AVAudioUnitSampler method")
+            return true
+        } catch {
+            print("❌ Direct AVAudioUnitSampler method failed: \(error)")
+            
+            // Try alternative bank values
+            do {
+                print("   - Trying alternative bank values")
+                try avAudioUnit.loadSoundBankInstrument(
+                    at: soundfontURL,
+                    program: 24,
+                    bankMSB: 0,
+                    bankLSB: 0
+                )
+                print("✅ Successfully loaded with alternative bank values")
+                return true
+            } catch {
+                print("❌ Alternative bank values also failed: \(error)")
+                return false
+            }
+        }
+    }
+    
+    func loadSaxophonePreset() {
+        // Ensure we're using the sampler
+        if !usingSampler {
+            switchToSampler()
+        }
+        
+        print("🎷 Attempting to load saxophone preset from GeneralUser GS.sf2...")
+        
+        // Try to load from GeneralUser GS soundfont
+        if let bundledSoundfontURL = Bundle.main.url(forResource: "GeneralUser GS", withExtension: "sf2") {
+            print("✅ Found GeneralUser GS soundfont at path: \(bundledSoundfontURL.path)")
+            
+            // Try direct method first
+            if loadInstrumentDirectMethod(soundfontURL: bundledSoundfontURL, program: 65, instrumentEmoji: "🎷", instrumentName: "saxophone") {
+                return
+            }
+            
+            // If direct method fails, try AudioKit method
+            do {
+                try sampler.loadSoundFont(bundledSoundfontURL.path, preset: 65, bank: 0) // 65 = Alto Sax
+                print("✅ Saxophone sound loaded from GeneralUser GS soundfont!")
+                return
+            } catch {
+                print("❌ Failed to load saxophone from GeneralUser GS soundfont: \(error)")
+            }
+        } else {
+            print("❌ GeneralUser GS.sf2 file not found in the bundle!")
+        }
+        
+        print("⚠️ Could not load saxophone sound")
+        print("⚠️ Falling back to piano sound")
+        loadPianoPreset()
+    }
+    
+    func loadViolinPreset() {
+        // Ensure we're using the sampler
+        if !usingSampler {
+            switchToSampler()
+        }
+        
+        print("🎻 Attempting to load violin preset from GeneralUser GS.sf2...")
+        
+        // Try to load from GeneralUser GS soundfont
+        if let bundledSoundfontURL = Bundle.main.url(forResource: "GeneralUser GS", withExtension: "sf2") {
+            print("✅ Found GeneralUser GS soundfont at path: \(bundledSoundfontURL.path)")
+            
+            // Try direct method first
+            if loadInstrumentDirectMethod(soundfontURL: bundledSoundfontURL, program: 40, instrumentEmoji: "🎻", instrumentName: "violin") {
+                return
+            }
+            
+            // If direct method fails, try AudioKit method
+            do {
+                try sampler.loadSoundFont(bundledSoundfontURL.path, preset: 40, bank: 0) // 40 = Violin
+                print("✅ Violin sound loaded from GeneralUser GS soundfont!")
+                return
+            } catch {
+                print("❌ Failed to load violin from GeneralUser GS soundfont: \(error)")
+            }
+        } else {
+            print("❌ GeneralUser GS.sf2 file not found in the bundle!")
+        }
+        
+        print("⚠️ Could not load violin sound")
+        print("⚠️ Falling back to piano sound")
+        loadPianoPreset()
+    }
+    
+    // Generic method to load any instrument using direct AVAudioUnitSampler approach
+    func loadInstrumentDirectMethod(soundfontURL: URL, program: UInt8, instrumentEmoji: String, instrumentName: String) -> Bool {
+        print("\(instrumentEmoji) Trying direct AVAudioUnitSampler method for \(instrumentName) with: \(soundfontURL.lastPathComponent)")
+        
+        // Get direct access to the AVAudioUnitSampler inside AudioKit's AppleSampler
+        guard let avAudioUnit = sampler.avAudioNode as? AVAudioUnitSampler else {
+            print("❌ Could not access AVAudioUnitSampler from AudioKit")
+            return false
+        }
+        
+        do {
+            // Using constants similar to those in the Flutter plugin
+            let bankMSB: UInt8 = 0x79 // kAUSampler_DefaultMelodicBankMSB
+            let bankLSB: UInt8 = 0x00 // kAUSampler_DefaultBankLSB
+            
+            print("   - Using program: \(program), bankMSB: \(bankMSB), bankLSB: \(bankLSB)")
+            try avAudioUnit.loadSoundBankInstrument(
+                at: soundfontURL,
+                program: program,
+                bankMSB: bankMSB,
+                bankLSB: bankLSB
+            )
+            print("✅ Successfully loaded \(instrumentName) sound using direct AVAudioUnitSampler method")
+            return true
+        } catch {
+            print("❌ Direct AVAudioUnitSampler method failed: \(error)")
+            
+            // Try alternative bank values
+            do {
+                print("   - Trying alternative bank values")
+                try avAudioUnit.loadSoundBankInstrument(
+                    at: soundfontURL,
+                    program: program,
+                    bankMSB: 0,
+                    bankLSB: 0
+                )
+                print("✅ Successfully loaded \(instrumentName) with alternative bank values")
+                return true
+            } catch {
+                print("❌ Alternative bank values also failed: \(error)")
+                return false
+            }
         }
     }
     

@@ -71,7 +71,7 @@ struct ContentView: View {
                             controlPanel
                                 .padding(.top, -20) // Increase negative padding to create more overlap
                                 .padding(.bottom, geometry.safeAreaInsets.bottom > 0 ? 5 : 20)
-                                .transition(.move(edge: .bottom).combined(with: .opacity))
+                                .transition(.move(edge: .bottom).combined(with: .opacity))  
                         }
                     }
                     .animation(.spring(response: 0.35), value: viewModel.isControlPanelHidden)
@@ -99,31 +99,29 @@ struct ContentView: View {
                     .transition(.move(edge: .bottom))
                     .zIndex(3)
                 }
-
-                // Bottom left sound control buttons
-                VStack(spacing: 10) {
-                    Button("Oscillator") {
-                        viewModel.conductor.switchToOscillator()
+                
+                // Enhanced bottom-right replay button
+                Button {
+                    viewModel.replayStrokes()
+                } label: {
+                    VStack(spacing: 4) {
+                        Image(systemName: "play.fill")
+                            .font(.system(size: 18, weight: .semibold))
+                        Text("Replay")
+                            .font(.caption)
                     }
-                    .font(.caption)
-                    .padding()
-                    .background(Color.blue.opacity(0.7))
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
-                    
-                    Button("Piano") {
-                        viewModel.conductor.loadPianoPreset()
-                    }
-                    .font(.caption)
-                    .padding()
-                    .background(Color.purple.opacity(0.7))
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
+                    .frame(minWidth: 70)
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 12)
+                    .background(
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(Color.black.opacity(0.15))
+                    )
+                    .foregroundColor(foregroundStyle)
                 }
-                .padding()
-                .background(RoundedRectangle(cornerRadius: 12).fill(.ultraThinMaterial))
-                .padding()
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
+                .accessibilityLabel("Replay Drawing")
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+                .padding(30)
             }
             .onChange(of: viewModel.showExportMenu) { _, newValue in
                 if newValue {
@@ -160,9 +158,36 @@ struct ContentView: View {
                 .font(.system(size: 28, weight: .bold, design: .rounded))
                 .foregroundColor(foregroundStyle)
             
-                Spacer()
-            
+            Spacer()
+            //            !!!!!
             // Reset zoom/pan button
+            
+            Button {
+                withAnimation(.spring(response: 0.4)) {
+                    viewModel.showClearConfirmation = true
+                }
+            } label: {
+                Image(systemName: "trash")
+                    .font(.system(size: 18, weight: .semibold))
+                    .foregroundColor(foregroundStyle)
+                    .padding(8)
+                    .background(
+                        Circle()
+                            .fill(Color.black.opacity(0.1))
+                    )
+            }
+            .accessibilityLabel("Reset canvas view")
+            .alert(isPresented: $viewModel.showClearConfirmation) {
+                Alert(
+                    title: Text("Clear Canvas?"),
+                    message: Text("This will permanently delete your drawing and musical creation. This action cannot be undone."),
+                    primaryButton: .destructive(Text("Clear All")) {
+                        viewModel.clearCanvas()
+                    },
+                    secondaryButton: .cancel()
+                )
+            }
+            
             Button {
                 withAnimation(.spring(response: 0.4)) {
                     viewModel.resetCanvasView()
@@ -177,8 +202,23 @@ struct ContentView: View {
                             .fill(Color.black.opacity(0.1))
                     )
             }
-            .accessibilityLabel("Reset canvas view")
+            .accessibilityLabel("Undo the stroke")
             
+            Button {
+                withAnimation(.spring(response: 0.4)) {
+                    viewModel.showExportMenu = true
+                }
+            } label: {
+                Image(systemName: "square.and.arrow.up")
+                    .font(.system(size: 18, weight: .semibold))
+                    .foregroundColor(foregroundStyle)
+                    .padding(8)
+                    .background(
+                        Circle()
+                            .fill(Color.black.opacity(0.1))
+                    )
+            }
+            .accessibilityLabel("Export Drawing")
             // Settings button
             Button {
                 withAnimation {
@@ -239,30 +279,113 @@ struct ContentView: View {
                     .fill(.ultraThinMaterial)
             )
             
-            // Action buttons
+            // Sound control buttons - removed Replay button
             HStack(spacing: 15) {
-                ActionButton(title: "Clear", systemImage: "trash") {
-                    // Show confirmation instead of clearing immediately
-                    viewModel.showClearConfirmation = true
+                Button {
+                    viewModel.conductor.switchToOscillator()
+                } label: {
+                    VStack(spacing: 4) {
+                        Image(systemName: "waveform")
+                            .font(.system(size: 18, weight: .semibold))
+                        Text("Oscillator")
+                            .font(.caption)
+                    }
+                    .frame(minWidth: 70)
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 12)
+                    .background(
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(Color.black.opacity(0.15))
+                    )
+                    .foregroundColor(foregroundStyle)
                 }
-                .accessibilityLabel("Clear Canvas")
+                .accessibilityLabel("Switch to Oscillator")
                 
-                ActionButton(title: "Replay", systemImage: "play.fill") {
-                    viewModel.replayStrokes()
+                Button {
+                    viewModel.conductor.loadPianoPreset()
+                } label: {
+                    VStack(spacing: 4) {
+                        Image(systemName: "pianokeys")
+                            .font(.system(size: 18, weight: .semibold))
+                        Text("Piano")
+                            .font(.caption)
+                    }
+                    .frame(minWidth: 70)
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 12)
+                    .background(
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(Color.black.opacity(0.15))
+                    )
+                    .foregroundColor(foregroundStyle)
                 }
-                .accessibilityLabel("Replay Drawing")
+                .accessibilityLabel("Switch to Piano")
                 
-                ActionButton(title: "Help", systemImage: "questionmark.circle") {
-                    viewModel.showTutorial = true
+                Button {
+                    viewModel.conductor.loadGuitarPreset()
+                } label: {
+                    VStack(spacing: 4) {
+                        Image(systemName: "guitars")
+                            .font(.system(size: 18, weight: .semibold))
+                        Text("Guitar")
+                            .font(.caption)
+                    }
+                    .frame(minWidth: 70)
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 12)
+                    .background(
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(Color.black.opacity(0.15))
+                    )
+                    .foregroundColor(foregroundStyle)
                 }
-                .accessibilityLabel("Show Tutorial")
+                .accessibilityLabel("Switch to Guitar")
+            }
+            
+            // Second row of sound buttons
+            HStack(spacing: 15) {
+                Button {
+                    viewModel.conductor.loadSaxophonePreset()
+                } label: {
+                    VStack(spacing: 4) {
+                        Image(systemName: "music.note")
+                            .font(.system(size: 18, weight: .semibold))
+                        Text("Saxophone")
+                            .font(.caption)
+                    }
+                    .frame(minWidth: 70)
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 12)
+                    .background(
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(Color.black.opacity(0.15))
+                    )
+                    .foregroundColor(foregroundStyle)
+                }
+                .accessibilityLabel("Switch to Saxophone")
                 
-                ActionButton(title: "Export", systemImage: "square.and.arrow.up") {
-                    viewModel.showExportMenu = true
+                Button {
+                    viewModel.conductor.loadViolinPreset()
+                } label: {
+                    VStack(spacing: 4) {
+                        Image(systemName: "music.quarternote.3")
+                            .font(.system(size: 18, weight: .semibold))
+                        Text("Violin")
+                            .font(.caption)
+                    }
+                    .frame(minWidth: 70)
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 12)
+                    .background(
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(Color.black.opacity(0.15))
+                    )
+                    .foregroundColor(foregroundStyle)
                 }
-                .accessibilityLabel("Export Drawing")
+                .accessibilityLabel("Switch to Violin")
             }
         }
+        
         .padding(.horizontal, 20)
         .padding(.vertical, 15)
         .padding(.top, 10) // Additional top padding to account for the indicator overlap
@@ -271,16 +394,9 @@ struct ContentView: View {
                 .fill(.ultraThinMaterial)
                 .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 5)
         )
-        .alert(isPresented: $viewModel.showClearConfirmation) {
-            Alert(
-                title: Text("Clear Canvas?"),
-                message: Text("This will permanently delete your drawing and musical creation. This action cannot be undone."),
-                primaryButton: .destructive(Text("Clear All")) {
-                    viewModel.clearCanvas()
-                },
-                secondaryButton: .cancel()
-            )
-        }
+        
+        
+        
     }
     
     private func controlPanelIndicator(safeAreaBottom: CGFloat) -> some View {
@@ -308,13 +424,13 @@ struct ContentView: View {
             .background(
                 RoundedRectangle(cornerRadius: viewModel.isControlPanelHidden ? 12 : 12,
                                  style: viewModel.isControlPanelHidden ? .continuous : .continuous)
-                    .fill(.ultraThinMaterial)
-                    .shadow(color: Color.black.opacity(0.15), radius: 3, x: 0, y: viewModel.isControlPanelHidden ? 1 : 0)
+                .fill(.ultraThinMaterial)
+                .shadow(color: Color.black.opacity(0.15), radius: 3, x: 0, y: viewModel.isControlPanelHidden ? 1 : 0)
             )
             .overlay(
                 RoundedRectangle(cornerRadius: viewModel.isControlPanelHidden ? 12 : 12,
                                  style: viewModel.isControlPanelHidden ? .continuous : .continuous)
-                    .stroke(foregroundStyle.opacity(0.1), lineWidth: 1)
+                .stroke(foregroundStyle.opacity(0.1), lineWidth: 1)
             )
         }
         .accessibilityLabel(viewModel.isControlPanelHidden ? "Show controls" : "Hide controls")
