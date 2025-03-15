@@ -69,6 +69,19 @@ struct SettingsView: View {
                 }
             }
             
+            // Show Note Letters Toggle
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Display Options")
+                    .font(.headline)
+                    .foregroundColor(foregroundStyle)
+                
+                Toggle(isOn: $viewModel.showNoteLetters) {
+                    Text("Show Note Letters")
+                        .foregroundColor(foregroundStyle)
+                }
+                .tint(viewModel.currentColor)
+            }
+            
             // Sound Information
 //            VStack(alignment: .leading, spacing: 8) {
 //                Text("Sound")

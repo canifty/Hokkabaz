@@ -19,6 +19,7 @@ class SoundCanvasViewModel: ObservableObject {
     @Published var exportImage: UIImage? = nil
     @Published var showClearConfirmation = false
     @Published var isControlPanelHidden = false
+    @Published var showNoteLetters = false // Show note letters on colors by default
     
     // Canvas view state
     @Published var canvasScale: CGFloat = 1.0

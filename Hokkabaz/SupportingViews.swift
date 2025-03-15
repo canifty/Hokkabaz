@@ -6,6 +6,7 @@ struct ColorButton: View {
     let note: String
     let instrument: String
     let isSelected: Bool
+    let showNote: Bool
     let action: () -> Void
     
     var body: some View {
@@ -24,6 +25,9 @@ struct ColorButton: View {
                     .font(.system(size: 16, weight: .bold))
                     .foregroundColor(.white)
                     .shadow(color: .black.opacity(0.6), radius: 1, x: 0, y: 1)
+                    .opacity(showNote ? 1 : 0)
+                    .scaleEffect(showNote ? 1 : 0.7)
+                    .animation(.spring(response: 0.5, dampingFraction: 0.7), value: showNote)
             }
         }
         .scaleEffect(isSelected ? 1.15 : 1.0)

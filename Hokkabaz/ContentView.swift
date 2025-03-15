@@ -145,6 +145,7 @@ struct ContentView: View {
         .animation(.easeInOut(duration: 0.3), value: viewModel.appTheme)
         .animation(.easeInOut(duration: 0.3), value: viewModel.activeStrokeId)
         .animation(.spring(response: 0.35), value: viewModel.isControlPanelHidden)
+        .animation(.spring(response: 0.1), value: viewModel.showNoteLetters)
     }
     
     var preferredColorScheme: ColorScheme? {
@@ -261,6 +262,7 @@ struct ContentView: View {
                             note: viewModel.colorNames[index],
                             instrument: viewModel.instrumentNames[index],
                             isSelected: viewModel.currentColorIndex == index,
+                            showNote: viewModel.showNoteLetters,
                             action: {
                                 viewModel.currentColorIndex = index
                                 // Short preview of the sound
