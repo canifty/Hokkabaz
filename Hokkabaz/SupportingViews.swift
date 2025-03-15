@@ -41,7 +41,10 @@ struct InstrumentButton: View {
     var body: some View {
         Button(action: action) {
             VStack(spacing: 4) {
-                Image(systemName: iconName)
+                Image(iconName)
+                    .resizable()
+                    .scaledToFit()
+//                    .frame(width: 32, height: 32)
                     .font(.system(size: 18, weight: .semibold))
                 Text(instrumentName)
                     .font(.caption)

@@ -69,7 +69,7 @@ struct ContentView: View {
                         // Controls - can be hidden
                         if !viewModel.isControlPanelHidden {
                             controlPanel
-                                .padding(.top, -20) // Increase negative padding to create more overlap
+                                .padding(.top, -5) // Increase negative padding to create more overlap
                                 .padding(.bottom, geometry.safeAreaInsets.bottom > 0 ? 5 : 20)
                                 .transition(.move(edge: .bottom).combined(with: .opacity))  
                         }
@@ -100,28 +100,34 @@ struct ContentView: View {
                     .zIndex(3)
                 }
                 
-                // Enhanced bottom-right replay button
+                // bottom-right replay button
                 Button {
                     viewModel.replayStrokes()
                 } label: {
-                    VStack(spacing: 4) {
-                        Image(systemName: "play.fill")
-                            .font(.system(size: 18, weight: .semibold))
+                    HStack(spacing: 8) {
+                        Image(systemName: "play.circle.fill")
+                            .font(.system(size: 22, weight: .semibold))
                         Text("Replay")
-                            .font(.caption)
+                            .font(.system(size: 16, weight: .medium, design: .rounded))
                     }
-                    .frame(minWidth: 70)
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 12)
+                    .padding(.vertical, 12)
+                    .padding(.horizontal, 18)
                     .background(
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(Color.black.opacity(0.15))
+                        Capsule()
+                            .fill(
+                                .ultraThinMaterial
+                            )
+                            .shadow(color: Color.black.opacity(0.25), radius: 8, x: 0, y: 4)
                     )
-                    .foregroundColor(foregroundStyle)
+                    .overlay(
+                        Capsule()
+                            .stroke(Color.white.opacity(0.3), lineWidth: 1)
+                    )
                 }
                 .accessibilityLabel("Replay Drawing")
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
                 .padding(30)
+                .buttonStyle(ScalingButtonStyle())
             }
             .onChange(of: viewModel.showExportMenu) { _, newValue in
                 if newValue {
@@ -154,7 +160,7 @@ struct ContentView: View {
     private var headerView: some View {
         HStack {
             // Title
-            Text("Sound Canvas")
+            Text("")
                 .font(.system(size: 28, weight: .bold, design: .rounded))
                 .foregroundColor(foregroundStyle)
             
@@ -176,7 +182,7 @@ struct ContentView: View {
                             .fill(Color.black.opacity(0.1))
                     )
             }
-            .accessibilityLabel("Reset canvas view")
+            .accessibilityLabel("Clear the Canvas")
             .alert(isPresented: $viewModel.showClearConfirmation) {
                 Alert(
                     title: Text("Clear Canvas?"),
@@ -190,7 +196,7 @@ struct ContentView: View {
             
             Button {
                 withAnimation(.spring(response: 0.4)) {
-                    viewModel.resetCanvasView()
+                    viewModel.undoLastStroke()
                 }
             } label: {
                 Image(systemName: "arrow.counterclockwise")
@@ -298,8 +304,8 @@ struct ContentView: View {
 //                    .accessibilityLabel("Switch to Oscillator")
                     
                     InstrumentButton(
-                        iconName: "pianokeys",
-                        instrumentName: "Piano", 
+                        iconName: "piano1.png",
+                        instrumentName: "Piano",
                         isSelected: viewModel.currentInstrument == "Piano",
                         action: {
                             viewModel.currentInstrument = "Piano"
@@ -310,8 +316,8 @@ struct ContentView: View {
                     .accessibilityLabel("Switch to Piano")
                     
                     InstrumentButton(
-                        iconName: "guitars",
-                        instrumentName: "Guitar", 
+                        iconName: "guitar.png",
+                        instrumentName: "Guitar",
                         isSelected: viewModel.currentInstrument == "Guitar",
                         action: {
                             viewModel.currentInstrument = "Guitar"
@@ -322,8 +328,8 @@ struct ContentView: View {
                     .accessibilityLabel("Switch to Guitar")
                 
                     InstrumentButton(
-                        iconName: "music.note",
-                        instrumentName: "Saxophone", 
+                        iconName: "saxaphone.png",
+                        instrumentName: "Saxophone",
                         isSelected: viewModel.currentInstrument == "Saxophone",
                         action: {
                             viewModel.currentInstrument = "Saxophone"
@@ -334,8 +340,8 @@ struct ContentView: View {
                     .accessibilityLabel("Switch to Saxophone")
                     
                     InstrumentButton(
-                        iconName: "music.quarternote.3",
-                        instrumentName: "Violin", 
+                        iconName: "violin.png",
+                        instrumentName: "Violin",
                         isSelected: viewModel.currentInstrument == "Violin",
                         action: {
                             viewModel.currentInstrument = "Violin"
@@ -346,8 +352,8 @@ struct ContentView: View {
                     .accessibilityLabel("Switch to Violin")
                     
                     InstrumentButton(
-                        iconName: "music.note.list",
-                        instrumentName: "Flute", 
+                        iconName: "flute.png",
+                        instrumentName: "Flute",
                         isSelected: viewModel.currentInstrument == "Flute",
                         action: {
                             viewModel.currentInstrument = "Flute"
@@ -358,7 +364,7 @@ struct ContentView: View {
                     .accessibilityLabel("Switch to Flute")
                     
                     InstrumentButton(
-                        iconName: "music.mic",
+                        iconName: "trumpet1.png",
                         instrumentName: "Trumpet", 
                         isSelected: viewModel.currentInstrument == "Trumpet",
                         action: {
@@ -376,38 +382,6 @@ struct ContentView: View {
                         .fill(.ultraThinMaterial)
                 )
             }
-            
-            // Action buttons row
-//            HStack(spacing: 12) {
-//                Button {
-//                    viewModel.replayStrokes()
-//                } label: {
-//                    Label("Replay", systemImage: "play.circle.fill")
-//                }
-//                .buttonStyle(ActionPillButtonStyle(foreground: foregroundStyle))
-//                .accessibilityLabel("Replay Drawing")
-//                
-//                Spacer()
-//                
-//                Button {
-//                    viewModel.showClearConfirmation = true
-//                } label: {
-//                    Label("Clear", systemImage: "trash")
-//                }
-//                .buttonStyle(ActionPillButtonStyle(foreground: foregroundStyle))
-//                .accessibilityLabel("Clear Canvas")
-//                .alert(isPresented: $viewModel.showClearConfirmation) {
-//                    Alert(
-//                        title: Text("Clear Canvas?"),
-//                        message: Text("This will permanently delete your drawing and musical creation. This action cannot be undone."),
-//                        primaryButton: .destructive(Text("Clear All")) {
-//                            viewModel.clearCanvas()
-//                        },
-//                        secondaryButton: .cancel()
-//                    )
-//                }
-//            }
-//            .padding(.horizontal, 8)
         }
         .padding(.horizontal, 10)
         .padding(.vertical, 15)
@@ -443,28 +417,15 @@ struct ContentView: View {
         .contentShape(Rectangle())
         .padding(.bottom, viewModel.isControlPanelHidden ? (safeAreaBottom > 0 ? 10 : 25) : 0)
     }
-    
-    // Enhanced button style for action buttons
-    struct ActionPillButtonStyle: ButtonStyle {
-        var foreground: Color
-        
-        func makeBody(configuration: Configuration) -> some View {
-            configuration.label
-                .font(.system(.subheadline, design: .rounded, weight: .semibold))
-                .padding(.vertical, 10)
-                .padding(.horizontal, 16)
-                .foregroundColor(foreground)
-                .background(
-                    Capsule()
-                        .fill(foreground.opacity(0.1))
-                        .overlay(
-                            Capsule()
-                                .stroke(foreground.opacity(0.3), lineWidth: 1)
-                        )
-                )
-                .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
-                .animation(.spring(response: 0.2), value: configuration.isPressed)
-        }
+}
+
+// Add this custom button style to the ContentView struct (outside the body but inside ContentView)
+struct ScalingButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.92 : 1)
+            .brightness(configuration.isPressed ? 0.05 : 0)
+            .animation(.spring(response: 0.3, dampingFraction: 0.6), value: configuration.isPressed)
     }
 }
 

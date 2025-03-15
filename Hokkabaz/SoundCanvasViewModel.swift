@@ -142,6 +142,17 @@ class SoundCanvasViewModel: ObservableObject {
         canvasOffset = .zero
     }
     
+    func undoLastStroke() {
+        guard !strokes.isEmpty else { return }
+        
+        // Add haptic feedback
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
+        
+        // Remove the last stroke
+        _ = strokes.popLast()
+    }
+    
     func convertPointForCanvas(_ point: CGPoint, size: CGSize) -> CGPoint {
         // Convert point from screen coordinates to canvas coordinates accounting for zoom and pan
         let adjustedX = (point.x - size.width/2 - canvasOffset.width) / canvasScale + size.width/2
