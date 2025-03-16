@@ -1,0 +1,438 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%@ note" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ nota"
+          }
+        }
+      }
+    },
+    "Clear All" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hepsini Temizle"
+          }
+        }
+      }
+    },
+    "Clear Canvas" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tuvali Temizle"
+          }
+        }
+      }
+    },
+    "Clear Canvas?" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tuvali Temizle?"
+          }
+        }
+      }
+    },
+    "Clear the Canvas" : {
+      "comment" : "Trash button",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tuvali Sil"
+          }
+        }
+      }
+    },
+    "Close export panel" : {
+      "comment" : "Close button for export panel",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paylaş panelini kapat"
+          }
+        }
+      }
+    },
+    "Close settings" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ayarları kapat"
+          }
+        }
+      }
+    },
+    "Color: %@" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Renk: %@"
+          }
+        }
+      }
+    },
+    "Colorful" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Renkli"
+          }
+        }
+      }
+    },
+    "Dark" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Karanlık"
+          }
+        }
+      }
+    },
+    "Display Options" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ekran Seçenekleri"
+          }
+        }
+      }
+    },
+    "Double tap to select this note and color" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu notu ve rengi seçmek için çift dokunun"
+          }
+        }
+      }
+    },
+    "Draw with your finger to create sounds" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ses oluşturmak için parmağınızla çizin"
+          }
+        }
+      }
+    },
+    "Drawing canvas with musical sounds" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Müzikal seslerle tuval çizimi"
+          }
+        }
+      }
+    },
+    "Export Drawing" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Çizimi Paylaş"
+          }
+        }
+      }
+    },
+    "Flute" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flüt"
+          }
+        }
+      }
+    },
+    "Guitar" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gitar"
+          }
+        }
+      }
+    },
+    "Hide controls" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontrolleri gizle"
+          }
+        }
+      }
+    },
+    "Light" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aydınlık"
+          }
+        }
+      }
+    },
+    "Open settings" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ayarları aç"
+          }
+        }
+      }
+    },
+    "Piano" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Piyano"
+          }
+        }
+      }
+    },
+    "Replay" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oynat"
+          }
+        }
+      }
+    },
+    "Replay Drawing" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Çizimi Oynat"
+          }
+        }
+      }
+    },
+    "Save to Photos" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fotoğraflara Kaydet"
+          }
+        }
+      }
+    },
+    "Saxophone" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saksafon"
+          }
+        }
+      }
+    },
+    "Settings" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ayarlar"
+          }
+        }
+      }
+    },
+    "Share" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paylaş"
+          }
+        }
+      }
+    },
+    "Show controls" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontrolleri göster"
+          }
+        }
+      }
+    },
+    "Show Note Letters" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nota Harflerini Göster"
+          }
+        }
+      }
+    },
+    "SonaStroke v1.0" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SonaStroke v1.0"
+          }
+        }
+      }
+    },
+    "Stroke Width" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontur Genişliği"
+          }
+        }
+      }
+    },
+    "Switch to Flute" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flüte Geç"
+          }
+        }
+      }
+    },
+    "Switch to Guitar" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gitara Geç"
+          }
+        }
+      }
+    },
+    "Switch to Piano" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Piyanoya Geç"
+          }
+        }
+      }
+    },
+    "Switch to Saxophone" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saksofona Geç"
+          }
+        }
+      }
+    },
+    "Switch to Trumpet" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trampete Geç"
+          }
+        }
+      }
+    },
+    "Switch to Violin" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kemana Geç"
+          }
+        }
+      }
+    },
+    "System" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sistem"
+          }
+        }
+      }
+    },
+    "Theme" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arkaplan"
+          }
+        }
+      }
+    },
+    "This will permanently delete your drawing and musical creation. This action cannot be undone." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu işlem çiziminizi ve müzik eserinizi kalıcı olarak silecektir. Bu işlem geri alınamaz."
+          }
+        }
+      }
+    },
+    "Trumpet" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trompet"
+          }
+        }
+      }
+    },
+    "Undo the stroke" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Konturu geri al"
+          }
+        }
+      }
+    },
+    "Violin" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keman"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

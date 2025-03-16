@@ -38,7 +38,7 @@ struct ColorButton: View {
 // MARK: - Instrument Button
 struct InstrumentButton: View {
     let iconName: String
-    let instrumentName: String
+    let instrumentName: LocalizedStringResource
     let isSelected: Bool
     let action: () -> Void
     
