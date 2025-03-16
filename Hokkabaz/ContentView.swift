@@ -136,10 +136,10 @@ struct ContentView: View {
             }
         }
         .preferredColorScheme(preferredColorScheme)
-        .sheet(isPresented: $viewModel.showTutorial) {
-            TutorialView(theme: viewModel.appTheme, colorScheme: colorScheme)
-                .preferredColorScheme(preferredColorScheme)
-        }
+//        .sheet(isPresented: $viewModel.showTutorial) {
+//            TutorialView(theme: viewModel.appTheme, colorScheme: colorScheme)
+//                .preferredColorScheme(preferredColorScheme)
+//        }
         .animation(.interactiveSpring(duration: 0.5), value: viewModel.showSettings)
         .animation(.interactiveSpring(duration: 0.5), value: viewModel.showExportMenu)
         .animation(.easeInOut(duration: 0.3), value: viewModel.appTheme)
@@ -160,10 +160,7 @@ struct ContentView: View {
     // MARK: - Component Views
     private var headerView: some View {
         HStack {
-            // Title
-            Text("")
-                .font(.system(size: 28, weight: .bold, design: .rounded))
-                .foregroundColor(foregroundStyle)
+
             
             Spacer()
             //            !!!!!
@@ -431,6 +428,11 @@ struct ScalingButtonStyle: ButtonStyle {
     }
 }
 
-#Preview {
+#Preview("English") {
     ContentView()
+}
+
+#Preview("Turkish") {
+    ContentView()
+        .environment(\.locale, Locale(identifier: "TR"))
 }
