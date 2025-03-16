@@ -136,10 +136,7 @@ struct ContentView: View {
             }
         }
         .preferredColorScheme(preferredColorScheme)
-//        .sheet(isPresented: $viewModel.showTutorial) {
-//            TutorialView(theme: viewModel.appTheme, colorScheme: colorScheme)
-//                .preferredColorScheme(preferredColorScheme)
-//        }
+
         .animation(.interactiveSpring(duration: 0.5), value: viewModel.showSettings)
         .animation(.interactiveSpring(duration: 0.5), value: viewModel.showExportMenu)
         .animation(.easeInOut(duration: 0.3), value: viewModel.appTheme)
