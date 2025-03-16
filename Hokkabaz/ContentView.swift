@@ -426,7 +426,7 @@ struct ScalingButtonStyle: ButtonStyle {
             .brightness(configuration.isPressed ? 0.05 : 0)
             .animation(.spring(response: 0.3, dampingFraction: 0.6), value: configuration.isPressed)
     }
-}
+} 
 
 #Preview("English") {
     ContentView()

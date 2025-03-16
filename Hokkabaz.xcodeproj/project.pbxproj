@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC21DC152D7F988100ABEF6B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FC21DC012D7F988100ABEF6B /* README.md */; };
 		FCAE27242D7713F800372502 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = FCAE27232D7713F800372502 /* AudioKit */; };
 		FCAE27272D7715BF00372502 /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = FCAE27262D7715BF00372502 /* SoundpipeAudioKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC21DC012D7F988100ABEF6B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FCAE27062D71D4D600372502 /* Hokkabaz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hokkabaz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -39,6 +41,7 @@
 		FCAE26FD2D71D4D600372502 = {
 			isa = PBXGroup;
 			children = (
+				FC21DC012D7F988100ABEF6B /* README.md */,
 				FCAE27082D71D4D600372502 /* Hokkabaz */,
 				FCAE27072D71D4D600372502 /* Products */,
 			);
@@ -123,6 +126,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC21DC152D7F988100ABEF6B /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
