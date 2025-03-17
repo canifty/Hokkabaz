@@ -1,6 +1,24 @@
 import SwiftUI
 import Combine
 
+// Enum per la velocità di riproduzione
+enum PlaybackSpeed: String, CaseIterable, Identifiable {
+    case slow = "Slow"
+    case normal = "Normal"
+    case fast = "Fast"
+    
+    var id: String { self.rawValue }
+    
+    // Moltiplicatore di tempo per la riproduzione
+    var timeMultiplier: Double {
+        switch self {
+        case .slow: return 2.0    // Riproduci a metà velocità
+        case .normal: return 1.0  // Velocità normale
+        case .fast: return 0.5    // Riproduci a doppia velocità
+        }
+    }
+}
+
 class SoundCanvasViewModel: ObservableObject {
     // Audio engine
     @Published var conductor = Conductor()
@@ -36,6 +54,15 @@ class SoundCanvasViewModel: ObservableObject {
     
     // Track instrument changes
     var instrumentCancellable: AnyCancellable?
+    
+    // Aggiungi la proprietà per la velocità di riproduzione
+    @Published var playbackSpeed: PlaybackSpeed = .normal
+    
+    // Aggiungi questa proprietà per memorizzare il timer
+    private var replayTimer: Timer?
+    
+    // Aggiungi questa proprietà pubblica
+    @Published var isReplaying: Bool = false
     
     init() {
         // Initialize with piano sound
@@ -109,29 +136,62 @@ class SoundCanvasViewModel: ObservableObject {
     }
     
     func replayStrokes() {
+        activeStrokeId = nil
         guard !strokes.isEmpty else { return }
         
-        Task {
-            for (index, stroke) in strokes.enumerated() {
-                activeStrokeId = stroke.id
+        // Interrompi eventuali riproduzioni in corso
+        stopReplay()
+        
+        // Indice corrente e timer per la riproduzione
+        var currentIndex = 0
+        let timeInterval = 0.5 * playbackSpeed.timeMultiplier
+        
+        // Crea e memorizza il timer per poterlo interrompere se necessario
+        replayTimer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) { [weak self] timer in
+            guard let self = self else {
+                timer.invalidate()
+                return
+            }
+            
+            // Riproduci il suono corrente
+            if currentIndex < self.strokes.count {
+                let stroke = self.strokes[currentIndex]
+                self.activeStrokeId = stroke.id
                 
-                if let colorIndex = colors.firstIndex(of: stroke.color) {
-                    conductor.playInstrument(colorIndex: colorIndex)
+                let colorIndex = self.colors.firstIndex(of: stroke.color) ?? 0
+                self.conductor.playInstrument(colorIndex: colorIndex)
+                
+                // Ferma il suono dopo un breve periodo fisso
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    self.conductor.stopSound()
                 }
                 
-                // Add visual feedback for the stroke being replayed
-                try? await Task.sleep(nanoseconds: 500_000_000) // 0.5s delay
-                
-                // Stop sound after the last stroke
-                if index == strokes.count - 1 {
-                    conductor.stopSound()
-                    activeStrokeId = nil
-                }
+                currentIndex += 1
+            } else {
+                // Finita la riproduzione
+                self.activeStrokeId = nil
+                self.isReplaying = false
+                timer.invalidate()
+                self.replayTimer = nil
             }
         }
+        
+        isReplaying = true
     }
     
+    // Aggiungi questo metodo per fermare la riproduzione
+    func stopReplay() {
+        replayTimer?.invalidate()
+        replayTimer = nil
+        conductor.stopSound()
+        activeStrokeId = nil
+        isReplaying = false
+    }
+    
+    // Assicurati di fermare la riproduzione quando necessario
     func clearCanvas() {
+        stopReplay()  // Ferma la riproduzione se è in corso
+        
         let generator = UIImpactFeedbackGenerator(style: .medium)
         generator.impactOccurred()
         

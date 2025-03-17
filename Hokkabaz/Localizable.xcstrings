@@ -213,6 +213,9 @@
         }
       }
     },
+    "Playback Speed" : {
+
+    },
     "Replay" : {
       "localizations" : {
         "tr" : {
@@ -302,6 +305,12 @@
           }
         }
       }
+    },
+    "Speed" : {
+
+    },
+    "Stop" : {
+
     },
     "Stroke Width" : {
       "localizations" : {

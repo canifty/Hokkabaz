@@ -102,12 +102,16 @@ struct ContentView: View {
                 
                 // bottom-right replay button
                 Button {
-                    viewModel.replayStrokes()
+                    if viewModel.isReplaying {
+                        viewModel.stopReplay()
+                    } else {
+                        viewModel.replayStrokes()
+                    }
                 } label: {
                     HStack(spacing: 8) {
-                        Image(systemName: "play.circle.fill")
+                        Image(systemName: viewModel.isReplaying ? "stop.circle.fill" : "play.circle.fill")
                             .font(.system(size: 22, weight: .semibold))
-                        Text("Replay")
+                        Text(viewModel.isReplaying ? "Stop" : "Replay")
                             .font(.system(size: 16, weight: .medium, design: .rounded))
                     }
                     .padding(.vertical, 12)

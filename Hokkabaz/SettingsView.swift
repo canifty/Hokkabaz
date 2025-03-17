@@ -82,6 +82,21 @@ struct SettingsView: View {
                 .tint(viewModel.currentColor)
             }
             
+            // Velocità di riproduzione
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Playback Speed")
+                    .font(.headline)
+                    .foregroundColor(foregroundStyle)
+                
+                Picker("Speed", selection: $viewModel.playbackSpeed) {
+                    ForEach(PlaybackSpeed.allCases) { speed in
+                        Text(speed.rawValue).tag(speed)
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding(.vertical, 8)
+            }
+            
             Spacer()
             
             // Version info
