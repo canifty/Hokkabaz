@@ -3,6 +3,12 @@
   "strings" : {
     "%@ note" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نوت"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13,6 +19,12 @@
     },
     "Clear All" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "پاک کردن همه"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23,6 +35,12 @@
     },
     "Clear Canvas" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بوم خالی"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -33,6 +51,12 @@
     },
     "Clear Canvas?" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بوم خالی?"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -44,6 +68,12 @@
     "Clear the Canvas" : {
       "comment" : "Trash button",
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "پاک کردن بوم "
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -55,6 +85,12 @@
     "Close export panel" : {
       "comment" : "Close button for export panel",
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بستن پنل ارسال "
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -65,6 +101,12 @@
     },
     "Close settings" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بستن تنظیمات "
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -75,6 +117,12 @@
     },
     "Color: %@" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "رنگ"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -85,6 +133,12 @@
     },
     "Colorful" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "رنگارنگ"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -95,6 +149,12 @@
     },
     "Dark" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تاریک"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -105,6 +165,12 @@
     },
     "Display Options" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "گزینه نمایش"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -115,6 +181,12 @@
     },
     "Double tap to select this note and color" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "برای انتخاب این یادداشت و رنگ، دو بار ضربه بزنید"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -125,6 +197,12 @@
     },
     "Draw with your finger to create sounds" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "با انگشت خود بکشید تا صداها ایجاد کنید"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -135,6 +213,12 @@
     },
     "Drawing canvas with musical sounds" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بوم نقاشی با صداهای موسیقیایی"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -145,6 +229,12 @@
     },
     "Export Drawing" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ارسال نقاشی"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -155,6 +245,12 @@
     },
     "Flute" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فلوت"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -165,6 +261,12 @@
     },
     "Guitar" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "گیتار"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -175,6 +277,12 @@
     },
     "Hide controls" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "کنترل‌ها را پنهان کنید"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -185,6 +293,12 @@
     },
     "Light" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حالت روشن"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -195,6 +309,12 @@
     },
     "Open settings" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تنظیمات را باز کنید"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -205,6 +325,12 @@
     },
     "Piano" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "پیانو"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -215,6 +341,12 @@
     },
     "Replay" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "باز پخش"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -225,6 +357,12 @@
     },
     "Replay Drawing" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بازپخش نقاشی"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -235,6 +373,12 @@
     },
     "Save to Photos" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ذخیره در گالری"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -245,6 +389,12 @@
     },
     "Saxophone" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ساکسیفون"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -255,6 +405,12 @@
     },
     "Settings" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تنظیمات"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -265,6 +421,12 @@
     },
     "Share" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اشتراک گذاری"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -275,6 +437,12 @@
     },
     "Show controls" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نمایش کنترل‌ها"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -285,6 +453,12 @@
     },
     "Show Note Letters" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نمایش حروف نت"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -295,6 +469,12 @@
     },
     "SonaStroke v1.0" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "سوناستروک"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -305,6 +485,12 @@
     },
     "Stroke Width" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عرض خط"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -315,6 +501,12 @@
     },
     "Switch to Flute" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "به فلوت تغییر دهید"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -325,6 +517,12 @@
     },
     "Switch to Guitar" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "به گیتار تغییر دهید"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -335,6 +533,12 @@
     },
     "Switch to Piano" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "به پیانو تغییر دهید"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -345,6 +549,12 @@
     },
     "Switch to Saxophone" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "به ساکسیفون تغییر دهید"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -355,6 +565,12 @@
     },
     "Switch to Trumpet" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "به ترومپت تغییر دهید"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -365,6 +581,12 @@
     },
     "Switch to Violin" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "به ویولن تغییر دهید"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -375,6 +597,12 @@
     },
     "System" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "سیستم"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -385,6 +613,12 @@
     },
     "Theme" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تم"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -395,6 +629,12 @@
     },
     "This will permanently delete your drawing and musical creation. This action cannot be undone." : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "این عمل نقاشی و خلق موسیقی شما را به طور دائمی حذف خواهد کرد. این اقدام قابل بازگشت نیست."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -405,6 +645,12 @@
     },
     "Trumpet" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ترامپت"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -415,6 +661,12 @@
     },
     "Undo the stroke" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حذف ضربه آخر"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -425,6 +677,12 @@
     },
     "Violin" : {
       "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ویالون"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
