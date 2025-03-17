@@ -12,12 +12,14 @@ class SoundCanvasViewModel: ObservableObject {
     
     // UI State
     @Published var currentColorIndex = 2 // Default to green (index 2)
+    @Published var currentInstrument = "Piano" // Default to Piano
     @Published var showTutorial = false
     @Published var showSettings = false
     @Published var showExportMenu = false
     @Published var exportImage: UIImage? = nil
     @Published var showClearConfirmation = false
     @Published var isControlPanelHidden = false
+    @Published var showNoteLetters = false // Show note letters on colors by default
     
     // Canvas view state
     @Published var canvasScale: CGFloat = 1.0
@@ -31,6 +33,21 @@ class SoundCanvasViewModel: ObservableObject {
     let colors: [Color] = [.red, .orange, .yellow, .green, .blue, .purple, .pink]
     let colorNames: [String] = ["C", "D", "E", "F", "G", "A", "B"]
     let instrumentNames: [String] = ["Piano", "Guitar", "Flute", "Violin", "Trumpet", "Harp", "Cello"]
+    
+    // Track instrument changes
+    var instrumentCancellable: AnyCancellable?
+    
+    init() {
+        // Initialize with piano sound
+        conductor.loadPianoPreset()
+        
+        // Set up observer for instrument changes
+        instrumentCancellable = $currentInstrument
+            .dropFirst() // Skip initial value
+            .sink { [weak self] instrumentName in
+                self?.conductor.loadInstrumentByName(instrumentName)
+            }
+    }
     
     // Computed properties
     var currentColor: Color {
@@ -124,6 +141,17 @@ class SoundCanvasViewModel: ObservableObject {
     func resetCanvasView() {
         canvasScale = 1.0
         canvasOffset = .zero
+    }
+    
+    func undoLastStroke() {
+        guard !strokes.isEmpty else { return }
+        
+        // Add haptic feedback
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
+        
+        // Remove the last stroke
+        _ = strokes.popLast()
     }
     
     func convertPointForCanvas(_ point: CGPoint, size: CGSize) -> CGPoint {

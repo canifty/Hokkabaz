@@ -329,6 +329,74 @@ class Conductor: ObservableObject {
         loadPianoPreset()
     }
     
+    func loadFlutePreset() {
+        // Ensure we're using the sampler
+        if !usingSampler {
+            switchToSampler()
+        }
+        
+        print("🎵 Attempting to load flute preset from GeneralUser GS.sf2...")
+        
+        // Try to load from GeneralUser GS soundfont
+        if let bundledSoundfontURL = Bundle.main.url(forResource: "GeneralUser GS", withExtension: "sf2") {
+            print("✅ Found GeneralUser GS soundfont at path: \(bundledSoundfontURL.path)")
+            
+            // Try direct method first
+            if loadInstrumentDirectMethod(soundfontURL: bundledSoundfontURL, program: 73, instrumentEmoji: "🎵", instrumentName: "flute") {
+                return
+            }
+            
+            // If direct method fails, try AudioKit method
+            do {
+                try sampler.loadSoundFont(bundledSoundfontURL.path, preset: 73, bank: 0) // 73 = Flute
+                print("✅ Flute sound loaded from GeneralUser GS soundfont!")
+                return
+            } catch {
+                print("❌ Failed to load flute from GeneralUser GS soundfont: \(error)")
+            }
+        } else {
+            print("❌ GeneralUser GS.sf2 file not found in the bundle!")
+        }
+        
+        print("⚠️ Could not load flute sound")
+        print("⚠️ Falling back to piano sound")
+        loadPianoPreset()
+    }
+    
+    func loadTrumpetPreset() {
+        // Ensure we're using the sampler
+        if !usingSampler {
+            switchToSampler()
+        }
+        
+        print("🎺 Attempting to load trumpet preset from GeneralUser GS.sf2...")
+        
+        // Try to load from GeneralUser GS soundfont
+        if let bundledSoundfontURL = Bundle.main.url(forResource: "GeneralUser GS", withExtension: "sf2") {
+            print("✅ Found GeneralUser GS soundfont at path: \(bundledSoundfontURL.path)")
+            
+            // Try direct method first
+            if loadInstrumentDirectMethod(soundfontURL: bundledSoundfontURL, program: 56, instrumentEmoji: "🎺", instrumentName: "trumpet") {
+                return
+            }
+            
+            // If direct method fails, try AudioKit method
+            do {
+                try sampler.loadSoundFont(bundledSoundfontURL.path, preset: 56, bank: 0) // 56 = Trumpet
+                print("✅ Trumpet sound loaded from GeneralUser GS soundfont!")
+                return
+            } catch {
+                print("❌ Failed to load trumpet from GeneralUser GS soundfont: \(error)")
+            }
+        } else {
+            print("❌ GeneralUser GS.sf2 file not found in the bundle!")
+        }
+        
+        print("⚠️ Could not load trumpet sound")
+        print("⚠️ Falling back to piano sound")
+        loadPianoPreset()
+    }
+    
     // Generic method to load any instrument using direct AVAudioUnitSampler approach
     func loadInstrumentDirectMethod(soundfontURL: URL, program: UInt8, instrumentEmoji: String, instrumentName: String) -> Bool {
         print("\(instrumentEmoji) Trying direct AVAudioUnitSampler method for \(instrumentName) with: \(soundfontURL.lastPathComponent)")
@@ -458,6 +526,56 @@ class Conductor: ObservableObject {
     func playInstrument(colorIndex: Int) {
         let noteNumber = midiNotes[min(colorIndex, midiNotes.count - 1)]
         
+        // If a sound is already playing, create a smooth transition
+        if isPlaying {
+            if usingSampler {
+                // For sampler, we can simply stop the previous note and start the new one
+                // The sampler instruments have natural attack/decay characteristics
+                stopSound()
+                startSound(colorIndex: colorIndex)
+            } else {
+                // For oscillator, create a smooth transition with amplitude ramping
+                smoothOscillatorTransition(to: colorIndex)
+            }
+        } else {
+            // No previous sound playing, just start the new sound
+            startSound(colorIndex: colorIndex)
+        }
+    }
+    
+    // Create a smooth transition between oscillator notes
+    private func smoothOscillatorTransition(to colorIndex: Int) {
+        // Only proceed if we're using oscillator
+        guard !usingSampler else {
+            startSound(colorIndex: colorIndex)
+            return
+        }
+        
+        let frequency = noteFrequencies[min(colorIndex, noteFrequencies.count - 1)]
+        
+        // First slightly reduce amplitude of current note (quick fade out)
+        oscillator.amplitude = 0.5 // Start from normal amplitude
+        
+        // Create a smooth amplitude ramp down
+        oscillator.$amplitude.ramp(to: 0.2, duration: 0.05) // Quick fade to 20% volume
+        
+        // After a tiny delay, change frequency and ramp amplitude back up
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+            // Change the frequency (pitch) to the new note
+            self.oscillator.frequency = frequency
+            
+            // Ramp the amplitude back up for a smooth transition
+            self.oscillator.$amplitude.ramp(to: 0.5, duration: 0.1)
+        }
+        
+        // We're still playing
+        isPlaying = true
+    }
+    
+    // Helper function to actually start the sound
+    private func startSound(colorIndex: Int) {
+        let noteNumber = midiNotes[min(colorIndex, midiNotes.count - 1)]
+        
         // Play the note - using sampler or oscillator
         print("🎵 Playing note: \(noteNumber) for color index: \(colorIndex)")
         
@@ -468,8 +586,11 @@ class Conductor: ObservableObject {
             // Using oscillator as fallback
             let frequency = noteFrequencies[min(colorIndex, noteFrequencies.count - 1)]
             oscillator.frequency = frequency
-            oscillator.amplitude = 0.5
+            
+            // Start with a slight ramp-up for smoother attack
+            oscillator.amplitude = 0.1
             oscillator.start()
+            oscillator.$amplitude.ramp(to: 0.5, duration: 0.05) // Quick fade in over 50ms
         }
         
         isPlaying = true
@@ -484,10 +605,38 @@ class Conductor: ObservableObject {
                     sampler.stop(noteNumber: noteNumber)
                 }
             } else {
-                // Stop oscillator
-                oscillator.stop()
+                // For oscillator, fade out for smoother release
+                oscillator.$amplitude.ramp(to: 0.0, duration: 0.1)
+                
+                // Then fully stop after the fade
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.oscillator.stop()
+                }
             }
             isPlaying = false
+        }
+    }
+    
+    // Helper to load the appropriate instrument based on instrument name
+    func loadInstrumentByName(_ instrumentName: String) {
+        switch instrumentName {
+        case "Oscillator":
+            switchToOscillator()
+        case "Piano":
+            loadPianoPreset()
+        case "Guitar":
+            loadGuitarPreset()
+        case "Saxophone":
+            loadSaxophonePreset()
+        case "Violin":
+            loadViolinPreset()
+        case "Flute":
+            loadFlutePreset()
+        case "Trumpet":
+            loadTrumpetPreset()
+        default:
+            // Default to piano if unknown instrument name
+            loadPianoPreset()
         }
     }
 } 

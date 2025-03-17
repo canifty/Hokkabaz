@@ -6,6 +6,7 @@ struct ColorButton: View {
     let note: String
     let instrument: String
     let isSelected: Bool
+    let showNote: Bool
     let action: () -> Void
     
     var body: some View {
@@ -24,6 +25,9 @@ struct ColorButton: View {
                     .font(.system(size: 16, weight: .bold))
                     .foregroundColor(.white)
                     .shadow(color: .black.opacity(0.6), radius: 1, x: 0, y: 1)
+                    .opacity(showNote ? 1 : 0)
+                    .scaleEffect(showNote ? 1 : 0.7)
+                    .animation(.spring(response: 0.5, dampingFraction: 0.7), value: showNote)
             }
         }
         .scaleEffect(isSelected ? 1.15 : 1.0)
@@ -31,75 +35,38 @@ struct ColorButton: View {
     }
 }
 
-// MARK: - Action Button
-struct ActionButton: View {
-    let title: String
-    let systemImage: String
+// MARK: - Instrument Button
+struct InstrumentButton: View {
+    let iconName: String
+    let instrumentName: LocalizedStringResource
+    let isSelected: Bool
     let action: () -> Void
     
     var body: some View {
         Button(action: action) {
-            VStack(spacing: 6) {
-                Image(systemName: systemImage)
-                    .font(.system(size: 22))
-                Text(title)
-                    .font(.system(size: 12, weight: .medium))
+            VStack(spacing: 4) {
+                Image(iconName)
+                    .resizable()
+                    .scaledToFit()
+//                    .frame(width: 32, height: 32)
+                    .font(.system(size: 18, weight: .semibold))
+                Text(instrumentName)
+                    .font(.caption)
             }
-            .foregroundColor(.white)
-            .frame(width: 70, height: 65)
+            .frame(minWidth: 70)
+            .padding(.vertical, 8)
+            .padding(.horizontal, 12)
             .background(
-                RoundedRectangle(cornerRadius: 16)
-                    .fill(
-                        LinearGradient(
-                            colors: [Color.black.opacity(0.6), Color.black.opacity(0.4)],
-                            startPoint: .top,
-                            endPoint: .bottom
-                        )
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(isSelected ? Color.gray.opacity(0.3) : Color.black.opacity(0.15))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(isSelected ? Color.white.opacity(0.6) : Color.clear, lineWidth: 2)
                     )
             )
-            .overlay(
-                RoundedRectangle(cornerRadius: 16)
-                    .stroke(Color.white.opacity(0.3), lineWidth: 1)
-            )
         }
-        .buttonStyle(PressableButtonStyle())
+        .scaleEffect(isSelected ? 1.08 : 1.0)
+        .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isSelected)
     }
 }
 
-// MARK: - Tutorial Item
-struct TutorialItem: View {
-    let icon: String
-    let title: String
-    let description: String
-    var theme: AppTheme
-    var colorScheme: ColorScheme
-    
-    var foregroundStyle: Color {
-        switch theme {
-        case .light: return .black
-        case .dark: return .white
-        case .colorful: return .white
-        case .system: return colorScheme == .dark ? .white : .black
-        }
-    }
-    
-    var body: some View {
-        HStack(alignment: .top, spacing: 15) {
-            Image(systemName: icon)
-                .font(.system(size: 24))
-                .foregroundColor(.blue)
-                .frame(width: 30)
-            
-            VStack(alignment: .leading, spacing: 4) {
-                Text(title)
-                    .font(.headline)
-                    .foregroundColor(foregroundStyle)
-                Text(description)
-                    .font(.subheadline)
-                    .foregroundColor(foregroundStyle.opacity(0.7))
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-        }
-        .accessibilityElement(children: .combine)
-    }
-} 
