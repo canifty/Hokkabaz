@@ -433,3 +433,17 @@ struct ScalingButtonStyle: ButtonStyle {
     ContentView()
         .environment(\.locale, Locale(identifier: "TR"))
 }
+
+#Preview("Chinese") {
+    ContentView()
+        .environment(\.locale, Locale(identifier: "ZH"))
+}
+
+#Preview("Italian") {
+    ContentView()
+        .environment(\.locale, Locale(identifier: "ITA"))
+}
+
+/*Chinese music notation: 1, 2, 3, 4, 5, 6, 7
+ 
+*/
