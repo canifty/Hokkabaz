@@ -80,6 +80,12 @@
             "state" : "translated",
             "value" : "Tuvali Temizle?"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "要清空画布吗？"
+          }
         }
       }
     },
@@ -96,6 +102,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tuvali Sil"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "清空画布"
           }
         }
       }
@@ -114,6 +126,12 @@
             "state" : "translated",
             "value" : "Paylaş panelini kapat"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关闭导出面板"
+          }
         }
       }
     },
@@ -129,6 +147,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ayarları kapat"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关闭设置"
           }
         }
       }
@@ -146,6 +170,12 @@
             "state" : "translated",
             "value" : "Renk: %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "颜色: %@"
+          }
         }
       }
     },
@@ -161,6 +191,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Renkli"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "染色的"
           }
         }
       }
@@ -178,6 +214,12 @@
             "state" : "translated",
             "value" : "Karanlık"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "深色"
+          }
         }
       }
     },
@@ -193,6 +235,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ekran Seçenekleri"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示选项"
           }
         }
       }
@@ -210,6 +258,12 @@
             "state" : "translated",
             "value" : "Bu notu ve rengi seçmek için çift dokunun"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "双击选择音符和颜色"
+          }
         }
       }
     },
@@ -225,6 +279,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ses oluşturmak için parmağınızla çizin"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "用手指画出声音"
           }
         }
       }
@@ -242,6 +302,12 @@
             "state" : "translated",
             "value" : "Müzikal seslerle tuval çizimi"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "带有音乐的导出绘图画布"
+          }
         }
       }
     },
@@ -257,6 +323,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Çizimi Paylaş"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出绘图"
           }
         }
       }
@@ -274,6 +346,12 @@
             "state" : "translated",
             "value" : "Flüt"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "长笛"
+          }
         }
       }
     },
@@ -289,6 +367,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gitar"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "吉它"
           }
         }
       }
@@ -306,6 +390,12 @@
             "state" : "translated",
             "value" : "Kontrolleri gizle"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隐藏控件"
+          }
         }
       }
     },
@@ -321,6 +411,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aydınlık"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浅色"
           }
         }
       }
@@ -338,6 +434,12 @@
             "state" : "translated",
             "value" : "Ayarları aç"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开设置"
+          }
         }
       }
     },
@@ -353,6 +455,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Piyano"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "钢琴"
           }
         }
       }
@@ -370,6 +478,12 @@
             "state" : "translated",
             "value" : "Oynat"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重播"
+          }
         }
       }
     },
@@ -385,6 +499,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Çizimi Oynat"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重播绘图"
           }
         }
       }
@@ -402,6 +522,12 @@
             "state" : "translated",
             "value" : "Fotoğraflara Kaydet"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存到相册 "
+          }
         }
       }
     },
@@ -417,6 +543,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Saksafon"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "萨克斯管"
           }
         }
       }
@@ -434,6 +566,12 @@
             "state" : "translated",
             "value" : "Ayarlar"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置 "
+          }
         }
       }
     },
@@ -449,6 +587,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Paylaş"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分享"
           }
         }
       }
@@ -466,6 +610,12 @@
             "state" : "translated",
             "value" : "Kontrolleri göster"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示控件"
+          }
         }
       }
     },
@@ -482,6 +632,12 @@
             "state" : "translated",
             "value" : "Nota Harflerini Göster"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示音名"
+          }
         }
       }
     },
@@ -494,6 +650,12 @@
           }
         },
         "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SonaStroke v1.0"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "SonaStroke v1.0"
@@ -514,6 +676,12 @@
             "state" : "translated",
             "value" : "Kontur Genişliği"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "笔画宽度"
+          }
         }
       }
     },
@@ -529,6 +697,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Flüte Geç"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "切换到长笛"
           }
         }
       }
@@ -546,6 +720,12 @@
             "state" : "translated",
             "value" : "Gitara Geç"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "切换到吉它"
+          }
         }
       }
     },
@@ -561,6 +741,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Piyanoya Geç"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "切换到钢琴"
           }
         }
       }
@@ -578,6 +764,12 @@
             "state" : "translated",
             "value" : "Saksofona Geç"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "切换到萨克斯管"
+          }
         }
       }
     },
@@ -593,6 +785,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Trampete Geç"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "切换到小号"
           }
         }
       }
@@ -610,6 +808,12 @@
             "state" : "translated",
             "value" : "Kemana Geç"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "切换到小提琴"
+          }
         }
       }
     },
@@ -625,6 +829,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sistem"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "系统"
           }
         }
       }
@@ -642,6 +852,12 @@
             "state" : "translated",
             "value" : "Arkaplan"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "主题"
+          }
         }
       }
     },
@@ -657,6 +873,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bu işlem çiziminizi ve müzik eserinizi kalıcı olarak silecektir. Bu işlem geri alınamaz."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这将永久删除您的绘图和音乐创作。此操作无法撤销。"
           }
         }
       }
@@ -674,6 +896,12 @@
             "state" : "translated",
             "value" : "Trompet"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小号"
+          }
         }
       }
     },
@@ -690,6 +918,12 @@
             "state" : "translated",
             "value" : "Konturu geri al"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "撤销笔画"
+          }
         }
       }
     },
@@ -705,6 +939,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Keman"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小提琴"
           }
         }
       }
