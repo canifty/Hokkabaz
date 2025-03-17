@@ -105,6 +105,9 @@
 				Base,
 				tr,
 				fa,
+				es,
+				ar,
+				"pt-BR",
 			);
 			mainGroup = FCAE26FD2D71D4D600372502;
 			minimizedProjectReferenceProxies = 1;

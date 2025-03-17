@@ -433,3 +433,8 @@ struct ScalingButtonStyle: ButtonStyle {
     ContentView()
         .environment(\.locale, Locale(identifier: "TR"))
 }
+
+#Preview("Persian") {
+    ContentView()
+        .environment(\.locale, Locale(identifier: "FA"))
+}
