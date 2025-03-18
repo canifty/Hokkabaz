@@ -87,8 +87,8 @@ class SoundCanvasViewModel: ObservableObject {
         startSoundForColor()
         
         // Add haptic feedback
-        let impactMed = UIImpactFeedbackGenerator(style: .medium)
-        impactMed.impactOccurred()
+//        let impactMed = UIImpactFeedbackGenerator(style: .medium)
+//        impactMed.impactOccurred()
     }
     
     func continueDrawing(at point: CGPoint) {
@@ -132,8 +132,8 @@ class SoundCanvasViewModel: ObservableObject {
     }
     
     func clearCanvas() {
-        let generator = UIImpactFeedbackGenerator(style: .medium)
-        generator.impactOccurred()
+//        let generator = UIImpactFeedbackGenerator(style: .medium)
+//        generator.impactOccurred()
         
         strokes.removeAll()
     }
@@ -147,8 +147,8 @@ class SoundCanvasViewModel: ObservableObject {
         guard !strokes.isEmpty else { return }
         
         // Add haptic feedback
-        let generator = UIImpactFeedbackGenerator(style: .medium)
-        generator.impactOccurred()
+//        let generator = UIImpactFeedbackGenerator(style: .medium)
+//        generator.impactOccurred()
         
         // Remove the last stroke
         _ = strokes.popLast()

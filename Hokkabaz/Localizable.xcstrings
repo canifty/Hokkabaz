@@ -13,7 +13,13 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "nota"
+            "value" : "%@ nota"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نوت"
           }
         },
         "it" : {
@@ -26,12 +32,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ 音"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "نوت"
           }
         },
         "pt-BR" : {
@@ -57,10 +57,40 @@
     "A" : {
       "comment" : "A-La",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La"
+          }
+        },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "لا"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "イ"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lá"
           }
         },
         "tr" : {
@@ -68,16 +98,52 @@
             "state" : "translated",
             "value" : "La"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "6"
+          }
         }
       }
     },
     "B" : {
       "comment" : "B-Si",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "سي"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si"
+          }
+        },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "سی"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ロ"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si"
           }
         },
         "tr" : {
@@ -85,22 +151,64 @@
             "state" : "translated",
             "value" : "Si"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7"
+          }
         }
       }
     },
     "C" : {
       "comment" : "C-Do",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "دو"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Do"
+          }
+        },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "دو"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Do"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ハ"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dó"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Do"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1"
           }
         }
       }
@@ -119,6 +227,12 @@
             "value" : "Eliminar todo"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "پاک کردن همه"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -129,12 +243,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "すべてをクリア"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "پاک کردن همه"
           }
         },
         "pt-BR" : {
@@ -171,6 +279,12 @@
             "value" : "Borrar lienzo"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بوم خالی"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -181,12 +295,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "すべてキャンバス"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "بوم خالی"
           }
         },
         "pt-BR" : {
@@ -223,6 +331,12 @@
             "value" : "Borrar lienzo?"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بوم خالی?"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -233,12 +347,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "キャンバスをリセットしますか？"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "بوم خالی?"
           }
         },
         "pt-BR" : {
@@ -276,6 +384,12 @@
             "value" : "Borrar el lienzo"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "پاک کردن بوم "
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -286,12 +400,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "すべてキャンバス"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "پاک کردن بوم "
           }
         },
         "pt-BR" : {
@@ -329,6 +437,12 @@
             "value" : "Cerrar panel de exportación"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بستن پنل ارسال "
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -339,12 +453,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "エクスポートウィンドウを閉じる"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "بستن پنل ارسال "
           }
         },
         "pt-BR" : {
@@ -381,6 +489,12 @@
             "value" : "Cerrar configuración"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بستن تنظیمات "
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -391,12 +505,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "設定を閉じる"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "بستن تنظیمات "
           }
         },
         "pt-BR" : {
@@ -430,7 +538,13 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Color"
+            "value" : "%@ Color"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "رنگ"
           }
         },
         "it" : {
@@ -445,16 +559,10 @@
             "value" : "色: %@"
           }
         },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "رنگ"
-          }
-        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "cor"
+            "value" : "Cor: %@ "
           }
         },
         "tr" : {
@@ -485,6 +593,12 @@
             "value" : "Colorido"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "رنگارنگ"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -495,12 +609,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "多彩"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "رنگارنگ"
           }
         },
         "pt-BR" : {
@@ -526,16 +634,52 @@
     "D" : {
       "comment" : "D-Re",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ري"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Re"
+          }
+        },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ر"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Re"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "二"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ré"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Re"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2"
           }
         }
       }
@@ -554,6 +698,12 @@
             "value" : "Oscuro"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تاریک"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -564,12 +714,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ダーク"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "تاریک"
           }
         },
         "pt-BR" : {
@@ -606,6 +750,12 @@
             "value" : "Opciones de visualización"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "گزینه نمایش"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -616,12 +766,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "表示オプション "
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "گزینه نمایش"
           }
         },
         "pt-BR" : {
@@ -658,6 +802,12 @@
             "value" : "Toca dos veces para seleccionar esta nota y color"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "برای انتخاب این یادداشت و رنگ، دو بار ضربه بزنید"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -668,12 +818,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "この音符と色を選択するにはダブルタップしてください。"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "برای انتخاب این یادداشت و رنگ، دو بار ضربه بزنید"
           }
         },
         "pt-BR" : {
@@ -710,6 +854,12 @@
             "value" : "Dibuja con tu dedo para crear sonidos"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "با انگشت خود بکشید تا صداها ایجاد کنید"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -720,12 +870,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "指で描いて音を作ってください。"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "با انگشت خود بکشید تا صداها ایجاد کنید"
           }
         },
         "pt-BR" : {
@@ -762,6 +906,12 @@
             "value" : "Lienzo de dibujo con sonidos musicales"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بوم نقاشی با صداهای موسیقیایی"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -772,12 +922,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "音楽と一緒に描けるキャンバス"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "بوم نقاشی با صداهای موسیقیایی"
           }
         },
         "pt-BR" : {
@@ -803,16 +947,52 @@
     "E" : {
       "comment" : "E-Mi",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مي"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mi"
+          }
+        },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "می"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mi"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ホ"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mi"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mi"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3"
           }
         }
       }
@@ -831,6 +1011,12 @@
             "value" : "Exportar dibujo"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ارسال نقاشی"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -841,12 +1027,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "描画をエクスポート"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ارسال نقاشی"
           }
         },
         "pt-BR" : {
@@ -872,16 +1052,52 @@
     "F" : {
       "comment" : "F-Fa",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فا"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fa"
+          }
+        },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "فا"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fa"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "へ"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fá"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fa"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "4"
           }
         }
       }
@@ -900,6 +1116,12 @@
             "value" : "Flauta"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فلوت"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -910,12 +1132,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "フルート"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "فلوت"
           }
         },
         "pt-BR" : {
@@ -941,16 +1157,52 @@
     "G" : {
       "comment" : "G-Sol",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "صول"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sol"
+          }
+        },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "سل"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sol"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ト"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sol"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sol"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "5"
           }
         }
       }
@@ -969,6 +1221,12 @@
             "value" : "Guitarra"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "گیتار"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -979,12 +1237,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ギター"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "گیتار"
           }
         },
         "pt-BR" : {
@@ -1021,6 +1273,12 @@
             "value" : "Ocultar controles"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "کنترل‌ها را پنهان کنید"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1031,12 +1289,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "コントロールを隠す"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "کنترل‌ها را پنهان کنید"
           }
         },
         "pt-BR" : {
@@ -1073,6 +1325,12 @@
             "value" : "claro"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حالت روشن"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1083,12 +1341,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ライト"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "حالت روشن"
           }
         },
         "pt-BR" : {
@@ -1125,6 +1377,12 @@
             "value" : "Abrir configuraciones"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تنظیمات را باز کنید"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1135,12 +1393,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "設定を開く"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "تنظیمات را باز کنید"
           }
         },
         "pt-BR" : {
@@ -1177,6 +1429,12 @@
             "value" : "Piano"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "پیانو"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1187,12 +1445,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ピアノ"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "پیانو"
           }
         },
         "pt-BR" : {
@@ -1229,6 +1481,12 @@
             "value" : "Repetir"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "باز پخش"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1239,12 +1497,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : " リプレイ"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "باز پخش"
           }
         },
         "pt-BR" : {
@@ -1281,6 +1533,12 @@
             "value" : "Repetir dibujo"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بازپخش نقاشی"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1291,12 +1549,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "描画をリプレイ"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "بازپخش نقاشی"
           }
         },
         "pt-BR" : {
@@ -1333,6 +1585,12 @@
             "value" : "Guardar en fotos"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ذخیره در گالری"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1343,12 +1601,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "写真に保存"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ذخیره در گالری"
           }
         },
         "pt-BR" : {
@@ -1385,6 +1637,12 @@
             "value" : "Saxofón"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ساکسیفون"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1395,12 +1653,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "サクソフォン"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ساکسیفون"
           }
         },
         "pt-BR" : {
@@ -1437,6 +1689,12 @@
             "value" : "Configuraciones"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تنظیمات"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1447,12 +1705,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "設定"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "تنظیمات"
           }
         },
         "pt-BR" : {
@@ -1489,6 +1741,12 @@
             "value" : "Compartir"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اشتراک گذاری"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1499,12 +1757,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "共有"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "اشتراک گذاری"
           }
         },
         "pt-BR" : {
@@ -1541,6 +1793,12 @@
             "value" : "Mostrar controles"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نمایش کنترل‌ها"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1551,12 +1809,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : " コントロールを表示"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "نمایش کنترل‌ها"
           }
         },
         "pt-BR" : {
@@ -1593,6 +1845,12 @@
             "value" : "Mostrar letras de notas"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نمایش حروف نت"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1603,12 +1861,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "音名を表示"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "نمایش حروف نت"
           }
         },
         "pt-BR" : {
@@ -1645,6 +1897,12 @@
             "value" : "SonaStroke v1.0"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "سوناستروک"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1655,12 +1913,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "SonaStroke v1.0"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "سوناستروک"
           }
         },
         "pt-BR" : {
@@ -1697,6 +1949,12 @@
             "value" : "Ancho del trazo"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عرض خط"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1707,12 +1965,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "線の太さ"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "عرض خط"
           }
         },
         "pt-BR" : {
@@ -1749,6 +2001,12 @@
             "value" : "Cambiar a flauta"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "به فلوت تغییر دهید"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1759,12 +2017,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "フルートに切り替え"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "به فلوت تغییر دهید"
           }
         },
         "pt-BR" : {
@@ -1801,6 +2053,12 @@
             "value" : "Cambiar a guitarra"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "به گیتار تغییر دهید"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1811,12 +2069,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ギターに切り替え"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "به گیتار تغییر دهید"
           }
         },
         "pt-BR" : {
@@ -1853,6 +2105,12 @@
             "value" : "Cambiar a piano"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "به پیانو تغییر دهید"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1863,12 +2121,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ピアノに切り替え"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "به پیانو تغییر دهید"
           }
         },
         "pt-BR" : {
@@ -1905,6 +2157,12 @@
             "value" : "Cambiar a saxofón"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "به ساکسیفون تغییر دهید"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1915,12 +2173,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "サクソフォンに切り替え"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "به ساکسیفون تغییر دهید"
           }
         },
         "pt-BR" : {
@@ -1957,6 +2209,12 @@
             "value" : "Cambiar a trompeta"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "به ترومپت تغییر دهید"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1967,12 +2225,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "トランペットに切り替え"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "به ترومپت تغییر دهید"
           }
         },
         "pt-BR" : {
@@ -2009,6 +2261,12 @@
             "value" : "Cambiar a violín"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "به ویولن تغییر دهید"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2019,12 +2277,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "バイオリンに切り替え"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "به ویولن تغییر دهید"
           }
         },
         "pt-BR" : {
@@ -2061,6 +2313,12 @@
             "value" : "Sistema"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "سیستم"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2071,12 +2329,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "システム"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "سیستم"
           }
         },
         "pt-BR" : {
@@ -2113,6 +2365,12 @@
             "value" : "Tema"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تم"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2123,12 +2381,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "テーマ"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "تم"
           }
         },
         "pt-BR" : {
@@ -2165,6 +2417,12 @@
             "value" : "Esto eliminará permanentemente tu dibujo y creación musical. Esta acción no se puede deshacer"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "این عمل نقاشی و خلق موسیقی شما را به طور دائمی حذف خواهد کرد. این اقدام قابل بازگشت نیست."
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2175,12 +2433,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "この操作を行うと、描いた絵と音楽の作成が完全に削除されます。この操作は元に戻せません。"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "این عمل نقاشی و خلق موسیقی شما را به طور دائمی حذف خواهد کرد. این اقدام قابل بازگشت نیست."
           }
         },
         "pt-BR" : {
@@ -2217,6 +2469,12 @@
             "value" : "Trumpeta"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ترامپت"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2227,12 +2485,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "トランペット"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ترامپت"
           }
         },
         "pt-BR" : {
@@ -2269,6 +2521,12 @@
             "value" : "Deshacer el trazo"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حذف ضربه آخر"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2279,12 +2537,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "線を元に戻す"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "حذف ضربه آخر"
           }
         },
         "pt-BR" : {
@@ -2321,6 +2573,12 @@
             "value" : "Violín"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ویالون"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2331,12 +2589,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "バイオリン"
-          }
-        },
-        "fa" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ویالون"
           }
         },
         "pt-BR" : {

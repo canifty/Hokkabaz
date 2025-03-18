@@ -65,8 +65,8 @@ struct ExportView: View {
                     UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
                     
                     // Show confirmation with haptic
-                    let generator = UINotificationFeedbackGenerator()
-                    generator.notificationOccurred(.success)
+//                    let generator = UINotificationFeedbackGenerator()
+//                    generator.notificationOccurred(.success)
                     
                     // Close menu after a short delay
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
