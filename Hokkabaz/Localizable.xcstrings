@@ -2,6 +2,7 @@
   "sourceLanguage" : "en",
   "strings" : {
     "%@ note" : {
+      "extractionState" : "stale",
       "localizations" : {
         "fa" : {
           "stringUnit" : {
@@ -13,6 +14,57 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ nota"
+          }
+        }
+      }
+    },
+    "A" : {
+      "comment" : "A-La",
+      "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La"
+          }
+        }
+      }
+    },
+    "B" : {
+      "comment" : "B-Si",
+      "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "سی"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si"
+          }
+        }
+      }
+    },
+    "C" : {
+      "comment" : "C-Do",
+      "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "دو"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Do"
           }
         }
       }
@@ -147,6 +199,23 @@
         }
       }
     },
+    "D" : {
+      "comment" : "D-Re",
+      "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ر"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Re"
+          }
+        }
+      }
+    },
     "Dark" : {
       "localizations" : {
         "fa" : {
@@ -227,6 +296,23 @@
         }
       }
     },
+    "E" : {
+      "comment" : "E-Mi",
+      "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "می"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mi"
+          }
+        }
+      }
+    },
     "Export Drawing" : {
       "localizations" : {
         "fa" : {
@@ -243,6 +329,23 @@
         }
       }
     },
+    "F" : {
+      "comment" : "F-Fa",
+      "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فا"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fa"
+          }
+        }
+      }
+    },
     "Flute" : {
       "localizations" : {
         "fa" : {
@@ -255,6 +358,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Flüt"
+          }
+        }
+      }
+    },
+    "G" : {
+      "comment" : "G-Sol",
+      "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "سل"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sol"
           }
         }
       }
