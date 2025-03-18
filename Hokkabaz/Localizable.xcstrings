@@ -2,6 +2,7 @@
   "sourceLanguage" : "en",
   "strings" : {
     "%@ note" : {
+      "extractionState" : "stale",
       "localizations" : {
         "it" : {
           "stringUnit" : {
@@ -13,6 +14,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ 音"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نوت"
           }
         },
         "tr" : {
@@ -29,6 +36,57 @@
         }
       }
     },
+    "A" : {
+      "comment" : "A-La",
+      "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La"
+          }
+        }
+      }
+    },
+    "B" : {
+      "comment" : "B-Si",
+      "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "سی"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si"
+          }
+        }
+      }
+    },
+    "C" : {
+      "comment" : "C-Do",
+      "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "دو"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Do"
+          }
+        }
+      }
+    },
     "Clear All" : {
       "localizations" : {
         "it" : {
@@ -41,6 +99,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "すべてをクリア"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "پاک کردن همه"
           }
         },
         "tr" : {
@@ -71,6 +135,12 @@
             "value" : "すべてキャンバス"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بوم خالی"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -97,6 +167,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "キャンバスをリセットしますか？"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بوم خالی?"
           }
         },
         "tr" : {
@@ -128,6 +204,12 @@
             "value" : "すべてキャンバス"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "پاک کردن بوم "
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -155,6 +237,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "エクスポートウィンドウを閉じる"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بستن پنل ارسال "
           }
         },
         "tr" : {
@@ -185,6 +273,12 @@
             "value" : "設定を閉じる"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بستن تنظیمات "
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -211,6 +305,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "色: %@"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "رنگ"
           }
         },
         "tr" : {
@@ -241,6 +341,12 @@
             "value" : "多彩"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "رنگارنگ"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -251,6 +357,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "染色的"
+          }
+        }
+      }
+    },
+    "D" : {
+      "comment" : "D-Re",
+      "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ر"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Re"
           }
         }
       }
@@ -267,6 +390,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ダーク"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تاریک"
           }
         },
         "tr" : {
@@ -297,6 +426,12 @@
             "value" : "表示オプション "
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "گزینه نمایش"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -323,6 +458,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "この音符と色を選択するにはダブルタップしてください。"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "برای انتخاب این یادداشت و رنگ، دو بار ضربه بزنید"
           }
         },
         "tr" : {
@@ -353,6 +494,12 @@
             "value" : "指で描いて音を作ってください。"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "با انگشت خود بکشید تا صداها ایجاد کنید"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -381,6 +528,12 @@
             "value" : "音楽と一緒に描けるキャンバス"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بوم نقاشی با صداهای موسیقیایی"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -391,6 +544,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "带有音乐的导出绘图画布"
+          }
+        }
+      }
+    },
+    "E" : {
+      "comment" : "E-Mi",
+      "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "می"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mi"
           }
         }
       }
@@ -409,6 +579,12 @@
             "value" : "描画をエクスポート"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ارسال نقاشی"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -419,6 +595,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "导出绘图"
+          }
+        }
+      }
+    },
+    "F" : {
+      "comment" : "F-Fa",
+      "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فا"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fa"
           }
         }
       }
@@ -437,6 +630,12 @@
             "value" : "フルート"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فلوت"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -447,6 +646,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "长笛"
+          }
+        }
+      }
+    },
+    "G" : {
+      "comment" : "G-Sol",
+      "localizations" : {
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "سل"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sol"
           }
         }
       }
@@ -463,6 +679,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ギター"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "گیتار"
           }
         },
         "tr" : {
@@ -493,6 +715,12 @@
             "value" : "コントロールを隠す"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "کنترل‌ها را پنهان کنید"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -519,6 +747,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ライト"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حالت روشن"
           }
         },
         "tr" : {
@@ -549,6 +783,12 @@
             "value" : "設定を開く"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تنظیمات را باز کنید"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -575,6 +815,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ピアノ"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "پیانو"
           }
         },
         "tr" : {
@@ -605,6 +851,12 @@
             "value" : " リプレイ"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "باز پخش"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -631,6 +883,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "描画をリプレイ"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بازپخش نقاشی"
           }
         },
         "tr" : {
@@ -661,6 +919,12 @@
             "value" : "写真に保存"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ذخیره در گالری"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -687,6 +951,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "サクソフォン"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ساکسیفون"
           }
         },
         "tr" : {
@@ -717,6 +987,12 @@
             "value" : "設定"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تنظیمات"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -743,6 +1019,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "共有"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اشتراک گذاری"
           }
         },
         "tr" : {
@@ -773,6 +1055,12 @@
             "value" : " コントロールを表示"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نمایش کنترل‌ها"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -799,6 +1087,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "音名を表示"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نمایش حروف نت"
           }
         },
         "tr" : {
@@ -829,6 +1123,12 @@
             "value" : "SonaStroke v1.0"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "سوناستروک"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -855,6 +1155,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "線の太さ"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عرض خط"
           }
         },
         "tr" : {
@@ -885,6 +1191,12 @@
             "value" : "フルートに切り替え"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "به فلوت تغییر دهید"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -911,6 +1223,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ギターに切り替え"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "به گیتار تغییر دهید"
           }
         },
         "tr" : {
@@ -941,6 +1259,12 @@
             "value" : "ピアノに切り替え"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "به پیانو تغییر دهید"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -967,6 +1291,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "サクソフォンに切り替え"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "به ساکسیفون تغییر دهید"
           }
         },
         "tr" : {
@@ -997,6 +1327,12 @@
             "value" : "トランペットに切り替え"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "به ترومپت تغییر دهید"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1023,6 +1359,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "バイオリンに切り替え"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "به ویولن تغییر دهید"
           }
         },
         "tr" : {
@@ -1053,6 +1395,12 @@
             "value" : "システム"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "سیستم"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1079,6 +1427,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "テーマ"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تم"
           }
         },
         "tr" : {
@@ -1109,6 +1463,12 @@
             "value" : "この操作を行うと、描いた絵と音楽の作成が完全に削除されます。この操作は元に戻せません。"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "این عمل نقاشی و خلق موسیقی شما را به طور دائمی حذف خواهد کرد. این اقدام قابل بازگشت نیست."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1135,6 +1495,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "トランペット"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ترامپت"
           }
         },
         "tr" : {
@@ -1165,6 +1531,12 @@
             "value" : "線を元に戻す"
           }
         },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حذف ضربه آخر"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1191,6 +1563,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "バイオリン"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ویالون"
           }
         },
         "tr" : {

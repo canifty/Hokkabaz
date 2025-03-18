@@ -3,7 +3,7 @@ import SwiftUI
 // MARK: - Color Button
 struct ColorButton: View {
     let color: Color
-    let note: String
+    let note: LocalizedStringKey
     let instrument: String
     let isSelected: Bool
     let showNote: Bool

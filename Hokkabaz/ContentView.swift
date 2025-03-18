@@ -261,43 +261,29 @@ struct ContentView: View {
                                 viewModel.currentColorIndex = index
                                 // Short preview of the sound
                                 viewModel.conductor.playInstrument(colorIndex: index)
-                                // Add haptic feedback
-                                let impactLight = UIImpactFeedbackGenerator(style: .light)
-                                impactLight.impactOccurred()
                                 
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                                     viewModel.conductor.stopSound()
                                 }
                             }
                         )
-                        .accessibilityLabel("\(viewModel.colorNames[index]) note")
+                        .accessibilityLabel(String(describing: viewModel.colorNames[index]) + " note")
                         .accessibilityValue("Color: \(viewModel.colors[index].description)")
                         .accessibilityHint("Double tap to select this note and color")
                     }
                 }
-                .padding(.horizontal, 16)
-                .padding(.vertical, 6)
-                .background(
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(.ultraThinMaterial)
-                )
+//                .padding(.horizontal, 16)
+//                .padding(.vertical, 6)
+//                .background(
+//                    RoundedRectangle(cornerRadius: 16)
+//                        .fill(.ultraThinMaterial)
+//                )
             }
             
             // Instruments section - removed header, ScrollView, and picker
             VStack(alignment: .leading, spacing: 8) {
                 // Main instrument buttons in a row - replaced picker with buttons
-                HStack(spacing: 10) {
-//                    InstrumentButton(
-//                        iconName: "waveform",
-//                        instrumentName: "Oscillator", 
-//                        isSelected: viewModel.currentInstrument == "Oscillator",
-//                        action: {
-//                            viewModel.currentInstrument = "Oscillator"
-//                            viewModel.conductor.switchToOscillator()
-//                        }
-//                    )
-//                    .foregroundColor(foregroundStyle)
-//                    .accessibilityLabel("Switch to Oscillator")
+                HStack {
                     
                     InstrumentButton(
                         iconName: "piano1.png",
@@ -372,16 +358,16 @@ struct ContentView: View {
                     .accessibilityLabel("Switch to Trumpet")
                 }
                 .padding(.horizontal, 16)
-                .padding(.vertical, 10)
+                .padding(.vertical)
                 .background(
                     RoundedRectangle(cornerRadius: 16)
                         .fill(.ultraThinMaterial)
                 )
             }
         }
-        .padding(.horizontal, 10)
+        .padding(.horizontal)
         .padding(.vertical, 15)
-        .padding(.top, 10)
+        .padding(.top)
         .frame(width: 680, height: 220, alignment: .bottom)
         .background(
             RoundedRectangle(cornerRadius: 24)
@@ -396,8 +382,8 @@ struct ContentView: View {
                 viewModel.isControlPanelHidden.toggle()
             }
             // Add haptic feedback
-            let generator = UIImpactFeedbackGenerator(style: .light)
-            generator.impactOccurred()
+//            let generator = UIImpactFeedbackGenerator(style: .light)
+//            generator.impactOccurred()
         } label: {
             Capsule()
                 .fill(Color.white.opacity(0.4))
@@ -432,6 +418,11 @@ struct ScalingButtonStyle: ButtonStyle {
 #Preview("Turkish") {
     ContentView()
         .environment(\.locale, Locale(identifier: "TR"))
+}
+
+#Preview("Persian") {
+    ContentView()
+        .environment(\.locale, Locale(identifier: "FA"))
 }
 
 #Preview("Chinese") {
