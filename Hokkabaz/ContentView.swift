@@ -162,13 +162,10 @@ struct ContentView: View {
     }
     
     // MARK: - Component Views
-    private var headerView: some View {
-        HStack {
 
-            
-//            Spacer()
-            //            !!!!!
-            // Reset zoom/pan button
+    private var headerView: some View {
+        
+        HStack {
             
             Button {
                 withAnimation(.spring(response: 0.4)) {
@@ -250,7 +247,9 @@ struct ContentView: View {
                 .fill(Color.primary.opacity(0.05))
                 .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 3)
         )
+        
         .frame(maxWidth: .infinity, alignment: .trailing)
+
     }
     
     private var controlPanel: some View {
@@ -294,7 +293,7 @@ struct ContentView: View {
                 HStack {
                     
                     InstrumentButton(
-                        iconName: "piano1.png",
+                        iconName: "piano.png",
                         instrumentName: "Piano",
                         isSelected: viewModel.currentInstrument == "Piano",
                         action: {
@@ -354,7 +353,7 @@ struct ContentView: View {
                     .accessibilityLabel("Switch to Flute")
                     
                     InstrumentButton(
-                        iconName: "trumpet1.png",
+                        iconName: "trumpet.png",
                         instrumentName: "Trumpet", 
                         isSelected: viewModel.currentInstrument == "Trumpet",
                         action: {

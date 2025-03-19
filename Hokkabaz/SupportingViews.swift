@@ -41,6 +41,7 @@ struct InstrumentButton: View {
     let instrumentName: LocalizedStringResource
     let isSelected: Bool
     let action: () -> Void
+    @Environment(\.colorScheme) private var colorScheme
     
     var body: some View {
         Button(action: action) {
@@ -61,7 +62,12 @@ struct InstrumentButton: View {
                     .fill(isSelected ? Color.gray.opacity(0.3) : Color.black.opacity(0.15))
                     .overlay(
                         RoundedRectangle(cornerRadius: 12)
-                            .stroke(isSelected ? Color.white.opacity(0.6) : Color.clear, lineWidth: 2)
+                            .stroke(
+                                isSelected ? 
+                                    (colorScheme == .light ? Color.black.opacity(0.5) : Color.white.opacity(0.6)) 
+                                    : Color.clear, 
+                                lineWidth: 2
+                            )
                     )
             )
         }
