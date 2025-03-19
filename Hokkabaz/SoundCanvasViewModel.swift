@@ -86,9 +86,6 @@ class SoundCanvasViewModel: ObservableObject {
         currentStroke.append(point)
         startSoundForColor()
         
-        // Add haptic feedback
-//        let impactMed = UIImpactFeedbackGenerator(style: .medium)
-//        impactMed.impactOccurred()
     }
     
     func continueDrawing(at point: CGPoint) {
@@ -145,10 +142,6 @@ class SoundCanvasViewModel: ObservableObject {
     
     func undoLastStroke() {
         guard !strokes.isEmpty else { return }
-        
-        // Add haptic feedback
-//        let generator = UIImpactFeedbackGenerator(style: .medium)
-//        generator.impactOccurred()
         
         // Remove the last stroke
         _ = strokes.popLast()

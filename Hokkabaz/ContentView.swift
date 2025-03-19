@@ -22,7 +22,6 @@ struct ContentView: View {
                 if viewModel.appTheme == .light {
                     Image("canvas")
                         .resizable()
-                        .scaledToFill()
                         .ignoresSafeArea()
                 } else {
                     LinearGradient(
@@ -59,15 +58,15 @@ struct ContentView: View {
                     )
                 
                 // UI Overlay
-                VStack(spacing: 0) {
+                VStack {
                     // Header
                     headerView
-                        .padding(.top, geometry.safeAreaInsets.top > 0 ? 0 : 10)
+//                        .padding(.top, geometry.safeAreaInsets.top > 0 ? 0 : 10)
                     
                     Spacer()
                     
                     // Controls and indicator
-                    VStack(spacing: 0) {
+                    VStack {
                         // Control panel toggle indicator - always visible
                         controlPanelIndicator(safeAreaBottom: geometry.safeAreaInsets.bottom)
                             .offset(y: viewModel.isControlPanelHidden ? 0 : 10) // Move down more to overlap better with panel
@@ -136,12 +135,14 @@ struct ContentView: View {
                 .padding(30)
                 .buttonStyle(ScalingButtonStyle())
             }
+            
             .onChange(of: viewModel.showExportMenu) { _, newValue in
                 if newValue {
                     viewModel.exportImage = viewModel.renderCanvasToImage(size: geometry.size)
                 }
             }
         }
+
         .preferredColorScheme(preferredColorScheme)
 
         .animation(.interactiveSpring(duration: 0.5), value: viewModel.showSettings)
@@ -276,15 +277,15 @@ struct ContentView: View {
                         )
                         .accessibilityLabel(String(describing: viewModel.colorNames[index]) + " note")
                         .accessibilityValue("Color: \(viewModel.colors[index].description)")
-                        .accessibilityHint("Double tap to select this note and color")
+                        .accessibilityHint("Tap to select this note and color")
                     }
                 }
-//                .padding(.horizontal, 16)
-//                .padding(.vertical, 6)
-//                .background(
-//                    RoundedRectangle(cornerRadius: 16)
-//                        .fill(.ultraThinMaterial)
-//                )
+                .padding(.horizontal, 16)
+                .padding(.vertical, 6)
+                .background(
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(.ultraThinMaterial)
+                )
             }
             
             // Instruments section - removed header, ScrollView, and picker
@@ -388,9 +389,6 @@ struct ContentView: View {
             withAnimation(.spring(response: 0.35)) {
                 viewModel.isControlPanelHidden.toggle()
             }
-            // Add haptic feedback
-//            let generator = UIImpactFeedbackGenerator(style: .light)
-//            generator.impactOccurred()
         } label: {
             Capsule()
                 .fill(Color.white.opacity(0.4))

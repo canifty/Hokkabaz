@@ -842,6 +842,7 @@
       }
     },
     "Double tap to select this note and color" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -2456,6 +2457,9 @@
           }
         }
       }
+    },
+    "Tap to select this note and color" : {
+
     },
     "Theme" : {
       "localizations" : {
