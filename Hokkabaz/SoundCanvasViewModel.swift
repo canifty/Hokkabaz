@@ -27,7 +27,7 @@ class SoundCanvasViewModel: ObservableObject {
     @Published var strokeWidthMultiplier: CGFloat = 1.0
     
     // Theme
-    @Published var appTheme: AppTheme = .dark
+    @Published var appTheme: AppTheme = .light
     
     // Colors and notes
     let colors: [Color] = [.red, .orange, .yellow, .green, .blue, .purple, .pink]
@@ -170,9 +170,22 @@ class SoundCanvasViewModel: ObservableObject {
         
         return renderer.image { context in
             // Draw background
-            let backgroundPath = UIBezierPath(rect: CGRect(origin: .zero, size: size))
-            UIColor(backgroundColors[0]).setFill()
-            backgroundPath.fill()
+            if appTheme == .light {
+                // Use paper background for light theme
+                if let paperImage = UIImage(named: "paper") {
+                    paperImage.draw(in: CGRect(origin: .zero, size: size))
+                } else {
+                    // Fallback if image is not found
+                    let backgroundPath = UIBezierPath(rect: CGRect(origin: .zero, size: size))
+                    UIColor(backgroundColors[0]).setFill()
+                    backgroundPath.fill()
+                }
+            } else {
+                // Use color background for other themes
+                let backgroundPath = UIBezierPath(rect: CGRect(origin: .zero, size: size))
+                UIColor(backgroundColors[0]).setFill()
+                backgroundPath.fill()
+            }
             
             // Draw strokes
             for stroke in strokes {

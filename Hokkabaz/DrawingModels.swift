@@ -39,8 +39,8 @@ enum AppTheme: String, CaseIterable, Identifiable {
     var title: LocalizedStringResource {
         switch self {
         case .system: return "System"
-        case .light: return "Light"
-        case .dark: return "Dark"
+        case .light: return "Canvas"
+        case .dark: return "Night"
         case .colorful: return "Colorful"
         }
     }

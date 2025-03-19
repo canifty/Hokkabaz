@@ -213,6 +213,9 @@
         }
       }
     },
+    "Canvas" : {
+
+    },
     "Clear All" : {
       "localizations" : {
         "ar" : {
@@ -685,6 +688,7 @@
       }
     },
     "Dark" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1312,6 +1316,7 @@
       }
     },
     "Light" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1362,6 +1367,9 @@
           }
         }
       }
+    },
+    "Night" : {
+
     },
     "Open settings" : {
       "localizations" : {

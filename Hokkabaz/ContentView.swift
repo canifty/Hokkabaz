@@ -19,12 +19,19 @@ struct ContentView: View {
         GeometryReader { geometry in
             ZStack {
                 // Background
-                LinearGradient(
-                    gradient: Gradient(colors: viewModel.backgroundColors),
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
-                .ignoresSafeArea()
+                if viewModel.appTheme == .light {
+                    Image("canvas")
+                        .resizable()
+                        .scaledToFill()
+                        .ignoresSafeArea()
+                } else {
+                    LinearGradient(
+                        gradient: Gradient(colors: viewModel.backgroundColors),
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                    .ignoresSafeArea()
+                }
                 
                 // Canvas with zoom and pan
                 CanvasView(viewModel: viewModel, size: geometry.size)
@@ -159,7 +166,7 @@ struct ContentView: View {
         HStack {
 
             
-            Spacer()
+//            Spacer()
             //            !!!!!
             // Reset zoom/pan button
             
@@ -243,6 +250,7 @@ struct ContentView: View {
                 .fill(Color.primary.opacity(0.05))
                 .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 3)
         )
+        .frame(maxWidth: .infinity, alignment: .trailing)
     }
     
     private var controlPanel: some View {
