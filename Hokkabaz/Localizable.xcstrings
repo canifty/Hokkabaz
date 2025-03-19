@@ -214,7 +214,56 @@
       }
     },
     "Canvas" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "قماش"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lienzo"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بوم"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tela"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャンバス"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tela"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tuval"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "帆布"
+          }
+        }
+      }
     },
     "Clear All" : {
       "localizations" : {
@@ -251,7 +300,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : " Limpar tudo"
+            "value" : "Limpar tudo"
           }
         },
         "tr" : {
@@ -461,7 +510,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "  Fechar painel de exportação"
+            "value" : " Fechar painel de exportação"
           }
         },
         "tr" : {
@@ -1141,7 +1190,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : " Flauta"
+            "value" : "Flauta"
           }
         },
         "tr" : {
@@ -1327,7 +1376,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "claro"
+            "value" : "Claro"
           }
         },
         "fa" : {
@@ -1351,7 +1400,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : " claro"
+            "value" : "Claro"
           }
         },
         "tr" : {
@@ -1369,7 +1418,56 @@
       }
     },
     "Night" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ليلة"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Noche"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "شب"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notte"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "夜"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Noite"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gece"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "夜晚"
+          }
+        }
+      }
     },
     "Open settings" : {
       "localizations" : {
@@ -1562,7 +1660,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : " Repetir desenho"
+            "value" : "Repetir desenho"
           }
         },
         "tr" : {
@@ -1822,7 +1920,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : " Mostrar controles"
+            "value" : "Mostrar controles"
           }
         },
         "tr" : {
