@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     // MARK: Properties
+    @State private var isOnboardingPresented: Bool = !UserDefaults.standard.bool(forKey: "hasSeenOnboarding")
     @StateObject private var viewModel = SoundCanvasViewModel()
     @Environment(\.colorScheme) private var colorScheme
     
@@ -141,7 +142,9 @@ struct ContentView: View {
                 }
             }
         }
-
+        .sheet(isPresented: $isOnboardingPresented) {
+            OnboardingModalView(isPresented: $isOnboardingPresented)
+        }
         .preferredColorScheme(preferredColorScheme)
 
         .animation(.interactiveSpring(duration: 0.5), value: viewModel.showSettings)
