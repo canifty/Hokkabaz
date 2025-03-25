@@ -61,7 +61,6 @@ struct ContentView: View {
                 VStack {
                     // Header
                     headerView
-//                        .padding(.top, geometry.safeAreaInsets.top > 0 ? 0 : 10)
                     
                     Spacer()
                     
@@ -69,7 +68,7 @@ struct ContentView: View {
                     VStack {
                         // Control panel toggle indicator - always visible
                         controlPanelIndicator(safeAreaBottom: geometry.safeAreaInsets.bottom)
-                            .offset(y: viewModel.isControlPanelHidden ? 0 : 10) // Move down more to overlap better with panel
+                            .offset(y: viewModel.isControlPanelHidden ? 0 : 15) // Move down more to overlap better with panel
                             .zIndex(1) // Keep on top
                         
                         // Controls - can be hidden
@@ -77,7 +76,7 @@ struct ContentView: View {
                             controlPanel
                                 .padding(.top, -5) // Increase negative padding to create more overlap
                                 .padding(.bottom, geometry.safeAreaInsets.bottom > 0 ? 5 : 20)
-                                .transition(.move(edge: .bottom).combined(with: .opacity))  
+                                .transition(.move(edge: .bottom).combined(with: .opacity))
                         }
                     }
                     .animation(.spring(response: 0.35), value: viewModel.isControlPanelHidden)
@@ -318,7 +317,7 @@ struct ContentView: View {
                     .accessibilityLabel("Switch to Guitar")
                 
                     InstrumentButton(
-                        iconName: "saxaphone.png",
+                        iconName: "saks",
                         instrumentName: "Saxophone",
                         isSelected: viewModel.currentInstrument == "Saxophone",
                         action: {

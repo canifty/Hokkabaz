@@ -54,7 +54,7 @@ struct InstrumentButton: View {
                 Text(instrumentName)
                     .font(.caption)
             }
-            .frame(minWidth: 70)
+            .frame(minWidth: 70, minHeight: 50)
             .padding(.vertical, 8)
             .padding(.horizontal, 12)
             .background(
