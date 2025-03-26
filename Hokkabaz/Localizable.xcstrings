@@ -7,7 +7,7 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ملاحظة"
+            "value" : "%@ ملاحظة"
           }
         },
         "es" : {
@@ -584,7 +584,7 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "لون"
+            "value" : "%@ لون "
           }
         },
         "es" : {
@@ -2389,7 +2389,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : " Mudar para violino"
+            "value" : "Mudar para violino"
           }
         },
         "tr" : {
@@ -2459,7 +2459,56 @@
       }
     },
     "Tap to select this note and color" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "انقر لتحديد هذه الملاحظة واللون"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toque para seleccionar esta nota y color"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "برای انتخاب این یادداشت و رنگ ضربه بزنید"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tocca per selezionare questa nota e colore"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このメモと色を選択するにはタップしてください"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toque para selecionar esta nota e cor"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu notayı ve rengi seçmek için tıklayın"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击选择此注释和颜色"
+          }
+        }
+      }
     },
     "Theme" : {
       "localizations" : {
