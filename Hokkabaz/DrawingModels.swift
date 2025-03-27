@@ -32,15 +32,15 @@ struct ColorNote {
 
 // App theme enum
 enum AppTheme: String, CaseIterable, Identifiable {
-    case system, light, dark, colorful
+    case system, canvas, night, colorful
     var id: Self { self }
     
 //    var title: String {
     var title: LocalizedStringResource {
         switch self {
         case .system: return "System"
-        case .light: return "Canvas"
-        case .dark: return "Night"
+        case .canvas: return "Canvas"
+        case .night: return "Night"
         case .colorful: return "Colorful"
         }
     }

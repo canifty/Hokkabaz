@@ -7,8 +7,8 @@ struct SettingsView: View {
     
     var foregroundStyle: Color {
         switch viewModel.appTheme {
-        case .light: return .black
-        case .dark: return .white
+        case .canvas: return .black
+        case .night: return .white
         case .colorful: return .white
         case .system: return colorScheme == .dark ? .white : .black
         }
