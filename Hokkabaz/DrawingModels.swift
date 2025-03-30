@@ -16,12 +16,13 @@ struct Stroke: Identifiable {
 // Color Note mapping used in the app
 struct ColorNote {
     let color: Color
-    let noteName: LocalizedStringKey
+//    let noteName: LocalizedStringKey
+    let noteName: String
     let instrument: String
     let midiNote: Int
     let frequency: Double
     
-    init(color: Color, noteName: LocalizedStringKey, instrument: String, midiNote: Int, frequency: Double) {
+    init(color: Color, noteName: String, instrument: String, midiNote: Int, frequency: Double) {
         self.color = color
         self.noteName = noteName
         self.instrument = instrument

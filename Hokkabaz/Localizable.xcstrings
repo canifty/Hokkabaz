@@ -56,6 +56,7 @@
     },
     "A" : {
       "comment" : "A-La",
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -109,6 +110,7 @@
     },
     "B" : {
       "comment" : "B-Si",
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -162,6 +164,7 @@
     },
     "C" : {
       "comment" : "C-Do",
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -685,6 +688,7 @@
     },
     "D" : {
       "comment" : "D-Re",
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1000,6 +1004,7 @@
     },
     "E" : {
       "comment" : "E-Mi",
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1105,6 +1110,7 @@
     },
     "F" : {
       "comment" : "F-Fa",
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1157,6 +1163,7 @@
       }
     },
     "Flute" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1210,6 +1217,7 @@
     },
     "G" : {
       "comment" : "G-Sol",
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1262,6 +1270,7 @@
       }
     },
     "Guitar" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1523,6 +1532,7 @@
       }
     },
     "Piano" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1731,6 +1741,7 @@
       }
     },
     "Saxophone" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -2615,6 +2626,7 @@
       }
     },
     "Trumpet" : {
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -2719,6 +2731,7 @@
       }
     },
     "Violin" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {

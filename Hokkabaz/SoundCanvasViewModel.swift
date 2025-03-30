@@ -31,7 +31,8 @@ class SoundCanvasViewModel: ObservableObject {
     
     // Colors and notes
     let colors: [Color] = [.red, .orange, .yellow, .green, .blue, .purple, Color(red: 255/255, green: 105/255, blue: 180/255)]
-    let colorNames: [LocalizedStringKey] = ["C", "D", "E", "F", "G", "A", "B"]
+//    let colorNames: [LocalizedStringKey] = ["C", "D", "E", "F", "G", "A", "B"]
+    let colorNames: [String] = ["C", "D", "E", "F", "G", "A", "B"]
     let instrumentNames: [String] = ["Piano", "Guitar", "Flute", "Violin", "Trumpet", "Harp", "Cello"]
     
     // Track instrument changes
