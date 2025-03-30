@@ -2042,6 +2042,12 @@
         }
       }
     },
+    "Stop" : {
+
+    },
+    "Stop playback" : {
+
+    },
     "Stroke Width" : {
       "localizations" : {
         "ar" : {

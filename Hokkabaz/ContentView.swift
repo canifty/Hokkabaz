@@ -7,8 +7,8 @@ struct ContentView: View {
     
     var foregroundStyle: Color {
         switch viewModel.appTheme {
-        case .light: return .black
-        case .dark: return .white
+        case .canvas: return .black
+        case .night: return .white
         case .colorful: return .white
         case .system: return colorScheme == .dark ? .white : .black
         }
@@ -19,7 +19,7 @@ struct ContentView: View {
         GeometryReader { geometry in
             ZStack {
                 // Background
-                if viewModel.appTheme == .light {
+                if viewModel.appTheme == .canvas {
                     Image("canvas")
                         .resizable()
                         .ignoresSafeArea()
@@ -217,8 +217,8 @@ struct ContentView: View {
     var preferredColorScheme: ColorScheme? {
         switch viewModel.appTheme {
         case .system: return nil
-        case .light: return .light
-        case .dark: return .dark
+        case .canvas: return .light
+        case .night: return .dark
         case .colorful: return .dark
         }
     }

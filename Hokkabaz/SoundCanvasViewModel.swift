@@ -27,7 +27,7 @@ class SoundCanvasViewModel: ObservableObject {
     @Published var strokeWidthMultiplier: CGFloat = 1.0
     
     // Theme
-    @Published var appTheme: AppTheme = .light
+    @Published var appTheme: AppTheme = .canvas
     
     // Colors and notes
     let colors: [Color] = [.red, .orange, .yellow, .green, .blue, .purple, .pink]
@@ -62,9 +62,9 @@ class SoundCanvasViewModel: ObservableObject {
     
     var backgroundColors: [Color] {
         switch appTheme {
-        case .light:
+        case .canvas:
             return [Color(white: 0.9), Color(white: 0.95)]
-        case .dark:
+        case .night:
             return [Color.black.opacity(0.8), Color(red: 0.1, green: 0.1, blue: 0.3)]
         case .colorful:
             return [Color.purple.opacity(0.7), Color.blue.opacity(0.5)]
@@ -260,9 +260,9 @@ class SoundCanvasViewModel: ObservableObject {
         
         return renderer.image { context in
             // Draw background
-            if appTheme == .light {
-                // Use paper background for light theme
-                if let paperImage = UIImage(named: "paper") {
+            if appTheme == .canvas {
+                // Use paper background for canvas theme
+                if let paperImage = UIImage(named: "canvas") {
                     paperImage.draw(in: CGRect(origin: .zero, size: size))
                 } else {
                     // Fallback if image is not found
