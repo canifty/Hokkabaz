@@ -18,9 +18,6 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-//                Button("stop") {
-//                    stopSound()
-//                }
                 // Background
                 if viewModel.appTheme == .canvas {
                     Image("canvas")
@@ -108,62 +105,33 @@ struct ContentView: View {
                     .zIndex(3)
                 }
                 
-                    // if viewModel.showPlaybackControls {                 
-                            Button {
-                                viewModel.stopReplay()
-                            } label: {
-                                HStack(spacing: 8) {
-                                    Image(systemName: "stop.circle.fill")
-                                        .font(.system(size: 22, weight: .semibold))
-                                    Text("Stop")
-                                        .font(.system(size: 16, weight: .medium, design: .rounded))
-                                }
-                                .padding(.vertical, 12)
-                                .padding(.horizontal, 18)
-                                .background(
-                                    Capsule()
-                                        .fill(.ultraThinMaterial)
-                                        .shadow(color: Color.black.opacity(0.25), radius: 8, x: 0, y: 4)
-                                )
-                                .overlay(
-                                    Capsule()
-                                        .stroke(Color.white.opacity(0.3), lineWidth: 1)
-                                )
-                            }
-                            .accessibilityLabel("Stop playback")
-                            .buttonStyle(ScalingButtonStyle())
-                        }
-                        .padding()
-                        // .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
-                        .padding(30)
-                    // } else {
-                        // Pulsante Play originale (visibile solo quando non c'è riproduzione)
-                        Button {
-                            viewModel.replayStrokes()
-                        } label: {
-                            HStack(spacing: 8) {
-                                Image(systemName: "play.circle.fill")
-                                    .font(.system(size: 22, weight: .semibold))
-                                Text("Replay")
-                                    .font(.system(size: 16, weight: .medium, design: .rounded))
-                            }
-                            .padding(.vertical, 12)
-                            .padding(.horizontal, 18)
-                            .background(
-                                Capsule()
-                                    .fill(.ultraThinMaterial)
-                                    .shadow(color: Color.black.opacity(0.25), radius: 8, x: 0, y: 4)
-                            )
-                            .overlay(
-                                Capsule()
-                                    .stroke(Color.white.opacity(0.3), lineWidth: 1)
-                            )
-                        }
-                        .accessibilityLabel("Replay Drawing")
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
-                        .padding(30)
-                        .buttonStyle(ScalingButtonStyle())
-                    // }
+                
+                Button {
+                    viewModel.showPlaybackControls ? viewModel.stopReplay() : viewModel.replayStrokes()
+                } label: {
+                    HStack(spacing: 8) {
+                        Image(systemName: viewModel.showPlaybackControls ? "stop.circle.fill" : "play.circle.fill")
+                            .font(.system(size: 22, weight: .semibold))
+                        Text(viewModel.showPlaybackControls ? "Stop" : "Replay")
+                            .font(.system(size: 16, weight: .medium, design: .rounded))
+                    }
+                    .padding(.vertical, 12)
+                    .padding(.horizontal, 18)
+                    .background(
+                        Capsule()
+                            .fill(.ultraThinMaterial)
+                            .shadow(color: Color.black.opacity(0.25), radius: 8, x: 0, y: 4)
+                    )
+                    .overlay(
+                        Capsule()
+                            .stroke(Color.white.opacity(0.3), lineWidth: 1)
+                    )
+                }
+                .accessibilityLabel(viewModel.showPlaybackControls ? "Stop playback" : "Replay Drawing")
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+                .padding( 30)
+                .buttonStyle(ScalingButtonStyle())
+
             }
             
             .onChange(of: viewModel.showExportMenu) { _, newValue in
@@ -385,7 +353,7 @@ struct ContentView: View {
                     
                     InstrumentButton(
                         iconName: "trumpet.png",
-                        instrumentName: "Trumpet", 
+                        instrumentName: "Trumpet",
                         isSelected: viewModel.currentInstrument == "Trumpet",
                         action: {
                             viewModel.currentInstrument = "Trumpet"
@@ -444,7 +412,7 @@ struct ScalingButtonStyle: ButtonStyle {
             .brightness(configuration.isPressed ? 0.05 : 0)
             .animation(.spring(response: 0.3, dampingFraction: 0.6), value: configuration.isPressed)
     }
-} 
+}
 
 #Preview("English") {
     ContentView()
@@ -489,4 +457,3 @@ struct ScalingButtonStyle: ButtonStyle {
     ContentView()
         .environment(\.locale, Locale(identifier: "PT"))
 }
-

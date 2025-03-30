@@ -3,8 +3,8 @@ import SwiftUI
 // MARK: - Color Button
 struct ColorButton: View {
     let color: Color
-//    let note: LocalizedStringKey
-    let note: String
+    let note: LocalizedStringKey
+//    let note: String
     let instrument: String
     let isSelected: Bool
     let showNote: Bool
@@ -39,8 +39,8 @@ struct ColorButton: View {
 // MARK: - Instrument Button
 struct InstrumentButton: View {
     let iconName: String
-//    let instrumentName: LocalizedStringKey
-    let instrumentName: String
+    let instrumentName: LocalizedStringKey
+//    let instrumentName: String
     let isSelected: Bool
     let action: () -> Void
     @Environment(\.colorScheme) private var colorScheme

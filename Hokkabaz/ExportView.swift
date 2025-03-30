@@ -35,23 +35,7 @@ struct ExportView: View {
             
             // Export options
             HStack(spacing: 15) {
-                Button {
-                    let shareActivity = UIActivityViewController(
-                        activityItems: [image],
-                        applicationActivities: nil
-                    )
-                    
-                    // Find the active UIWindow to present from
-                    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                       let window = windowScene.windows.first {
-                        window.rootViewController?.present(shareActivity, animated: true)
-                    }
-                    
-                    // Close menu after a short delay
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        closeAction()
-                    }
-                } label: {
+                ShareLink(item: Image(uiImage: image), preview: SharePreview("My Drawing", image: Image(uiImage: image))) {
                     Label("Share", systemImage: "square.and.arrow.up")
                         .font(.headline)
                         .foregroundColor(.white)
@@ -60,6 +44,12 @@ struct ExportView: View {
                         .background(Color.blue)
                         .cornerRadius(12)
                 }
+                .simultaneousGesture(TapGesture().onEnded {
+                    // Close menu after a short delay
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//                        closeAction()
+//                    }
+                })
                 
                 Button {
                     UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
@@ -90,4 +80,4 @@ struct ExportView: View {
         .padding(.bottom, 20)
         .frame(maxHeight: .infinity, alignment: .bottom)
     }
-} 
+}

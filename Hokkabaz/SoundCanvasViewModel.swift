@@ -31,8 +31,8 @@ class SoundCanvasViewModel: ObservableObject {
     
     // Colors and notes
     let colors: [Color] = [.red, .orange, .yellow, .green, .blue, .purple, Color(red: 255/255, green: 105/255, blue: 180/255)]
-//    let colorNames: [LocalizedStringKey] = ["C", "D", "E", "F", "G", "A", "B"]
-    let colorNames: [String] = ["C", "D", "E", "F", "G", "A", "B"]
+    let colorNames: [LocalizedStringKey] = ["C", "D", "E", "F", "G", "A", "B"]
+//    let colorNames: [String] = ["C", "D", "E", "F", "G", "A", "B"]
     let instrumentNames: [String] = ["Piano", "Guitar", "Flute", "Violin", "Trumpet", "Harp", "Cello"]
     
     // Track instrument changes
@@ -87,7 +87,6 @@ class SoundCanvasViewModel: ObservableObject {
         }
     }
     
-//    Array<Color>.Element, Array<LocalizedStringKey>.Element
     
     // MARK: - Functions
     
@@ -174,59 +173,6 @@ class SoundCanvasViewModel: ObservableObject {
         showPlaybackControls = false
     }
     
-    func pauseReplay() {
-        isPaused = true
-        replayTimer?.invalidate()
-        replayTimer = nil
-        conductor.stopSound()
-    }
-    
-    func resumeReplay() {
-        // Riprendiamo da dove eravamo, con lo stesso stroke attivo
-        guard !strokes.isEmpty, isPaused, let activeId = activeStrokeId else { return }
-        
-        // Troviamo l'indice dello stroke corrente per riprendere da lì
-        let currentIndex = strokes.firstIndex { $0.id == activeId } ?? 0
-        let timeInterval = 0.5 // Velocità fissa
-        
-        isPaused = false
-        
-        // Riavvia il timer dall'indice corrente + 1
-        var index = currentIndex + 1
-        replayTimer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) { [weak self] timer in
-            guard let self = self else {
-                timer.invalidate()
-                return
-            }
-            
-            if index < self.strokes.count {
-                let stroke = self.strokes[index]
-                self.activeStrokeId = stroke.id
-                
-                let colorIndex = self.colors.firstIndex(of: stroke.color) ?? 0
-                self.conductor.playInstrument(colorIndex: colorIndex)
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    self.conductor.stopSound()
-                }
-                
-                index += 1
-            } else {
-                // Finita la riproduzione
-                self.activeStrokeId = nil
-                self.isReplaying = false
-                self.isPaused = false
-                self.showPlaybackControls = false
-                timer.invalidate()
-                self.replayTimer = nil
-            }
-        }
-    }
-    
-    func restartReplay() {
-        stopReplay()
-        replayStrokes()
-    }
     
     func clearCanvas() {
 //        let generator = UIImpactFeedbackGenerator(style: .medium)
