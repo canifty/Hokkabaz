@@ -37,10 +37,60 @@ struct ColorButton: View {
 }
 
 // MARK: - Instrument Button
+// Create two versions of InstrumentButton
+
+// Version for iPhone (without instrument name)
+//struct InstrumentButtonWithoutName: View {
+//    let iconName: String
+//    let isSelected: Bool
+//    let action: () -> Void
+//    @Environment(\.colorScheme) private var colorScheme
+//    
+//    init(iconName: String, isSelected: Bool, action: @escaping () -> Void) {
+//        self.iconName = iconName
+//        self.isSelected = isSelected
+//        self.action = action
+//    }
+//    
+//    var body: some View {
+//        Button(action: action) {
+//            Image(iconName)
+//                .resizable()
+//                .scaledToFit()
+//                .frame(width: 62, height: 62)
+//                .border(.red)
+//                .font(.system(size: 18, weight: .semibold))
+//                .frame(minWidth: 30, minHeight: 20)
+//                .padding(.vertical, 8)
+//                .padding(.horizontal, 12)
+//                .background(
+//                    RoundedRectangle(cornerRadius: 12)
+//                        .fill(isSelected ? Color.gray.opacity(0.3) : Color.black.opacity(0.15))
+//                        .overlay(
+//                            RoundedRectangle(cornerRadius: 12)
+//                                .stroke(
+//                                    isSelected ?
+//                                        (colorScheme == .light ? Color.black.opacity(0.5) : Color.white.opacity(0.6))
+//                                        : Color.clear,
+//                                    lineWidth: 2
+//                                )
+//                        )
+//                )
+//        }
+//        .scaleEffect(isSelected ? 1.08 : 1.0)
+//        .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isSelected)
+//    }
+//}
+//#Preview {
+//    InstrumentButtonWithoutName(iconName: "piano.png", isSelected: true, action: {
+//        print("Piano button tapped")
+//    })
+//}
+
+// Version for ipad (with instrument name)
 struct InstrumentButton: View {
     let iconName: String
-    let instrumentName: LocalizedStringKey
-//    let instrumentName: String
+    let instrumentName: String
     let isSelected: Bool
     let action: () -> Void
     @Environment(\.colorScheme) private var colorScheme
@@ -51,7 +101,7 @@ struct InstrumentButton: View {
                 Image(iconName)
                     .resizable()
                     .scaledToFit()
-//                    .frame(width: 32, height: 32)
+                    .frame(width: 32, height: 32)
                     .font(.system(size: 18, weight: .semibold))
                 Text(instrumentName)
                     .font(.caption)
@@ -65,9 +115,9 @@ struct InstrumentButton: View {
                     .overlay(
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(
-                                isSelected ? 
-                                    (colorScheme == .light ? Color.black.opacity(0.5) : Color.white.opacity(0.6)) 
-                                    : Color.clear, 
+                                isSelected ?
+                                    (colorScheme == .light ? Color.black.opacity(0.5) : Color.white.opacity(0.6))
+                                    : Color.clear,
                                 lineWidth: 2
                             )
                     )
@@ -78,3 +128,13 @@ struct InstrumentButton: View {
     }
 }
 
+// MARK: - Scaling Button Style
+
+struct ScalingButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.92 : 1)
+            .brightness(configuration.isPressed ? 0.05 : 0)
+            .animation(.spring(response: 0.3, dampingFraction: 0.6), value: configuration.isPressed)
+    }
+}

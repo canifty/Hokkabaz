@@ -98,6 +98,16 @@ struct SettingsView: View {
                 .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 0)
         )
         .frame(maxWidth: .infinity, alignment: .trailing)
-        .padding(.trailing, 20)
+//        .frame(width: 300, height: 350, alignment: .trailing)
+//        .padding(.trailing, 20)
+//        .padding(.vertical, 20)
+        
     }
-} 
+}
+
+#Preview {
+    SettingsView(
+        viewModel: SoundCanvasViewModel(),
+        closeAction: {}
+    )
+}

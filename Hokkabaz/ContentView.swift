@@ -404,15 +404,6 @@ struct ContentView: View {
     }
 }
 
-// Add this custom button style to the ContentView struct (outside the body but inside ContentView)
-struct ScalingButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .scaleEffect(configuration.isPressed ? 0.92 : 1)
-            .brightness(configuration.isPressed ? 0.05 : 0)
-            .animation(.spring(response: 0.3, dampingFraction: 0.6), value: configuration.isPressed)
-    }
-}
 
 #Preview("English") {
     ContentView()
@@ -445,7 +436,7 @@ struct ScalingButtonStyle: ButtonStyle {
 
 #Preview("Spanish") {
     ContentView()
-        .environment(\.locale, Locale(identifier: "SP"))
+        .environment(\.locale, Locale(identifier: "ES"))
 }
 
 #Preview("Arabic") {

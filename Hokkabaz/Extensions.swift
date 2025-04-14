@@ -19,4 +19,5 @@ struct PressableButtonStyle: ButtonStyle {
             .opacity(configuration.isPressed ? 0.9 : 1)
             .animation(.easeInOut(duration: 0.1), value: configuration.isPressed)
     }
-} 
+}
+

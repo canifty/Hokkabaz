@@ -1157,6 +1157,7 @@
       }
     },
     "Flute" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1262,6 +1263,7 @@
       }
     },
     "Guitar" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1575,6 +1577,7 @@
       }
     },
     "Piano" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1783,6 +1786,7 @@
       }
     },
     "Saxophone" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -2876,6 +2880,7 @@
       }
     },
     "Violin" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
