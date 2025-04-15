@@ -57,277 +57,114 @@ struct Phone2: View {
                                 viewModel.endDrawing()
                             }
                     )
-                
-                /*
-                 hstack {
-                 chevron
-                 
-                 vstack {
-                 header
-                 
-                 hstack {
-                 color button
-                 play button
-                 }
-                 
-                 }
-                 
-                 }
-                 */
-                HStack {
-                    VStack {
-                        if showInstruments {
-                            VStack {
-                                InstrumentButtonWithoutName(
-                                    iconName: "piano.png",
-                                    isSelected: viewModel.currentInstrument == "Piano",
-                                    action: {
+                // 1. Top-right: headerView
+                VStack {
+                    HStack {
+                        Spacer()
+                        headerView
+                    }
+                    Spacer()
+                }
+                .padding()
+
+                // 2. Bottom-left: instrument button panel
+                VStack {
+                    Spacer()
+                    HStack {
+                        VStack {
+                            if showInstruments {
+                                VStack {
+                                    InstrumentButtonWithoutName(iconName: "piano.png", isSelected: viewModel.currentInstrument == "Piano") {
                                         viewModel.currentInstrument = "Piano"
                                         viewModel.conductor.loadPianoPreset()
                                     }
-                                )
-                                
-                                InstrumentButtonWithoutName(
-                                    iconName: "guitar.png",
-                                    isSelected: viewModel.currentInstrument == "Guitar",
-                                    action: {
+                                    InstrumentButtonWithoutName(iconName: "guitar.png", isSelected: viewModel.currentInstrument == "Guitar") {
                                         viewModel.currentInstrument = "Guitar"
                                         viewModel.conductor.loadGuitarPreset()
                                     }
-                                )
-                                
-                                InstrumentButtonWithoutName(
-                                    iconName: "saks",
-                                    isSelected: viewModel.currentInstrument == "Saxophone",
-                                    action: {
+                                    InstrumentButtonWithoutName(iconName: "saks", isSelected: viewModel.currentInstrument == "Saxophone") {
                                         viewModel.currentInstrument = "Saxophone"
                                         viewModel.conductor.loadSaxophonePreset()
                                     }
-                                )
-                                
-                                InstrumentButtonWithoutName(
-                                    iconName: "violin.png",
-                                    isSelected: viewModel.currentInstrument == "Violin",
-                                    action: {
+                                    InstrumentButtonWithoutName(iconName: "violin.png", isSelected: viewModel.currentInstrument == "Violin") {
                                         viewModel.currentInstrument = "Violin"
                                         viewModel.conductor.loadViolinPreset()
                                     }
-                                )
-                                
-                                InstrumentButtonWithoutName(
-                                    iconName: "flute.png",
-                                    isSelected: viewModel.currentInstrument == "Flute",
-                                    action: {
+                                    InstrumentButtonWithoutName(iconName: "flute.png", isSelected: viewModel.currentInstrument == "Flute") {
                                         viewModel.currentInstrument = "Flute"
                                         viewModel.conductor.loadFlutePreset()
                                     }
-                                )
-                                
-                                InstrumentButtonWithoutName(
-                                    iconName: "trumpet.png",
-                                    isSelected: viewModel.currentInstrument == "Trumpet",
-                                    action: {
+                                    InstrumentButtonWithoutName(iconName: "trumpet.png", isSelected: viewModel.currentInstrument == "Trumpet") {
                                         viewModel.currentInstrument = "Trumpet"
                                         viewModel.conductor.loadTrumpetPreset()
                                     }
-                                )
+                                }
+                                .padding(.vertical, 12)
                             }
-                            .padding(.vertical, 12)
-                        }
-                        Button {
-                            withAnimation(.spring()) {
-                                showInstruments.toggle()
-                            }
-                        } label: {
-                            Image(systemName: showInstruments ? "chevron.down.circle.fill" : "chevron.up.circle.fill")
-                                .font(.system(size: 22, weight: .semibold))
-                            //                             padding for chevron
-                                .padding( 12)
-                            //  .padding(.horizontal, 12)
-                        }
-                        .accessibilityLabel(showInstruments ? "Hide instruments" : "Show instruments")
-                        .buttonStyle(ScalingButtonStyle())
-                    }
-                    //                    padding for VStack
-                    .padding(.horizontal, 12)
-                    .background(
-                        Capsule()
-                            .fill(.ultraThinMaterial)
-                            .shadow(radius: 5)
-                    )
-                    .overlay(
-                        Capsule()
-                            .stroke(Color.white.opacity(0.3), lineWidth: 1)
-                    )
-                    
-                    .frame(width: 75, height: 350, alignment: .bottomLeading)
-                    // .border(.red)
-                    
-                    
-                    VStack {
-                        headerView
-                        // .offset(y: 10)
-                        Spacer()
-                        HStack {
-                            // Spacer()
-                            Spacer()
-                            colorPanel
-                            // .border(.red)
-                            Spacer()
-                            
+
                             Button {
-                                viewModel.showPlaybackControls ? viewModel.stopReplay() : viewModel.replayStrokes()
+                                withAnimation(.spring()) {
+                                    showInstruments.toggle()
+                                }
                             } label: {
-                                Image(systemName: viewModel.showPlaybackControls ? "stop.circle.fill" : "play.circle.fill")
+                                Image(systemName: showInstruments ? "chevron.down.circle.fill" : "chevron.up.circle.fill")
                                     .font(.system(size: 22, weight: .semibold))
                                     .padding(.vertical, 12)
-                                    .padding(.horizontal, 18)
-                                    .background(
-                                        Capsule()
-                                            .fill(.ultraThinMaterial)
-                                            .shadow(color: Color.black.opacity(0.25), radius: 8, x: 0, y: 4)
-                                    )
-                                    .overlay(
-                                        Capsule()
-                                            .stroke(Color.white.opacity(0.3), lineWidth: 1)
-                                    )
+                                    .padding(.horizontal, 12)
                             }
-                            .accessibilityLabel(viewModel.showPlaybackControls ? "Stop playback" : "Replay Drawing")
-                            .padding(30)
-                            .buttonStyle(ScalingButtonStyle())
-                            .frame(width: 75, height: 75)
-                            //                                                        .border(.red)
                         }
+                        .buttonStyle(ScalingButtonStyle())
+                        .padding(.horizontal, 12)
+                        .background(Capsule().fill(.ultraThinMaterial).shadow(radius: 5))
+                        .overlay(Capsule().stroke(Color.white.opacity(0.3), lineWidth: 1))
+                        .frame(width: 75, height: 350, alignment: .bottomLeading)
+                        
+                        Spacer()
+
                     }
                 }
-                //                                .border(.red)
-                
-                
-                
-                //                VStack {
-                //
-                //                    headerView
-                //                        .padding(.top)
-                //
-                //                    Spacer()
-                //
-                //                    HStack {
-                //                        VStack {
-                //                            VStack {
-                //                                if showInstruments {
-                //                                    VStack {
-                //                                        InstrumentButtonWithoutName(
-                //                                            iconName: "piano.png",
-                //                                            isSelected: viewModel.currentInstrument == "Piano",
-                //                                            action: {
-                //                                                viewModel.currentInstrument = "Piano"
-                //                                                viewModel.conductor.loadPianoPreset()
-                //                                            }
-                //                                        )
-                //
-                //                                        InstrumentButtonWithoutName(
-                //                                            iconName: "guitar.png",
-                //                                            isSelected: viewModel.currentInstrument == "Guitar",
-                //                                            action: {
-                //                                                viewModel.currentInstrument = "Guitar"
-                //                                                viewModel.conductor.loadGuitarPreset()
-                //                                            }
-                //                                        )
-                //
-                //                                        InstrumentButtonWithoutName(
-                //                                            iconName: "saks",
-                //                                            isSelected: viewModel.currentInstrument == "Saxophone",
-                //                                            action: {
-                //                                                viewModel.currentInstrument = "Saxophone"
-                //                                                viewModel.conductor.loadSaxophonePreset()
-                //                                            }
-                //                                        )
-                //
-                //                                        InstrumentButtonWithoutName(
-                //                                            iconName: "violin.png",
-                //                                            isSelected: viewModel.currentInstrument == "Violin",
-                //                                            action: {
-                //                                                viewModel.currentInstrument = "Violin"
-                //                                                viewModel.conductor.loadViolinPreset()
-                //                                            }
-                //                                        )
-                //
-                //                                        InstrumentButtonWithoutName(
-                //                                            iconName: "flute.png",
-                //                                            isSelected: viewModel.currentInstrument == "Flute",
-                //                                            action: {
-                //                                                viewModel.currentInstrument = "Flute"
-                //                                                viewModel.conductor.loadFlutePreset()
-                //                                            }
-                //                                        )
-                //
-                //                                        InstrumentButtonWithoutName(
-                //                                            iconName: "trumpet.png",
-                //                                            isSelected: viewModel.currentInstrument == "Trumpet",
-                //                                            action: {
-                //                                                viewModel.currentInstrument = "Trumpet"
-                //                                                viewModel.conductor.loadTrumpetPreset()
-                //                                            }
-                //                                        )
-                //                                    }
-                //                                    .padding(.vertical, 12)
-                //                                }
-                //
-                //                                Button {
-                //                                    withAnimation(.spring()) {
-                //                                        showInstruments.toggle()
-                //                                    }
-                //                                } label: {
-                //                                    Image(systemName: showInstruments ? "chevron.down.circle.fill" : "chevron.up.circle.fill")
-                //                                        .font(.system(size: 22, weight: .semibold))
-                //                                        .padding(12)
-                //                                }
-                //                                .accessibilityLabel(showInstruments ? "Hide instruments" : "Show instruments")
-                //                                //                            }
-                //                                .padding(.horizontal, 12)
-                //                                .background(
-                //                                    RoundedRectangle(cornerRadius: 20)
-                //                                        .fill(.ultraThinMaterial)
-                //                                        .shadow(radius: 5)
-                //                                )
-                //                                .overlay(
-                //                                    RoundedRectangle(cornerRadius: 20)
-                //                                        .stroke(Color.white.opacity(0.3), lineWidth: 1)
-                //                                )
-                //                            }
-                //                            .frame(width: 80)
-                //                        }
-                //                        Spacer()
-                //                        Spacer()
-                //
-                //                        colorPanel
-                //
-                //                        Spacer()
-                //
-                //                        Button {
-                //                            viewModel.showPlaybackControls ? viewModel.stopReplay() : viewModel.replayStrokes()
-                //                        } label: {
-                //                            Image(systemName: viewModel.showPlaybackControls ? "stop.circle.fill" : "play.circle.fill")
-                //                                .font(.system(size: 22, weight: .semibold))
-                //                                .padding(.vertical, 12)
-                //                                .padding(.horizontal, 18)
-                //                                .background(
-                //                                    Capsule()
-                //                                        .fill(.ultraThinMaterial)
-                //                                        .shadow(color: Color.black.opacity(0.25), radius: 8, x: 0, y: 4)
-                //                                )
-                //                                .overlay(
-                //                                    Capsule()
-                //                                        .stroke(Color.white.opacity(0.3), lineWidth: 1)
-                //                                )
-                //                        }
-                //                        .accessibilityLabel(viewModel.showPlaybackControls ? "Stop playback" : "Replay Drawing")
-                //                        .padding(30)
-                //                        .buttonStyle(ScalingButtonStyle())
-                //                    }
-                //                }
-                
-                
+                .padding()
+
+                // 3. Bottom-center: colorPanel
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        colorPanel
+                        Spacer()
+                    }
+                }
+                .padding(.bottom)
+
+                // 4. Bottom-right: Play button
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Button {
+                            viewModel.showPlaybackControls ? viewModel.stopReplay() : viewModel.replayStrokes()
+                        } label: {
+                            Image(systemName: viewModel.showPlaybackControls ? "stop.circle.fill" : "play.circle.fill")
+                                .font(.system(size: 22, weight: .semibold))
+                                .padding(.vertical, 12)
+                                .padding(.horizontal, 18)
+                                .background(
+                                    Capsule()
+                                        .fill(.ultraThinMaterial)
+                                        .shadow(color: Color.black.opacity(0.25), radius: 8, x: 0, y: 4)
+                                )
+                                .overlay(
+                                    Capsule()
+                                        .stroke(Color.white.opacity(0.3), lineWidth: 1)
+                                )
+                        }
+                        .accessibilityLabel(viewModel.showPlaybackControls ? "Stop playback" : "Replay Drawing")
+                        .buttonStyle(ScalingButtonStyle())
+                        .frame(width: 75, height: 75, alignment: .bottomTrailing)
+                    }
+                }
+                .padding()
+//                .frame(width: 670, height: 375)
                 if viewModel.showSettings {
                     SettingsView(viewModel: viewModel) {
                         withAnimation {
@@ -347,6 +184,7 @@ struct Phone2: View {
                     .transition(.move(edge: .bottom))
                     .zIndex(3)
                 }
+                    
             }
             .onChange(of: viewModel.showExportMenu) { _, newValue in
                 if newValue {
@@ -354,6 +192,7 @@ struct Phone2: View {
                 }
             }
         }
+      
         .preferredColorScheme(preferredColorScheme)
         .animation(.interactiveSpring(duration: 0.5), value: viewModel.showSettings)
         .animation(.interactiveSpring(duration: 0.5), value: viewModel.showExportMenu)
@@ -457,8 +296,7 @@ struct Phone2: View {
         )
         //        .frame(maxWidth: .infinity, alignment: .trailing)
         .padding(.vertical, 8)
-        .frame(width: 675, height: 90, alignment: .trailing)
-        //        .border(.red)
+//        .frame(width: 675, height: 90, alignment: .trailing)
     }
     
     private var colorPanel: some View {
@@ -520,6 +358,7 @@ struct InstrumentButtonWithoutName: View {
         }
         .scaleEffect(isSelected ? 1.08 : 1.0)
         .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isSelected)
+        .buttonStyle(ScalingButtonStyle())
     }
 }
 

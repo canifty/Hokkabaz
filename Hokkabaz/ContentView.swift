@@ -5,6 +5,11 @@ struct ContentView: View {
     @StateObject private var viewModel = SoundCanvasViewModel()
     @Environment(\.colorScheme) private var colorScheme
     
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    var isPhone: Bool {
+        return UIDevice.current.userInterfaceIdiom == .phone
+    }
+    
     var foregroundStyle: Color {
         switch viewModel.appTheme {
         case .canvas: return .black
@@ -131,7 +136,6 @@ struct ContentView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
                 .padding( 30)
                 .buttonStyle(ScalingButtonStyle())
-
             }
             
             .onChange(of: viewModel.showExportMenu) { _, newValue in
