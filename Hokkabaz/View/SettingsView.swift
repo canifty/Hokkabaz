@@ -85,7 +85,7 @@ struct SettingsView: View {
             Spacer()
             
             // Version info
-            Text("SonaStroke v1.0")
+            Text("SonaStroke")
                 .font(.caption)
                 .foregroundColor(foregroundStyle.opacity(0.6))
         }

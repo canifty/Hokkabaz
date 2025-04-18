@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct Phone2: View {
+struct Phone: View {
     // MARK: Properties
     @StateObject private var viewModel = SoundCanvasViewModel()
     @Environment(\.colorScheme) private var colorScheme
@@ -114,10 +114,10 @@ struct Phone2: View {
                             }
                         }
                         .buttonStyle(ScalingButtonStyle())
-                        .padding(.horizontal, 12)
+                        .padding(.horizontal, 10)
                         .background(Capsule().fill(.ultraThinMaterial).shadow(radius: 5))
                         .overlay(Capsule().stroke(Color.white.opacity(0.3), lineWidth: 1))
-                        .frame(width: 75, height: 350, alignment: .bottomLeading)
+                        .frame(width: 70, height: 350, alignment: .bottomLeading)
                         
                         Spacer()
 
@@ -159,7 +159,7 @@ struct Phone2: View {
                                 )
                         }
                         .accessibilityLabel(viewModel.showPlaybackControls ? "Stop playback" : "Replay Drawing")
-                        .buttonStyle(ScalingButtonStyle())
+                        .buttonStyle(PressableButtonStyle())
                         .frame(width: 75, height: 75, alignment: .bottomTrailing)
                     }
                 }
@@ -295,7 +295,7 @@ struct Phone2: View {
                 .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 3)
         )
         //        .frame(maxWidth: .infinity, alignment: .trailing)
-        .padding(.vertical, 8)
+//        .padding(.vertical, 8)
 //        .frame(width: 675, height: 90, alignment: .trailing)
     }
     
@@ -327,42 +327,7 @@ struct Phone2: View {
         }
     }
 }
-struct InstrumentButtonWithoutName: View {
-    let iconName: String
-    let isSelected: Bool
-    let action: () -> Void
-    @Environment(\.colorScheme) private var colorScheme
-    
-    var body: some View {
-        Button(action: action) {
-            Image(iconName)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 50, height: 50)
-                .font(.system(size: 18, weight: .semibold))
-                .frame(minWidth: 30, minHeight: 20)
-                .padding(10)
-                .background(
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(isSelected ? Color.gray.opacity(0.3) : Color.black.opacity(0.0))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 12)
-                                .stroke(
-                                    isSelected ?
-                                    (colorScheme == .light ? Color.black.opacity(0.5) : Color.white.opacity(0.6))
-                                    : Color.clear,
-                                    lineWidth: 1
-                                )
-                        )
-                )
-        }
-        .scaleEffect(isSelected ? 1.08 : 1.0)
-        .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isSelected)
-        .buttonStyle(ScalingButtonStyle())
-    }
-}
-
 
 #Preview {
-    Phone2()
+    Phone()
 }

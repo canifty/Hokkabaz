@@ -10,14 +10,3 @@ extension Color {
         return brightness > 0.6
     }
 }
-
-// Button style for pressable buttons
-struct PressableButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .scaleEffect(configuration.isPressed ? 0.92 : 1)
-            .opacity(configuration.isPressed ? 0.9 : 1)
-            .animation(.easeInOut(duration: 0.1), value: configuration.isPressed)
-    }
-}
-
