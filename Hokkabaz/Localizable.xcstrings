@@ -1367,9 +1367,6 @@
         }
       }
     },
-    "Hide instruments" : {
-
-    },
     "Light" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1997,9 +1994,6 @@
         }
       }
     },
-    "Show instruments" : {
-
-    },
     "Show Note Letters" : {
       "localizations" : {
         "ar" : {
@@ -2052,7 +2046,11 @@
         }
       }
     },
+    "SonaStroke" : {
+
+    },
     "SonaStroke v1.0" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
