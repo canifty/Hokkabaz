@@ -213,6 +213,7 @@ struct Phone: View {
                 }
                     
             }
+            .ignoresSafeArea() // 👈 Move ignoresSafeArea HERE 
             .onChange(of: viewModel.showExportMenu) { _, newValue in
                 if newValue {
                     viewModel.exportImage = viewModel.renderCanvasToImage(size: geometry.size)
