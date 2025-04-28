@@ -40,6 +40,11 @@ struct Phone: View {
                     .gesture(
                         MagnificationGesture()
                             .onChanged { value in
+                                // If user was drawing, end the current stroke before zooming
+                                if !viewModel.currentStroke.isEmpty {
+                                    viewModel.endDrawing()
+                                }
+                                 
                                 let delta = value / viewModel.canvasScale
                                 viewModel.canvasScale = min(max(viewModel.canvasScale * delta, 0.5), 3.0)
                             }
