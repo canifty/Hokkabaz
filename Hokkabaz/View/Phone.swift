@@ -5,6 +5,7 @@ struct Phone: View {
     @StateObject private var viewModel = SoundCanvasViewModel()
     @Environment(\.colorScheme) private var colorScheme
     @State private var showInstruments = false // New state for showing/hiding instruments
+    @State private var scalePercentage: String = ""
     
     var foregroundStyle: Color {
         switch viewModel.appTheme {
@@ -44,13 +45,21 @@ struct Phone: View {
                                 if !viewModel.currentStroke.isEmpty {
                                     viewModel.endDrawing()
                                 }
-                                 
+                                
                                 let delta = value / viewModel.canvasScale
                                 viewModel.canvasScale = min(max(viewModel.canvasScale * delta, 0.5), 3.0)
+                                
+                                scalePercentage = String(format: "%.0f", viewModel.canvasScale * 100)  // Update the scale percentage
+                            }
+                            .onEnded { _ in
+                                // Clear the scale percentage when zooming ends
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                    scalePercentage = ""
+                                }
                             }
                     )
                     .simultaneousGesture(
-                        DragGesture(minimumDistance: 0)
+                        DragGesture(minimumDistance: 1)
                             .onChanged { value in
                                 if viewModel.currentStroke.isEmpty {
                                     viewModel.startDrawing(at: viewModel.convertPointForCanvas(value.location, size: geometry.size))
@@ -62,9 +71,22 @@ struct Phone: View {
                                 viewModel.endDrawing()
                             }
                     )
+ 
                 // 1. Top-right: headerView
                 VStack {
                     HStack {
+                        Spacer()
+                        Spacer()
+
+                        if !scalePercentage.isEmpty {
+                            Text("Zoom: \(scalePercentage)%")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Color.black.opacity(0.1))
+                                .cornerRadius(20)
+                                .transition(.opacity)
+                        }
                         Spacer()
                         headerView
                     }
