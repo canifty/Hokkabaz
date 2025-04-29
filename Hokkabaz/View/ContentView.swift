@@ -2,9 +2,13 @@ import SwiftUI
 
 struct ContentView: View {
     // MARK: Properties
+    @Environment(\.requestReview) var requestReview
+    @AppStorage("playButtonTapCount") private var playButtonTapCount = 0
+    
     @StateObject private var viewModel = SoundCanvasViewModel()
     @Environment(\.colorScheme) private var colorScheme
-    
+    @State private var scalePercentage: String = ""
+
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     var isPhone: Bool {
         return UIDevice.current.userInterfaceIdiom == .phone
@@ -44,12 +48,25 @@ struct ContentView: View {
                     .gesture(
                         MagnificationGesture()
                             .onChanged { value in
+                                // If user was drawing, end the current stroke before zooming
+                                if !viewModel.currentStroke.isEmpty {
+                                    viewModel.endDrawing()
+                                }
+                                
                                 let delta = value / viewModel.canvasScale
                                 viewModel.canvasScale = min(max(viewModel.canvasScale * delta, 0.5), 3.0)
+                                
+                                scalePercentage = String(format: "%.0f", viewModel.canvasScale * 100)  // Update the scale percentage
+                            }
+                            .onEnded { _ in
+                                // Clear the scale percentage when zooming ends
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                    scalePercentage = ""
+                                }
                             }
                     )
                     .simultaneousGesture(
-                        DragGesture(minimumDistance: 0)
+                        DragGesture(minimumDistance: 1)
                             .onChanged { value in
                                 if viewModel.currentStroke.isEmpty {
                                     viewModel.startDrawing(at: viewModel.convertPointForCanvas(value.location, size: geometry.size))
@@ -113,6 +130,13 @@ struct ContentView: View {
                 
                 Button {
                     viewModel.showPlaybackControls ? viewModel.stopReplay() : viewModel.replayStrokes()
+                    
+                    playButtonTapCount += 1
+                    
+                    // Request review after 3 taps
+                    if playButtonTapCount == 3 {
+                        requestReview()
+                    }
                 } label: {
                     HStack(spacing: 8) {
                         Image(systemName: viewModel.showPlaybackControls ? "stop.circle.fill" : "play.circle.fill")

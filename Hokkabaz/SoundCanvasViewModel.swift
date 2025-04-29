@@ -175,8 +175,8 @@ class SoundCanvasViewModel: ObservableObject {
     
     
     func clearCanvas() {
-//        let generator = UIImpactFeedbackGenerator(style: .medium)
-//        generator.impactOccurred()
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
         
         strokes.removeAll()
     }

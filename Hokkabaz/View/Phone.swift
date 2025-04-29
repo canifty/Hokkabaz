@@ -1,7 +1,11 @@
 import SwiftUI
+import StoreKit
 
 struct Phone: View {
     // MARK: Properties
+    @Environment(\.requestReview) var requestReview
+    @AppStorage("playButtonTapCount") private var playButtonTapCount = 0
+    
     @StateObject private var viewModel = SoundCanvasViewModel()
     @Environment(\.colorScheme) private var colorScheme
     @State private var showInstruments = false // New state for showing/hiding instruments
@@ -75,6 +79,7 @@ struct Phone: View {
                 // 1. Top-right: headerView
                 VStack {
                     HStack {
+                        Spacer()
                         Spacer()
                         Spacer()
 
@@ -170,6 +175,14 @@ struct Phone: View {
                         Spacer()
                         Button {
                             viewModel.showPlaybackControls ? viewModel.stopReplay() : viewModel.replayStrokes()
+                             
+                            playButtonTapCount += 1
+                            
+                            // Request review after 3 taps
+                            if playButtonTapCount == 3 {
+                                requestReview()
+                            }
+                            
                         } label: {
                             Image(systemName: viewModel.showPlaybackControls ? "stop.circle.fill" : "play.circle.fill")
                                 .font(.system(size: 22, weight: .semibold))
@@ -213,7 +226,6 @@ struct Phone: View {
                 }
                     
             }
-            .ignoresSafeArea() // 👈 Move ignoresSafeArea HERE 
             .onChange(of: viewModel.showExportMenu) { _, newValue in
                 if newValue {
                     viewModel.exportImage = viewModel.renderCanvasToImage(size: geometry.size)
@@ -318,10 +330,15 @@ struct Phone: View {
         }
         .padding()
         .background(
-            RoundedRectangle(cornerRadius: 20)
-                .fill(Color.primary.opacity(0.05))
-                .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 3)
+            Capsule()
+                .fill(.ultraThinMaterial)
+                .shadow(color: Color.black.opacity(0.25), radius: 8, x: 0, y: 4)
+                .padding(8)
         )
+//            RoundedRectangle(cornerRadius: 20)
+//                .fill(Color.primary.opacity(0.05))
+//                .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 3)
+        
         //        .frame(maxWidth: .infinity, alignment: .trailing)
 //        .padding(.vertical, 8)
 //        .frame(width: 675, height: 90, alignment: .trailing)
@@ -354,6 +371,7 @@ struct Phone: View {
             }
         }
     }
+    
 }
 
 #Preview {
