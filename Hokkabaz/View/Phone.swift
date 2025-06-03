@@ -24,7 +24,7 @@ struct Phone: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                // Background (unchanged)
+                // Background
                 if viewModel.appTheme == .canvas {
                     Image("canvas")
                         .resizable()
@@ -38,7 +38,7 @@ struct Phone: View {
                     .ignoresSafeArea()
                 }
                 
-                // Canvas with zoom and pan (unchanged)
+                // Canvas with zoom and pan
                 CanvasView(viewModel: viewModel, size: geometry.size)
                     .scaleEffect(viewModel.canvasScale)
                     .offset(x: viewModel.canvasOffset.width, y: viewModel.canvasOffset.height)
@@ -76,7 +76,7 @@ struct Phone: View {
                             }
                     )
  
-                // 1. Top-right: headerView
+                // 1. Top right: headerView
                 VStack {
                     HStack {
                         Spacer()
@@ -99,7 +99,7 @@ struct Phone: View {
                 }
                 .padding()
 
-                // 2. Bottom-left: instrument button panel
+                // 2. Bottom left: instrument button panel
                 VStack {
                     Spacer()
                     HStack {
@@ -157,7 +157,7 @@ struct Phone: View {
                 }
                 .padding()
 
-                // 3. Bottom-center: colorPanel
+                // 3. Bottom center: colorPanel
                 VStack {
                     Spacer()
                     HStack {
@@ -168,7 +168,7 @@ struct Phone: View {
                 }
                 .padding(.bottom)
 
-                // 4. Bottom-right: Play button
+                // 4. Bottom right: Play button
                 VStack {
                     Spacer()
                     HStack {
@@ -204,7 +204,6 @@ struct Phone: View {
                     }
                 }
                 .padding()
-//                .frame(width: 670, height: 375)
                 if viewModel.showSettings {
                     SettingsView(viewModel: viewModel) {
                         withAnimation {
@@ -224,7 +223,6 @@ struct Phone: View {
                     .transition(.move(edge: .bottom))
                     .zIndex(3)
                 }
-                    
             }
             .onChange(of: viewModel.showExportMenu) { _, newValue in
                 if newValue {
@@ -335,13 +333,6 @@ struct Phone: View {
                 .shadow(color: Color.black.opacity(0.25), radius: 8, x: 0, y: 4)
                 .padding(8)
         )
-//            RoundedRectangle(cornerRadius: 20)
-//                .fill(Color.primary.opacity(0.05))
-//                .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 3)
-        
-        //        .frame(maxWidth: .infinity, alignment: .trailing)
-//        .padding(.vertical, 8)
-//        .frame(width: 675, height: 90, alignment: .trailing)
     }
     
     private var colorPanel: some View {
@@ -371,7 +362,6 @@ struct Phone: View {
             }
         }
     }
-    
 }
 
 #Preview {

@@ -282,7 +282,6 @@ struct ContentView: View {
     private var controlPanel: some View {
         VStack(spacing: 20) {
             // Color buttons - removed header and ScrollView
-            VStack(alignment: .leading, spacing: 8) {
                 HStack(spacing: 12) {
                     ForEach(0..<viewModel.colors.count, id: \.self) { index in
                         ColorButton(
@@ -312,7 +311,7 @@ struct ContentView: View {
                     RoundedRectangle(cornerRadius: 16)
                         .fill(.ultraThinMaterial)
                 )
-            }
+            
             
             // Instruments section - removed header, ScrollView, and picker
             VStack(alignment: .leading, spacing: 8) {

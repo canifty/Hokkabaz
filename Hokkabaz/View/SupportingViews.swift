@@ -24,6 +24,7 @@ struct ColorButton: View {
                 
                 Text(note)
                     .font(.system(size: 16, weight: .bold))
+                    .minimumScaleFactor(0.4)
                     .foregroundColor(.white)
                     .shadow(color: .black.opacity(0.6), radius: 1, x: 0, y: 1)
                     .opacity(showNote ? 1 : 0)
@@ -93,6 +94,7 @@ struct InstrumentButton: View {
                     .font(.system(size: 18, weight: .semibold))
                 Text(instrumentName)
                     .font(.caption)
+//                    .dynamicTypeSize(.small ... .xxLarge)
             }
             .frame(minWidth: 70, minHeight: 50)
             .padding(.vertical, 8)
