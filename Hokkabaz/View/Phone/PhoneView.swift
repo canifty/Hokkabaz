@@ -1,7 +1,7 @@
 import SwiftUI
 import StoreKit
 
-struct Phone: View {
+struct PhoneView: View {
     // MARK: Properties
     @Environment(\.requestReview) var requestReview
     @AppStorage("playButtonTapCount") private var playButtonTapCount = 0
@@ -93,7 +93,7 @@ struct Phone: View {
                                 .transition(.opacity)
                         }
                         Spacer()
-                        headerView
+                        HeaderView(viewModel: viewModel, foregroundStyle: foregroundStyle)
                     }
                     Spacer()
                 }
@@ -103,56 +103,8 @@ struct Phone: View {
                 VStack {
                     Spacer()
                     HStack {
-                        VStack {
-                            if showInstruments {
-                                VStack {
-                                    InstrumentButtonWithoutName(iconName: "piano.png", isSelected: viewModel.currentInstrument == "Piano") {
-                                        viewModel.currentInstrument = "Piano"
-                                        viewModel.conductor.loadPianoPreset()
-                                    }
-                                    InstrumentButtonWithoutName(iconName: "guitar.png", isSelected: viewModel.currentInstrument == "Guitar") {
-                                        viewModel.currentInstrument = "Guitar"
-                                        viewModel.conductor.loadGuitarPreset()
-                                    }
-                                    InstrumentButtonWithoutName(iconName: "saks", isSelected: viewModel.currentInstrument == "Saxophone") {
-                                        viewModel.currentInstrument = "Saxophone"
-                                        viewModel.conductor.loadSaxophonePreset()
-                                    }
-                                    InstrumentButtonWithoutName(iconName: "violin.png", isSelected: viewModel.currentInstrument == "Violin") {
-                                        viewModel.currentInstrument = "Violin"
-                                        viewModel.conductor.loadViolinPreset()
-                                    }
-                                    InstrumentButtonWithoutName(iconName: "flute.png", isSelected: viewModel.currentInstrument == "Flute") {
-                                        viewModel.currentInstrument = "Flute"
-                                        viewModel.conductor.loadFlutePreset()
-                                    }
-                                    InstrumentButtonWithoutName(iconName: "trumpet.png", isSelected: viewModel.currentInstrument == "Trumpet") {
-                                        viewModel.currentInstrument = "Trumpet"
-                                        viewModel.conductor.loadTrumpetPreset()
-                                    }
-                                }
-                                .padding(.vertical, 12)
-                            }
-
-                            Button {
-                                withAnimation(.spring()) {
-                                    showInstruments.toggle()
-                                }
-                            } label: {
-                                Image(systemName: showInstruments ? "chevron.down.circle.fill" : "chevron.up.circle.fill")
-                                    .font(.system(size: 22, weight: .semibold))
-                                    .padding(.vertical, 12)
-                                    .padding(.horizontal, 12)
-                            }
-                        }
-                        .buttonStyle(ScalingButtonStyle())
-                        .padding(.horizontal, 10)
-                        .background(Capsule().fill(.ultraThinMaterial).shadow(radius: 5))
-                        .overlay(Capsule().stroke(Color.white.opacity(0.3), lineWidth: 1))
-                        .frame(width: 70, height: 350, alignment: .bottomLeading)
-                        
+                        InstrumentPanelView(showInstruments: $showInstruments, viewModel: viewModel)
                         Spacer()
-
                     }
                 }
                 .padding()
@@ -162,7 +114,7 @@ struct Phone: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        colorPanel
+                        ColorPanel(viewModel: viewModel)
                         Spacer()
                     }
                 }
@@ -249,121 +201,8 @@ struct Phone: View {
         case .colorful: return .dark
         }
     }
-    
-    private var headerView: some View {
-        HStack {
-            Button {
-                withAnimation(.spring(response: 0.4)) {
-                    viewModel.showClearConfirmation = true
-                }
-            } label: {
-                Image(systemName: "trash")
-                    .font(.system(size: 18, weight: .semibold))
-                    .foregroundColor(foregroundStyle)
-                    .padding(8)
-                    .background(
-                        Circle()
-                            .fill(Color.black.opacity(0.1))
-                    )
-            }
-            .accessibilityLabel("Clear the Canvas")
-            .alert(isPresented: $viewModel.showClearConfirmation) {
-                Alert(
-                    title: Text("Clear Canvas?"),
-                    message: Text("This will permanently delete your drawing and musical creation. This action cannot be undone."),
-                    primaryButton: .destructive(Text("Clear All")) {
-                        viewModel.clearCanvas()
-                    },
-                    secondaryButton: .cancel()
-                )
-            }
-            
-            Button {
-                withAnimation(.spring(response: 0.4)) {
-                    viewModel.undoLastStroke()
-                }
-            } label: {
-                Image(systemName: "arrow.counterclockwise")
-                    .font(.system(size: 18, weight: .semibold))
-                    .foregroundColor(foregroundStyle)
-                    .padding(8)
-                    .background(
-                        Circle()
-                            .fill(Color.black.opacity(0.1))
-                    )
-            }
-            .accessibilityLabel("Undo the stroke")
-            
-            Button {
-                withAnimation(.spring(response: 0.4)) {
-                    viewModel.showExportMenu = true
-                }
-            } label: {
-                Image(systemName: "square.and.arrow.up")
-                    .font(.system(size: 18, weight: .semibold))
-                    .foregroundColor(foregroundStyle)
-                    .padding(8)
-                    .background(
-                        Circle()
-                            .fill(Color.black.opacity(0.1))
-                    )
-            }
-            .accessibilityLabel("Export Drawing")
-            
-            Button {
-                withAnimation {
-                    viewModel.showSettings.toggle()
-                }
-            } label: {
-                Image(systemName: "slider.horizontal.3")
-                    .font(.system(size: 18, weight: .semibold))
-                    .foregroundColor(foregroundStyle)
-                    .padding(8)
-                    .background(
-                        Circle()
-                            .fill(Color.black.opacity(0.1))
-                    )
-            }
-            .accessibilityLabel("Open settings")
-        }
-        .padding()
-        .background(
-            Capsule()
-                .fill(.ultraThinMaterial)
-                .shadow(color: Color.black.opacity(0.25), radius: 8, x: 0, y: 4)
-                .padding(8)
-        )
-    }
-    
-    private var colorPanel: some View {
-        VStack {
-            VStack {
-                HStack(spacing: 12) {
-                    ForEach(0..<viewModel.colors.count, id: \.self) { index in
-                        ColorButton(
-                            color: viewModel.colors[index],
-                            note: viewModel.colorNames[index],
-                            instrument: viewModel.instrumentNames[index],
-                            isSelected: viewModel.currentColorIndex == index,
-                            showNote: viewModel.showNoteLetters,
-                            action: {
-                                viewModel.currentColorIndex = index
-                                viewModel.conductor.playInstrument(colorIndex: index)
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                                    viewModel.conductor.stopSound()
-                                }
-                            }
-                        )
-                        .accessibilityLabel(String(describing: viewModel.colorNames[index]) + " note")
-                        .accessibilityValue("Color: \(viewModel.colors[index].description)")
-                        .accessibilityHint("Tap to select this note and color")
-                    }
-                }
-            }
-        }
-    }
 }
 
 #Preview {
-    Phone()
+    PhoneView()
 }

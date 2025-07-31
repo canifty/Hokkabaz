@@ -12,9 +12,9 @@ struct HokkabazApp: App {
     var body: some Scene {
         WindowGroup {
             if UIDevice.current.userInterfaceIdiom == .pad {
-                ContentView() // iPad
+                iPadView() // iPad
             } else {
-                Phone() // iPhone
+                PhoneView() // iPhone
             }
         }
     }
