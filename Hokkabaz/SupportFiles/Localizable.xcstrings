@@ -54,6 +54,12 @@
         }
       }
     },
+    "%lld" : {
+
+    },
+    "%lld%%" : {
+
+    },
     "A" : {
       "comment" : "A-La",
       "localizations" : {
@@ -159,6 +165,21 @@
           }
         }
       }
+    },
+    "Brush Hardness" : {
+
+    },
+    "Brush Opacity" : {
+
+    },
+    "Brush Properties" : {
+
+    },
+    "Brush Type" : {
+
+    },
+    "Brush Width" : {
+
     },
     "C" : {
       "comment" : "C-Do",
@@ -318,6 +339,7 @@
       }
     },
     "Clear Canvas" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1315,6 +1337,9 @@
         }
       }
     },
+    "Hardness" : {
+
+    },
     "Hide controls" : {
       "localizations" : {
         "ar" : {
@@ -1523,6 +1548,9 @@
           }
         }
       }
+    },
+    "Opacity" : {
+
     },
     "Open settings" : {
       "localizations" : {
@@ -2207,6 +2235,7 @@
       }
     },
     "Stroke Width" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -2935,6 +2964,9 @@
           }
         }
       }
+    },
+    "Width" : {
+
     },
     "Zoom: %@%%" : {
 

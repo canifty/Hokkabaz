@@ -15,6 +15,7 @@ struct SettingsView: View {
     }
     
     var body: some View {
+        ScrollView {
         VStack(alignment: .leading, spacing: 20) {
             // Header
             HStack {
@@ -50,25 +51,6 @@ struct SettingsView: View {
                 .pickerStyle(.segmented)
             }
             
-            // Stroke Width
-            VStack(alignment: .leading, spacing: 8) {
-                Text("Stroke Width")
-                    .font(.headline)
-                    .foregroundColor(foregroundStyle)
-                
-                HStack {
-                    Image(systemName: "line.3.horizontal")
-                        .foregroundColor(foregroundStyle.opacity(0.7))
-                    
-                    Slider(value: $viewModel.strokeWidthMultiplier, in: 0.5...2.0)
-                        .accentColor(viewModel.currentColor)
-                    
-                    Image(systemName: "line.3.horizontal")
-                        .font(.title3)
-                        .foregroundColor(foregroundStyle.opacity(0.7))
-                }
-            }
-            
             // Show Note Letters Toggle
             VStack(alignment: .leading, spacing: 8) {
                 Text("Display Options")
@@ -82,12 +64,106 @@ struct SettingsView: View {
                 .tint(viewModel.currentColor)
             }
             
+                // Brush Type Selection
+                VStack(alignment: .leading, spacing: 15) {
+                    Text("Brush Type")
+                        .font(.headline)
+                    
+                    LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 3), spacing: 15) {
+                        ForEach(BrushType.allCases, id: \.self) { brushType in
+                            BrushTypeButton(
+                                brushType: brushType,
+                                isSelected: brushType == viewModel.currentBrushType,
+                                action: {
+                                    viewModel.setBrushType(brushType)
+                                }
+                            )
+                        }
+                    }
+                }
+                .padding()
+                .cornerRadius(12)
+                
+                // Brush Properties
+                VStack(alignment: .leading, spacing: 20) {
+                    Text("Brush Properties")
+                        .font(.headline)
+                    
+                    // Width Slider
+                    VStack(alignment: .leading, spacing: 8) {
+                        HStack {
+                            Text("Width")
+                            Spacer()
+                            Text("\(Int(viewModel.currentBrushWidth))")
+                                .foregroundColor(.secondary)
+                        }
+                        
+                        Slider(
+                            value: $viewModel.currentBrushWidth,
+                            in: 2...50,
+                            step: 1
+                        ) {
+                            Text("Brush Width")
+                        }
+                        .accentColor(viewModel.currentColor)
+                    }
+                    
+                    // Opacity Slider
+                    VStack(alignment: .leading, spacing: 8) {
+                        HStack {
+                            Text("Opacity")
+                            Spacer()
+                            Text("\(Int(viewModel.currentBrushOpacity * 100))%")
+                                .foregroundColor(.secondary)
+                        }
+                        
+                        Slider(
+                            value: $viewModel.currentBrushOpacity,
+                            in: 0.1...1.0,
+                            step: 0.1
+                        ) {
+                            Text("Brush Opacity")
+                        }
+                        .accentColor(viewModel.currentColor)
+                    }
+                    
+                    // Hardness Slider (for applicable brush types)
+                    if viewModel.currentBrushType != .pen {
+                        VStack(alignment: .leading, spacing: 8) {
+                            HStack {
+                                Text("Hardness")
+                                Spacer()
+                                Text("\(Int(viewModel.currentBrushHardness * 100))%")
+                                    .foregroundColor(.secondary)
+                            }
+                            
+                            Slider(
+                                value: $viewModel.currentBrushHardness,
+                                in: 0.0...1.0,
+                                step: 0.1
+                            ) {
+                                Text("Brush Hardness")
+                            }
+                            .accentColor(viewModel.currentColor)
+                        }
+                    }
+                }
+                .padding()
+                .cornerRadius(12)
+                
+                // Preview
+                BrushPreviewView(viewModel: viewModel)
+                   
+                
+            
+            
             Spacer()
             
             // Version info
             Text("SonaStroke")
                 .font(.caption)
                 .foregroundColor(foregroundStyle.opacity(0.6))
+        }
         }
         .padding(20)
         .frame(width: 300)
@@ -110,4 +186,77 @@ struct SettingsView: View {
         viewModel: SoundCanvasViewModel(),
         closeAction: {}
     )
+}
+
+struct BrushTypeButton: View {
+    let brushType: BrushType
+    let isSelected: Bool
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: action) {
+            VStack(spacing: 8) {
+                Image(systemName: brushType.icon)
+                    .font(.title2)
+                    .foregroundColor(isSelected ? .white : .primary)
+                
+                Text(brushType.rawValue)
+                    .font(.caption)
+                    .foregroundColor(isSelected ? .white : .primary)
+            }
+            .frame(width: 70, height: 70)
+            .background(isSelected ? Color.blue : Color(.systemGray5))
+            .cornerRadius(12)
+            .scaleEffect(isSelected ? 1.05 : 1.0)
+            .animation(.easeInOut(duration: 0.2), value: isSelected)
+        }
+        .buttonStyle(PlainButtonStyle())
+    }
+}
+
+struct BrushPreviewView: View {
+    @ObservedObject var viewModel: SoundCanvasViewModel
+    
+    var body: some View {
+        VStack {
+            
+            Canvas { context, size in
+                let previewPath = Path { path in
+                    let startPoint = CGPoint(x: size.width * 0.2, y: size.height * 0.5)
+                    let endPoint = CGPoint(x: size.width * 0.8, y: size.height * 0.5)
+                    path.move(to: startPoint)
+                    path.addLine(to: endPoint)
+                }
+                
+                // Draw preview stroke based on current brush settings
+                let brush = viewModel.currentBrushProperties
+                
+                switch brush.type {
+                case .marker:
+                    // Soft outer edge
+                    context.stroke(
+                        previewPath,
+                        with: .color(viewModel.currentColor.opacity(brush.opacity * 0.3)),
+                        style: StrokeStyle(
+                            lineWidth: brush.width * 1.5,
+                            lineCap: .round
+                        )
+                    )
+                    fallthrough
+                default:
+                    context.stroke(
+                        previewPath,
+                        with: .color(viewModel.currentColor.opacity(brush.opacity)),
+                        style: StrokeStyle(
+                            lineWidth: brush.width,
+                            lineCap: .round
+                        )
+                    )
+                }
+            }
+            .frame(height: 60)
+            .background(Color(.systemBackground))
+            .cornerRadius(8)
+        }
+    }
 }

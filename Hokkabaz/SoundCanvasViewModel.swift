@@ -29,6 +29,24 @@ class SoundCanvasViewModel: ObservableObject {
     // Theme
     @Published var appTheme: AppTheme = .canvas
     
+    @Published var currentBrushType: BrushType = .pencil
+        @Published var currentBrushWidth: CGFloat = 8.0
+        @Published var currentBrushOpacity: Double = 1.0
+        @Published var currentBrushHardness: Double = 0.8
+        @Published var showBrushSettings = false
+    
+    var currentBrushProperties: BrushProperties {
+            BrushProperties(
+                type: currentBrushType,
+                width: currentBrushWidth,
+                opacity: currentBrushOpacity,
+                pressure: 1.0, // Default for now
+                tilt: 0.0,
+                hardness: currentBrushHardness,
+                spacing: 1.0
+            )
+        }
+    
     // Colors and notes
     let colors: [Color] = [.red, .orange, .yellow, .green, .blue, .purple, Color(red: 255/255, green: 105/255, blue: 180/255)]
     let colorNames: [LocalizedStringKey] = ["C", "D", "E", "F", "G", "A", "B"]
@@ -100,13 +118,50 @@ class SoundCanvasViewModel: ObservableObject {
     }
     
     func endDrawing() {
-        if !currentStroke.isEmpty {
-            let newStroke = Stroke(points: currentStroke, color: currentColor)
-            strokes.append(newStroke)
-            currentStroke.removeAll()
-            conductor.stopSound()
+          if !currentStroke.isEmpty {
+              let newStroke = Stroke(
+                  points: currentStroke,
+                  color: currentColor,
+                  brushProperties: currentBrushProperties
+              )
+              strokes.append(newStroke)
+              currentStroke.removeAll()
+              conductor.stopSound()
+          }
+      }
+    
+    // Brush type methods
+        func setBrushType(_ type: BrushType) {
+            currentBrushType = type
+            
+            // Adjust default properties based on brush type
+            switch type {
+            case .pencil:
+                currentBrushWidth = 6.0
+                currentBrushOpacity = 0.9
+                currentBrushHardness = 0.9
+            case .pen:
+                currentBrushWidth = 4.0
+                currentBrushOpacity = 1.0
+                currentBrushHardness = 1.0
+            case .marker:
+                currentBrushWidth = 12.0
+                currentBrushOpacity = 0.7
+                currentBrushHardness = 0.3
+            case .brush:
+                currentBrushWidth = 15.0
+                currentBrushOpacity = 0.8
+                currentBrushHardness = 0.2
+            case .charcoal:
+                currentBrushWidth = 10.0
+                currentBrushOpacity = 0.6
+                currentBrushHardness = 0.1
+            case .watercolor:
+                currentBrushWidth = 20.0
+                currentBrushOpacity = 0.4
+                currentBrushHardness = 0.0
+            }
         }
-    }
     
     func startSoundForColor() {
         conductor.playInstrument(colorIndex: currentColorIndex)

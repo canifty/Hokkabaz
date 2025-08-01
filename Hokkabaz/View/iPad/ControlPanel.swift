@@ -9,7 +9,17 @@ import SwiftUI
 
 struct ControlPanel: View {
     @ObservedObject var viewModel: SoundCanvasViewModel
-
+    
+    @Environment(\.colorScheme) var colorScheme
+    var foregroundStyle: Color {
+        switch viewModel.appTheme {
+        case .canvas: return .black
+        case .night: return .white
+        case .colorful: return .white
+        case .system: return colorScheme == .dark ? .white : .black
+        }
+    }
+    
 var body: some View {
     
         VStack(spacing: 20) {
@@ -59,6 +69,7 @@ var body: some View {
                             viewModel.conductor.loadPianoPreset()
                         }
                     )
+                    .foregroundColor(foregroundStyle)
                     .accessibilityLabel("Switch to Piano")
                     
                     InstrumentButton(
@@ -81,6 +92,7 @@ var body: some View {
                             viewModel.conductor.loadSaxophonePreset()
                         }
                     )
+                    .foregroundColor(foregroundStyle)
                     .accessibilityLabel("Switch to Saxophone")
                     
                     InstrumentButton(
@@ -92,6 +104,7 @@ var body: some View {
                             viewModel.conductor.loadViolinPreset()
                         }
                     )
+                    .foregroundColor(foregroundStyle)
                     .accessibilityLabel("Switch to Violin")
                     
                     InstrumentButton(
@@ -103,6 +116,7 @@ var body: some View {
                             viewModel.conductor.loadFlutePreset()
                         }
                     )
+                    .foregroundColor(foregroundStyle)
                     .accessibilityLabel("Switch to Flute")
                     
                     InstrumentButton(
@@ -114,6 +128,7 @@ var body: some View {
                             viewModel.conductor.loadTrumpetPreset()
                         }
                     )
+                    .foregroundColor(foregroundStyle)
                     .accessibilityLabel("Switch to Trumpet")
                 }
                 .padding(.horizontal, 16)
@@ -161,25 +176,3 @@ var safeAreaBottom: CGFloat
 }
 }
 
-
-//private func controlPanelIndicator(safeAreaBottom: CGFloat) -> some View {
-//    Button {
-//        withAnimation(.spring(response: 0.35)) {
-//            viewModel.isControlPanelHidden.toggle()
-//        }
-//    } label: {
-//        Capsule()
-//            .fill(Color.white.opacity(0.4))
-//            .frame(width: 36, height: 5)
-//            .padding(10)
-//            .background(
-//                Capsule()
-//                    .fill(.ultraThinMaterial)
-//                    .shadow(color: Color.black.opacity(0.15), radius: 3, x: 0, y: viewModel.isControlPanelHidden ? 1 : 0)
-//            )
-//    }
-//    .accessibilityLabel(viewModel.isControlPanelHidden ? "Show controls" : "Hide controls")
-//    .contentShape(Rectangle())
-//    .padding(.bottom, viewModel.isControlPanelHidden ? (safeAreaBottom > 0 ? 10 : 25) : 0)
-//}
-//}
