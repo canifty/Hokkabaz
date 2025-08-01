@@ -56,21 +56,21 @@ struct HeaderView: View {
             }
             .accessibilityLabel("Undo the stroke")
             
-            Button {
-                withAnimation(.spring(response: 0.4)) {
-                    viewModel.showExportMenu = true
-                }
-            } label: {
-                Image(systemName: "square.and.arrow.up")
-                    .font(.system(size: 18, weight: .semibold))
-                    .foregroundColor(foregroundStyle)
-                    .padding(8)
-                    .background(
-                        Circle()
-                            .fill(Color.black.opacity(0.1))
-                    )
-            }
-            .accessibilityLabel("Export Drawing")
+//            Button {
+//                withAnimation(.spring(response: 0.4)) {
+//                    viewModel.showExportMenu = true
+//                }
+//            } label: {
+//                Image(systemName: "square.and.arrow.up")
+//                    .font(.system(size: 18, weight: .semibold))
+//                    .foregroundColor(foregroundStyle)
+//                    .padding(8)
+//                    .background(
+//                        Circle()
+//                            .fill(Color.black.opacity(0.1))
+//                    )
+//            }
+//            .accessibilityLabel("Export Drawing")
             
             Button {
                 withAnimation {

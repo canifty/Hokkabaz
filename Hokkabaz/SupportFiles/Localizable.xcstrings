@@ -1877,6 +1877,22 @@
         }
       }
     },
+    "Review Us" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dacci la tua opinione "
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bizi Değerlendirin"
+          }
+        }
+      }
+    },
     "Save to Photos" : {
       "localizations" : {
         "ar" : {

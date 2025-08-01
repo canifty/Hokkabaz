@@ -60,7 +60,7 @@ enum AppTheme: String, CaseIterable, Identifiable {
 // Enhanced brush types
 enum BrushType: String, CaseIterable {
     case pencil = "Pencil"
-    case pen = "Pen"
+//    case pen = "Pen"
     case marker = "Marker"
     case brush = "Brush"
     case charcoal = "Charcoal"
@@ -69,7 +69,7 @@ enum BrushType: String, CaseIterable {
     var icon: String {
         switch self {
         case .pencil: return "pencil"
-        case .pen: return "pencil.tip"
+//        case .pen: return "pencil.tip"
         case .marker: return "highlighter"
         case .brush: return "paintbrush"
         case .charcoal: return "scribble"

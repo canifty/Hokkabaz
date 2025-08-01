@@ -1,7 +1,9 @@
 import SwiftUI
+import StoreKit
 
 struct SettingsView: View {
     @ObservedObject var viewModel: SoundCanvasViewModel
+    @AppStorage("hasReviewedApp") private var hasReviewedApp = false
     @Environment(\.colorScheme) var colorScheme
     var closeAction: () -> Void
     
@@ -71,23 +73,15 @@ struct SettingsView: View {
 //                        .font(.headline)
                     
                     
-                    let columns = 3
-                    let rows = stride(from: 0, to: BrushType.allCases.count, by: columns).map {
-                        Array(BrushType.allCases[$0..<min($0 + columns, BrushType.allCases.count)])
-                    }
-                    VStack(spacing: 15) {
-                        ForEach(rows, id: \.self) { row in
-                            HStack(spacing: 15) {
-                                ForEach(row, id: \.self) { brushType in
-                                    BrushTypeButton(
-                                        brushType: brushType,
-                                        isSelected: brushType == viewModel.currentBrushType,
-                                        action: {
-                                            viewModel.setBrushType(brushType)
-                                        }
-                                    )
+                    HStack(spacing: 8) {
+                        ForEach(BrushType.allCases, id: \.self) { brushType in
+                            BrushTypeButton(
+                                brushType: brushType,
+                                isSelected: brushType == viewModel.currentBrushType,
+                                action: {
+                                    viewModel.setBrushType(brushType)
                                 }
-                            }
+                            )
                         }
                     }
                     //                    LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 3), spacing: 15) {
@@ -180,6 +174,24 @@ struct SettingsView: View {
                 Text("SonaStroke")
                     .font(.caption)
                     .foregroundColor(foregroundStyle.opacity(0.6))
+                Button {
+                    requestReview()
+                    hasReviewedApp = true // hide button after tap
+
+                } label: {
+                    HStack {
+                        Image(systemName: "star.fill")
+                        Text("Review Us")
+                        Spacer()
+                        Image(systemName: "arrow.up.forward")
+                    }
+                        .font(.subheadline.bold())
+                        .foregroundColor(foregroundStyle)
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 16)
+                        .background(.ultraThickMaterial)
+                        .cornerRadius(10)
+                }
             }
             // Version info
             
@@ -197,6 +209,11 @@ struct SettingsView: View {
         //        .padding(.trailing, 20)
         //        .padding(.vertical, 20)
         
+    }
+    private func requestReview() {
+        if let url = URL(string: "https://apps.apple.com/app/id6742818533?action=write-review") {
+            UIApplication.shared.open(url)
+        }
     }
 }
 
@@ -219,11 +236,11 @@ struct BrushTypeButton: View {
                     .font(.title2)
                     .foregroundColor(isSelected ? .white : .primary)
                 
-                Text(brushType.rawValue)
-                    .font(.caption)
-                    .foregroundColor(isSelected ? .white : .primary)
+//                Text(brushType.rawValue)
+//                    .font(.caption)
+//                    .foregroundColor(isSelected ? .white : .primary)
             }
-            .frame(width: 65, height: 65)
+            .frame(width: 45, height: 45)
             .background(isSelected ? Color.blue : Color(.systemGray5))
             .cornerRadius(12)
             .scaleEffect(isSelected ? 1.05 : 1.0)

@@ -37,8 +37,8 @@ struct CanvasView: View {
         switch brush.type {
         case .pencil:
             drawPencilStroke(stroke, in: &context, width: baseWidth, opacity: opacity, glowWidth: glowWidth)
-        case .pen:
-            drawPenStroke(stroke, in: &context, width: baseWidth, opacity: opacity, glowWidth: glowWidth)
+//        case .pen:
+//            drawPenStroke(stroke, in: &context, width: baseWidth, opacity: opacity, glowWidth: glowWidth)
         case .marker:
             drawMarkerStroke(stroke, in: &context, width: baseWidth, opacity: opacity, glowWidth: glowWidth)
         case .brush:

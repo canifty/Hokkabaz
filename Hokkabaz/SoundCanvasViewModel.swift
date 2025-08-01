@@ -140,10 +140,10 @@ class SoundCanvasViewModel: ObservableObject {
                 currentBrushWidth = 6.0
                 currentBrushOpacity = 0.9
                 currentBrushHardness = 0.9
-            case .pen:
-                currentBrushWidth = 4.0
-                currentBrushOpacity = 1.0
-                currentBrushHardness = 1.0
+//            case .pen:
+//                currentBrushWidth = 4.0
+//                currentBrushOpacity = 1.0
+//                currentBrushHardness = 1.0
             case .marker:
                 currentBrushWidth = 12.0
                 currentBrushOpacity = 0.7
