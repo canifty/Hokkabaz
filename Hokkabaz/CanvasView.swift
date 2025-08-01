@@ -30,7 +30,7 @@ struct CanvasView: View {
         guard !stroke.points.isEmpty else { return }
 
         let brush = stroke.brushProperties
-        let baseWidth = brush.width * (isActive ? 1.2 : 1.0)
+        let baseWidth = brush.width * (isActive ? 1.3 : 1.0)
         let opacity = brush.opacity * (isActive ? 1.0 : 0.9)
         let glowWidth: CGFloat = isActive ? 4.0 : 0.0
 

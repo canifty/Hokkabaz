@@ -55,10 +55,36 @@
       }
     },
     "%lld" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        }
+      }
     },
     "%lld%%" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld%%"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld%%"
+          }
+        }
+      }
     },
     "A" : {
       "comment" : "A-La",
@@ -166,20 +192,71 @@
         }
       }
     },
-    "Brush Hardness" : {
-
-    },
     "Brush Opacity" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opacità del pennello"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fırça Opakliğı"
+          }
+        }
+      }
     },
     "Brush Properties" : {
-
+      "extractionState" : "stale",
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Proprietà del pennello"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fırça Özellikleri"
+          }
+        }
+      }
     },
     "Brush Type" : {
-
+      "extractionState" : "stale",
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tipo di pennello"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fırça Tipi"
+          }
+        }
+      }
     },
     "Brush Width" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Larghezza del pennello"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fırça Kalınlığı"
+          }
+        }
+      }
     },
     "C" : {
       "comment" : "C-Do",
@@ -812,6 +889,7 @@
       }
     },
     "Display Options" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1338,7 +1416,15 @@
       }
     },
     "Hardness" : {
-
+      "extractionState" : "stale",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sertlik"
+          }
+        }
+      }
     },
     "Hide controls" : {
       "localizations" : {
@@ -1550,7 +1636,20 @@
       }
     },
     "Opacity" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opacità"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opaklık"
+          }
+        }
+      }
     },
     "Open settings" : {
       "localizations" : {
@@ -1653,6 +1752,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "钢琴"
+          }
+        }
+      }
+    },
+    "Preview" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anteprima"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Önizleme"
           }
         }
       }
@@ -2063,7 +2179,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nota Harflerini Göster"
+            "value" : "Notaları Göster"
           }
         },
         "zh-Hans" : {
@@ -2966,7 +3082,20 @@
       }
     },
     "Width" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Larghezza"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kalınlık"
+          }
+        }
+      }
     },
     "Zoom: %@%%" : {
 

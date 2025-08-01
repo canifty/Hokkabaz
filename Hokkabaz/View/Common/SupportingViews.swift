@@ -94,7 +94,6 @@ struct InstrumentButton: View {
                     .font(.system(size: 18, weight: .semibold))
                 Text(instrumentName)
                     .font(.caption)
-                    .foregroundStyle(.black)
                 //                    .dynamicTypeSize(.small ... .xxLarge)
             }
             .frame(minWidth: 70, minHeight: 50)

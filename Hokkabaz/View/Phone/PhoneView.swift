@@ -42,26 +42,26 @@ struct PhoneView: View {
                 CanvasView(viewModel: viewModel, size: geometry.size)
                     .scaleEffect(viewModel.canvasScale)
                     .offset(x: viewModel.canvasOffset.width, y: viewModel.canvasOffset.height)
-                    .gesture(
-                        MagnificationGesture()
-                            .onChanged { value in
-                                // If user was drawing, end the current stroke before zooming
-                                if !viewModel.currentStroke.isEmpty {
-                                    viewModel.endDrawing()
-                                }
-                                
-                                let delta = value / viewModel.canvasScale
-                                viewModel.canvasScale = min(max(viewModel.canvasScale * delta, 0.5), 3.0)
-                                
-                                scalePercentage = String(format: "%.0f", viewModel.canvasScale * 100)  // Update the scale percentage
-                            }
-                            .onEnded { _ in
-                                // Clear the scale percentage when zooming ends
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                                    scalePercentage = ""
-                                }
-                            }
-                    )
+//                    .gesture(
+//                        MagnificationGesture()
+//                            .onChanged { value in
+//                                // If user was drawing, end the current stroke before zooming
+//                                if !viewModel.currentStroke.isEmpty {
+//                                    viewModel.endDrawing()
+//                                }
+//                                
+//                                let delta = value / viewModel.canvasScale
+//                                viewModel.canvasScale = min(max(viewModel.canvasScale * delta, 0.5), 3.0)
+//                                
+//                                scalePercentage = String(format: "%.0f", viewModel.canvasScale * 100)  // Update the scale percentage
+//                            }
+//                            .onEnded { _ in
+//                                // Clear the scale percentage when zooming ends
+//                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+//                                    scalePercentage = ""
+//                                }
+//                            }
+//                    )
                     .simultaneousGesture(
                         DragGesture(minimumDistance: 1)
                             .onChanged { value in
@@ -108,6 +108,8 @@ struct PhoneView: View {
                     }
                 }
                 .padding()
+                .padding(.horizontal, 30)
+
 
                 // 3. Bottom center: colorPanel
                 VStack {
@@ -153,6 +155,8 @@ struct PhoneView: View {
                         .accessibilityLabel(viewModel.showPlaybackControls ? "Stop playback" : "Replay Drawing")
                         .buttonStyle(PressableButtonStyle())
                         .frame(width: 75, height: 75, alignment: .bottomTrailing)
+//                        .padding(5)
+                        .padding(.horizontal, 30)
                     }
                 }
                 .padding()
@@ -164,6 +168,9 @@ struct PhoneView: View {
                     }
                     .transition(.move(edge: .trailing))
                     .zIndex(2)
+                    .padding()
+                    .padding(.horizontal, 18)
+                    
                 }
                 
                 if viewModel.showExportMenu, let image = viewModel.exportImage {
@@ -176,6 +183,7 @@ struct PhoneView: View {
                     .zIndex(3)
                 }
             }
+            .edgesIgnoringSafeArea(.all)
             .onChange(of: viewModel.showExportMenu) { _, newValue in
                 if newValue {
                     viewModel.exportImage = viewModel.renderCanvasToImage(size: geometry.size)

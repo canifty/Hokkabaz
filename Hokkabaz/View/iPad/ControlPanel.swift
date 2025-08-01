@@ -81,6 +81,7 @@ var body: some View {
                             viewModel.conductor.loadGuitarPreset()
                         }
                     )
+                    .foregroundColor(foregroundStyle)
                     .accessibilityLabel("Switch to Guitar")
                 
                     InstrumentButton(
