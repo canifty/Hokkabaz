@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  ColorPanel.swift
 //  Hokkabaz
 //
 //  Created by Can Dindar on 31/07/25.

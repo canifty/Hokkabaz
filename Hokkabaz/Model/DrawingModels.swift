@@ -1,4 +1,12 @@
+//
+//  DrawingModels.swift
+//  Hokkabaz
+//
+//  Created by Can Dindar on 28/02/25.
+//
+
 import SwiftUI
+import PencilKit
 
 // Data structure for a stroke
 struct Stroke: Identifiable {
@@ -69,11 +77,20 @@ enum BrushType: String, CaseIterable {
     var icon: String {
         switch self {
         case .pencil: return "pencil"
-//        case .pen: return "pencil.tip"
         case .marker: return "highlighter"
         case .brush: return "paintbrush"
         case .charcoal: return "scribble"
         case .watercolor: return "drop"
+        }
+    }
+
+    var pkInkType: PKInkingTool.InkType {
+        switch self {
+        case .pencil: return .pencil
+        case .marker: return .marker
+        case .brush: return .pen
+        case .charcoal: return .crayon
+        case .watercolor: return .watercolor
         }
     }
 }
@@ -85,16 +102,14 @@ struct BrushProperties {
     var opacity: Double
     var pressure: Double // For future pressure sensitivity
     var tilt: Double // For future tilt sensitivity
-    var hardness: Double // 0.0 = soft, 1.0 = hard
     var spacing: Double // For texture effects
     
     static let `default` = BrushProperties(
         type: .pencil,
-        width: 8.0,
+        width: 25.0,
         opacity: 1.0,
         pressure: 1.0,
         tilt: 0.0,
-        hardness: 0.8,
         spacing: 1.0
     )
 }

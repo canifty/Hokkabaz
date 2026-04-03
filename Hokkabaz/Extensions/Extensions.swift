@@ -1,3 +1,10 @@
+//
+//  Extensions.swift
+//  Hokkabaz
+//
+//  Created by Can Dindar on 28/02/25.
+//
+
 import SwiftUI
 
 // Color utility extension

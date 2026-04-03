@@ -1,4 +1,10 @@
-import SwiftUI
+//
+//  AudioEngine.swift
+//  Hokkabaz
+//
+//  Created by Can Dindar on 15/03/25.
+//
+
 import AudioKit
 import AVFoundation
 import SoundpipeAudioKit
@@ -14,8 +20,8 @@ class Conductor: ObservableObject {
     var usingSampler = true // Flag to track which sound source we're using
     
     // Map colors to different instruments (General MIDI program numbers)
-    // These correspond to: Piano, Guitar, Flute, Violin, Trumpet, Harp, Cello
-    let instrumentPrograms = [0, 24, 73, 40, 56, 46, 42]
+    // These correspond to: Piano, Guitar, Flute, Violin, Trumpet
+    let instrumentPrograms = [0, 24, 73, 40, 56]
     
     // MIDI note numbers for C4 to B4 (middle C octave)
     let midiNotes: [MIDINoteNumber] = [60, 62, 64, 65, 67, 69, 71]

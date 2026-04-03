@@ -1,3 +1,10 @@
+//
+//  iPadView.swift
+//  Hokkabaz
+//
+//  Created by Can Dindar on 12/04/25.
+//
+
 import SwiftUI
 
 struct iPadView: View {
@@ -41,43 +48,36 @@ struct iPadView: View {
                     .ignoresSafeArea()
                 }
                 
-                // Canvas with zoom and pan
-                CanvasView(viewModel: viewModel, size: geometry.size)
-                    .scaleEffect(viewModel.canvasScale)
-                    .offset(x: viewModel.canvasOffset.width, y: viewModel.canvasOffset.height)
-//                    .gesture(
-//                        MagnificationGesture()
-//                            .onChanged { value in
-//                                // If user was drawing, end the current stroke before zooming
-//                                if !viewModel.currentStroke.isEmpty {
-//                                    viewModel.endDrawing()
-//                                }
-//                                
-//                                let delta = value / viewModel.canvasScale
-//                                viewModel.canvasScale = min(max(viewModel.canvasScale * delta, 0.5), 3.0)
-//                                
-//                                scalePercentage = String(format: "%.0f", viewModel.canvasScale * 100)  // Update the scale percentage
-//                            }
-//                            .onEnded { _ in
-//                                // Clear the scale percentage when zooming ends
-//                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-//                                    scalePercentage = ""
-//                                }
-//                            }
-//                    )
-                    .simultaneousGesture(
-                        DragGesture(minimumDistance: 1)
-                            .onChanged { value in
-                                if viewModel.currentStroke.isEmpty {
-                                    viewModel.startDrawing(at: viewModel.convertPointForCanvas(value.location, size: geometry.size))
-                                } else {
-                                    viewModel.continueDrawing(at: viewModel.convertPointForCanvas(value.location, size: geometry.size))
-                                }
-                            }
-                            .onEnded { _ in
-                                viewModel.endDrawing()
-                            }
-                    )
+                // Canvas
+                CanvasView(viewModel: viewModel)
+
+                // Glow overlay for replay highlight
+                Canvas { context, _ in
+                    guard let stroke = viewModel.activeReplayStroke else { return }
+                    let count = stroke.path.count
+                    guard count > 1 else { return }
+
+                    let color = Color(stroke.ink.color)
+                    let avgWidth = (0..<count).reduce(0.0) { $0 + stroke.path[$1].size.width } / CGFloat(count)
+
+                    var path = Path()
+                    path.move(to: stroke.path[0].location)
+                    for i in 1..<count {
+                        let mid = CGPoint(
+                            x: (stroke.path[i-1].location.x + stroke.path[i].location.x) / 2,
+                            y: (stroke.path[i-1].location.y + stroke.path[i].location.y) / 2
+                        )
+                        path.addQuadCurve(to: mid, control: stroke.path[i-1].location)
+                        if i == count - 1 { path.addLine(to: stroke.path[i].location) }
+                    }
+
+                    context.stroke(path, with: .color(color.opacity(0.25)),
+                        style: StrokeStyle(lineWidth: avgWidth * 2.5, lineCap: .round, lineJoin: .round))
+                    context.stroke(path, with: .color(color.opacity(0.6)),
+                        style: StrokeStyle(lineWidth: avgWidth * 1.3, lineCap: .round, lineJoin: .round))
+                }
+                .allowsHitTesting(false)
+                .animation(.easeInOut(duration: 0.15), value: viewModel.activeReplayStroke != nil)
                 
                 // UI Overlay
                 VStack {
@@ -180,7 +180,7 @@ struct iPadView: View {
         .animation(.interactiveSpring(duration: 0.5), value: viewModel.showSettings)
         .animation(.interactiveSpring(duration: 0.5), value: viewModel.showExportMenu)
         .animation(.easeInOut(duration: 0.3), value: viewModel.appTheme)
-        .animation(.easeInOut(duration: 0.3), value: viewModel.activeStrokeId)
+
         .animation(.spring(response: 0.35), value: viewModel.isControlPanelHidden)
         .animation(.spring(response: 0.1), value: viewModel.showNoteLetters)
     }

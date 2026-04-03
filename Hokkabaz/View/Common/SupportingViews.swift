@@ -1,3 +1,10 @@
+//
+//  SupportingViews.swift
+//  Hokkabaz
+//
+//  Created by Can Dindar on 28/02/25.
+//
+
 import SwiftUI
 
 // MARK: - Color Button

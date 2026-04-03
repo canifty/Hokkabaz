@@ -995,6 +995,7 @@
       }
     },
     "Draw with your finger to create sounds" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1047,6 +1048,7 @@
       }
     },
     "Drawing canvas with musical sounds" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
