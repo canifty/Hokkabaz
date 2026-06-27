@@ -1,10 +1,17 @@
+//
+//  SupportingViews.swift
+//  Hokkabaz
+//
+//  Created by Can Dindar on 28/02/25.
+//
+
 import SwiftUI
 
 // MARK: - Color Button
 struct ColorButton: View {
     let color: Color
     let note: LocalizedStringKey
-//    let note: String
+    //    let note: String
     let instrument: String
     let isSelected: Bool
     let showNote: Bool
@@ -94,7 +101,7 @@ struct InstrumentButton: View {
                     .font(.system(size: 18, weight: .semibold))
                 Text(instrumentName)
                     .font(.caption)
-//                    .dynamicTypeSize(.small ... .xxLarge)
+                //                    .dynamicTypeSize(.small ... .xxLarge)
             }
             .frame(minWidth: 70, minHeight: 50)
             .padding(.vertical, 8)
@@ -106,8 +113,8 @@ struct InstrumentButton: View {
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(
                                 isSelected ?
-                                    (colorScheme == .light ? Color.black.opacity(0.5) : Color.white.opacity(0.6))
-                                    : Color.clear,
+                                (colorScheme == .light ? Color.black.opacity(0.5) : Color.white.opacity(0.6))
+                                : Color.clear,
                                 lineWidth: 2
                             )
                     )

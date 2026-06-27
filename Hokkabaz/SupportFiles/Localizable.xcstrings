@@ -54,6 +54,38 @@
         }
       }
     },
+    "%lld" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        }
+      }
+    },
+    "%lld%%" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld%%"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld%%"
+          }
+        }
+      }
+    },
     "A" : {
       "comment" : "A-La",
       "localizations" : {
@@ -156,6 +188,72 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "7"
+          }
+        }
+      }
+    },
+    "Brush Opacity" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opacità del pennello"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fırça Opakliğı"
+          }
+        }
+      }
+    },
+    "Brush Properties" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Proprietà del pennello"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fırça Özellikleri"
+          }
+        }
+      }
+    },
+    "Brush Type" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tipo di pennello"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fırça Tipi"
+          }
+        }
+      }
+    },
+    "Brush Width" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Larghezza del pennello"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fırça Kalınlığı"
           }
         }
       }
@@ -318,6 +416,7 @@
       }
     },
     "Clear Canvas" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -790,6 +889,7 @@
       }
     },
     "Display Options" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -895,6 +995,7 @@
       }
     },
     "Draw with your finger to create sounds" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -947,6 +1048,7 @@
       }
     },
     "Drawing canvas with musical sounds" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1315,6 +1417,17 @@
         }
       }
     },
+    "Hardness" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sertlik"
+          }
+        }
+      }
+    },
     "Hide controls" : {
       "localizations" : {
         "ar" : {
@@ -1524,6 +1637,22 @@
         }
       }
     },
+    "Opacity" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opacità"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opaklık"
+          }
+        }
+      }
+    },
     "Open settings" : {
       "localizations" : {
         "ar" : {
@@ -1629,6 +1758,23 @@
         }
       }
     },
+    "Preview" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anteprima"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Önizleme"
+          }
+        }
+      }
+    },
     "Replay" : {
       "localizations" : {
         "ar" : {
@@ -1729,6 +1875,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "重播绘图"
+          }
+        }
+      }
+    },
+    "Review Us" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dacci la tua opinione "
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bizi Değerlendirin"
           }
         }
       }
@@ -2035,7 +2197,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nota Harflerini Göster"
+            "value" : "Notaları Göster"
           }
         },
         "zh-Hans" : {
@@ -2207,6 +2369,7 @@
       }
     },
     "Stroke Width" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -2932,6 +3095,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "小提琴"
+          }
+        }
+      }
+    },
+    "Width" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Larghezza"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kalınlık"
           }
         }
       }
